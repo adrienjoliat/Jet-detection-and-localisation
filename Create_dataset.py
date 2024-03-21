@@ -105,7 +105,7 @@ class RectangleDrawer:
 
 
 # Load images 
-number=160
+number=161
 seq = f"./data/data separated/data_jet_image/{number}.npz"
 images = np.load(seq)["arr_0"]
 
