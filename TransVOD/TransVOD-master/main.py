@@ -23,7 +23,8 @@ import datasets
 import datasets.samplers as samplers
 from datasets import build_dataset, get_coco_api_from_dataset
 from models import build_model
-
+from engine_single import evaluate, train_one_epoch
+import util.misc as utils
 
 def get_args_parser():
     parser = argparse.ArgumentParser('Deformable DETR Detector', add_help=False)
@@ -50,7 +51,7 @@ def get_args_parser():
 
     # Model parameters
     parser.add_argument('--frozen_weights', type=str, default=None,
-                        help="Path to the pretrained model. If set, only the mask head will be trained")
+                        help="Path to the pretrained model. If set, only the mask head will be trained") #pretrained model on coco dataset
 
     # * Backbone
     parser.add_argument('--backbone', default='resnet50', type=str,
@@ -136,14 +137,7 @@ def get_args_parser():
 
 def main(args):
     print(args.dataset_file, 11111111)
-    if args.dataset_file == "vid_single":
-        from engine_single import evaluate, train_one_epoch
-        import util.misc as utils
         
-    else:
-        from engine_multi import evaluate, train_one_epoch
-        import util.misc_multi as utils
-
     print(args.dataset_file)
     device = torch.device(args.device)
     utils.init_distributed_mode(args)
@@ -170,16 +164,8 @@ def main(args):
     dataset_train = build_dataset(image_set='train_joint', args=args)
     dataset_val = build_dataset(image_set='val', args=args)
 
-    if args.distributed:
-        if args.cache_mode:
-            sampler_train = samplers.NodeDistributedSampler(dataset_train)
-            sampler_val = samplers.NodeDistributedSampler(dataset_val, shuffle=False)
-        else:
-            sampler_train = samplers.DistributedSampler(dataset_train)
-            sampler_val = samplers.DistributedSampler(dataset_val, shuffle=False)
-    else:
-        sampler_train = torch.utils.data.RandomSampler(dataset_train)
-        sampler_val = torch.utils.data.SequentialSampler(dataset_val)
+    sampler_train = torch.utils.data.RandomSampler(dataset_train)
+    sampler_val = torch.utils.data.SequentialSampler(dataset_val)
 
     batch_sampler_train = torch.utils.data.BatchSampler(
         sampler_train, args.batch_size, drop_last=True)
@@ -253,6 +239,7 @@ def main(args):
 
         if args.eval:
             missing_keys, unexpected_keys = model_without_ddp.load_state_dict(checkpoint['model'], strict=False)
+
         else:
             tmp_dict = model_without_ddp.state_dict().copy()
             if args.coco_pretrain: # singleBaseline
@@ -261,15 +248,18 @@ def main(args):
                         tmp_dict[k] = v 
                     else:
                         print('k', k)
+            """
             else:
                 tmp_dict = checkpoint['model']
                 for name, param in model_without_ddp.named_parameters():
+
 	                if ('temp' in name):
 	                    param.requires_grad = True
-	                else:
+                    else:
 	                    param.requires_grad = False
+        
             missing_keys, unexpected_keys = model_without_ddp.load_state_dict(tmp_dict, strict=False)
-
+            """
         unexpected_keys = [k for k in unexpected_keys if not (k.endswith('total_params') or k.endswith('total_ops'))]
         if len(missing_keys) > 0:
             print('Missing Keys: {}'.format(missing_keys))
