@@ -132,7 +132,7 @@ def all_gather(data):
     world_size = get_world_size()
     if world_size == 1:
         return [data]
-
+ 
     # serialized to a Tensor
     buffer = pickle.dumps(data)
     storage = torch.ByteStorage.from_buffer(buffer)
@@ -411,7 +411,7 @@ def get_local_rank():
     return int(os.environ['LOCAL_RANK'])
 
 
-def is_main_process():
+def is_main_process(): #Always True with one gpu
     return get_rank() == 0
 
 

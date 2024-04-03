@@ -19,7 +19,7 @@ import torch.nn.functional as F
 from torch.nn.init import xavier_uniform_, constant_
 
 from ..functions import MSDeformAttnFunction
-
+ 
 
 def _is_power_of_2(n):
     if (not isinstance(n, int)) or (n < 0):

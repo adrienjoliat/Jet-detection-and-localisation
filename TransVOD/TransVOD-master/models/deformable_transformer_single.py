@@ -315,11 +315,11 @@ class DeformableTransformerDecoderLayer(nn.Module):
 
 class TemporalDeformableTransformerEncoderLayer(nn.Module):
     def __init__(self, d_model = 256, d_ffn=1024, dropout=0.1, 
-                 activation='relu', n_frames = 4, h_heads = 8, n_points=4):
+                 activation='relu', n_frames = 4, n_heads = 8, n_points=4):
         super().__init__()
 
         # cross attention 
-        self.cross_attn = MSDeformAttn(d_model, n_frames, h_heads, n_points)
+        self.cross_attn = MSDeformAttn(d_model, n_frames, n_heads, n_points)
         self.dropout1 = nn.Dropout(dropout)
         self.norm1 = nn.LayerNorm(d_model)
 
