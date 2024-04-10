@@ -343,7 +343,7 @@ class NestedTensor(object):
         self.mask = mask
 
     def to(self, device, non_blocking=False):
-        # type: (Device) -> NestedTensor # noqa
+        
         cast_tensor = self.tensors.to(device, non_blocking=non_blocking)
         mask = self.mask
         if mask is not None:
