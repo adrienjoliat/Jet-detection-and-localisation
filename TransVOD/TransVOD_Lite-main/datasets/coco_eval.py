@@ -167,7 +167,7 @@ class CocoEvaluator(object):
                     for k, keypoint in enumerate(keypoints)
                 ]
             )
-        return coco_results
+        return coco_results 
 
 
 def convert_to_xywh(boxes):

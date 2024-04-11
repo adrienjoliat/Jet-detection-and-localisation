@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------------
 
 """
-Train and eval functions used in main.py
+Train and eval functions use d in main.py
 """
 import math
 import os
