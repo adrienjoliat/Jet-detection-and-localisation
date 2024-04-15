@@ -20,10 +20,10 @@ import torch.utils.data
 from pycocotools import mask as coco_mask
 from .coco_video_parser import CocoVID
 from .torchvision_datasets import CocoDetection as TvCocoDetection
-from util.misc import get_local_rank, get_local_size
+from util.misc import get_local_rank, get_local_size #0,1
 import datasets.transforms_multi as T
 from torch.utils.data.dataset import ConcatDataset
-import random
+import random 
 import copy
 
 class CocoDetection(TvCocoDetection):

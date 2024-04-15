@@ -1,0 +1,1 @@
+python -u main.py --backbone swin_b_p4w7 --epochs 7 --num_feature_levels 1 --num_queries 100 --dilation --batch_size 1 --num_frames 12 --hidden_dim 256 --lr_drop_epochs 5 6 --with_box_refine --dataset_file "vid_multi" --resume ./exps/exps_single/swinb_88.3/checkpoint0006.pth --output_dir "./Final_ouput_12frames"
