@@ -1,0 +1,3 @@
+python -u main.py --eval --backbone swin_b_p4w7 --epochs 7 --num_feature_levels 1 --num_queries 100 --dilation --
+batch_size 1 --num_frames 12 --hidden_dim 256 --lr_drop_epochs 5 6 --with_box_refine --dataset_file "vid_multi_eval" --gap 1 --is_shuffle --resume ./Final_ouput_12frames_2/checkpoint0004.pth --output_dir "./Fi
+nal_ouput_12frames_eval"
