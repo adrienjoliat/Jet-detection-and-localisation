@@ -70,7 +70,7 @@ class RectangleDrawer:
         self.rect = None
         self.ax.set_aspect('auto')  # Set aspect ratio to match the image
         self.fig.canvas.mpl_connect('button_press_event', self.onclick)
-        self.res=[]
+        self.boxes = []  # List to store boxes for each image
 
     def onclick(self, event):
         if event.dblclick:
@@ -91,7 +91,7 @@ class RectangleDrawer:
         self.rect = Rectangle((x, y), width, height, linewidth=1, edgecolor='w', facecolor='none')
         self.ax.add_patch(self.rect)
         self.fig.canvas.draw()
-        self.res.append(torchvision.ops.box_convert(torch.tensor([x,y,width, height]), "xywh", "xyxy").tolist())
+        self.boxes.append(torchvision.ops.box_convert(torch.tensor([x, y, width, height]), "xywh", "xyxy").tolist())
 
     def animate(self, i):
         self.current_index = (self.current_index + 1) % self.images.shape[2]
@@ -105,14 +105,14 @@ class RectangleDrawer:
 
 
 # Load images 
-number=161
+number = 161
 seq = f"./data/data separated/data_jet_image/{number}.npz"
 images = np.load(seq)["arr_0"]
 
 # Create RectangleDrawer instance with the sequence of images
 drawer = RectangleDrawer(images)
 drawer.show_animation()
-boxes=drawer.res
-print(boxes)
-np.save(f"./data_boxes/events/{number}.npy",boxes)
+boxes_per_image = drawer.boxes
+print(boxes_per_image)
+#np.save(f"./data_boxes/events/{number}.npy", boxes_per_image)
 
