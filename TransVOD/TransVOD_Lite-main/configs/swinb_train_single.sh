@@ -3,10 +3,10 @@
 set -x
 T=`date +%m%d%H%M`
 
-EXP_DIR=exps/singlebaseline_swin_384_level1024/swin_e7_ld56_nf1_dim256_wbox_dc5_bs2_numquery_100
+EXP_DIR=../exps/single_model_jet/essai1
 mkdir ${EXP_DIR}
 PY_ARGS=${@:1}
-python -u main.py \
+python -u ../main.py \
     --backbone swin_b_p4w7 \
     --epochs 7 \
     --lr_drop_epochs 5 6 \
@@ -15,7 +15,7 @@ python -u main.py \
     --dilation \
     --batch_size 2 \
     --hidden_dim 256 \
-    --num_workers 8 \
+    --num_workers 0 \
     --with_box_refine \
     --resume ./exps/our_models/COCO_pretrained_model/swinb_checkpoint0048.pth \
     --coco_pretrain \
