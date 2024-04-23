@@ -3,10 +3,10 @@
 set -x
 T=`date +%m%d%H%M`
 
-EXP_DIR=../exps/single_model_jet/essai1
+EXP_DIR=./exps/single_model_jet/essai1
 mkdir ${EXP_DIR}
 PY_ARGS=${@:1}
-python -u ../main.py \
+python -u main.py \
     --backbone swin_b_p4w7 \
     --epochs 7 \
     --lr_drop_epochs 5 6 \
