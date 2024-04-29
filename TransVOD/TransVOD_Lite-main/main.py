@@ -138,7 +138,7 @@ def get_args_parser():
 
 
 def main(args):
-    print(args.dataset_file, 11111111)
+    print(args.dataset_file, "Start functions importations")
     if args.dataset_file == "vid_single":
         from engine_single import evaluate, train_one_epoch
         import util.misc as utils
@@ -147,10 +147,10 @@ def main(args):
         from engine_multi import evaluate, train_one_epoch
         import util.misc_multi as utils
 
-    print(args.dataset_file)
+    print(args.dataset_file, "Finished functions importations")
     device = torch.device(args.device)
     utils.init_distributed_mode(args)
-    print("git:\n  {}\n".format(utils.get_sha()))
+    #print("git:\n  {}\n".format(utils.get_sha())) #was making the script bug
 
     if args.frozen_weights is not None:
         assert args.masks, "Frozen training is meant for segmentation only"
@@ -162,14 +162,16 @@ def main(args):
     torch.manual_seed(seed)
     np.random.seed(seed)
     random.seed(seed)
-
+    print("Start building model")
     model, criterion, postprocessors = build_model(args)
     model.to(device)
+    print("Model complete")
 
     model_without_ddp = model
     n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print('number of params:', n_parameters)
 
+    print("Building Datasets")
     dataset_train = build_dataset(image_set='train_joint', args=args)
     dataset_val = build_dataset(image_set='val', args=args)
 
@@ -186,14 +188,15 @@ def main(args):
 
     batch_sampler_train = torch.utils.data.BatchSampler(
         sampler_train, args.batch_size, drop_last=True)
-
+    
+    print("Starting Dataloader")
     data_loader_train = DataLoader(dataset_train, batch_sampler=batch_sampler_train,
                                    collate_fn=utils.collate_fn, num_workers=args.num_workers,
                                    pin_memory=True)
     data_loader_val = DataLoader(dataset_val, args.batch_size, sampler=sampler_val,
                                  drop_last=False, collate_fn=utils.collate_fn, num_workers=args.num_workers,
                                  pin_memory=True)
-
+    print("Dataloader finished")
     # lr_backbone_names = ["backbone.0", "backbone.neck", "input_proj", "transformer.encoder"]
     def match_name_keywords(n, name_keywords):
         out = False
