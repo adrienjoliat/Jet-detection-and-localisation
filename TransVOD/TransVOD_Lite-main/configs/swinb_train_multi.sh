@@ -3,7 +3,7 @@
 set -x
 T=`date +%m%d%H%M`
 
-EXP_DIR=exps/multi_model_jet/essai1
+EXP_DIR=exps/multi_model_jet/essai2
 mkdir -p ${EXP_DIR}
 PY_ARGS=${@:1}
 python -u main.py \
