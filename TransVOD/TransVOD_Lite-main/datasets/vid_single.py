@@ -144,7 +144,7 @@ def make_coco_transforms(image_set):
 
     normalize = T.Compose([
         T.ToTensor(),
-        T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        T.Normalize([0.425, 0.044, 0.012], [0.210, 0.106, 0.052]) #Calculated on the Jet Dataset
     ])
 
     if image_set == 'train_vid' or image_set == "train_det" or image_set == "train_joint":

@@ -138,6 +138,7 @@ def get_args_parser():
 
 
 def main(args):
+    print("Cuda available:", torch.cuda.is_available(), "Memory allocated :", torch.cuda.max_memory_allocated(), "Device_count: ",torch.cuda.device_count())
     print(args.dataset_file, "Start functions importations")
     if args.dataset_file == "vid_single":
         from engine_single import evaluate, train_one_epoch
