@@ -49,7 +49,7 @@ class Jet_box:
         self.base = base*u.arcsec
         self.height = height*u.arcsec
         self.width = width*u.arcsec
-        self.angle = Angle(angle-math.pi/2, u.radian) 
+        self.angle = Angle(angle-math.pi/2, u.radian)  #Here the -math.pi/2 (90 deg) makes things not working in neg neg coordinates
         
     def area(self):
         return self.height*self.width

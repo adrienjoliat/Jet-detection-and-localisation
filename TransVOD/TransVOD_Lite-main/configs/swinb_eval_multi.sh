@@ -3,7 +3,7 @@
 set -x
 T=`date +%m%d%H%M`
 
-EXP_DIR=/home/zhouqy/vod_sensetime/open_source/TransVOD_Lite/exps/our_models/exps_multi/swinb_90.1
+EXP_DIR=./exps/multi_model_jet/Final
 mkdir -p ${EXP_DIR}
 PY_ARGS=${@:1}
 python -u main.py \
@@ -22,6 +22,6 @@ python -u main.py \
     --dataset_file 'vid_multi_eval' \
     --gap 1 \
     --is_shuffle \
-    --resume ${EXP_DIR}/checkpoint0006.pth \
+    --resume ${EXP_DIR}/checkpoint0003.pth \
     --output_dir ${EXP_DIR} \
-    ${PY_ARGS} 2>&1 | tee ${EXP_DIR}/log.eval_is_shuffle_e7_2022.$T.txt
+    ${PY_ARGS} 2>&1 | tee ${EXP_DIR}/log.eval_checkpoint_3.$T.txt
