@@ -149,6 +149,7 @@ class ConvertCocoPolysToMask(object):
 
         boxes = [obj["bbox"] for obj in anno]
         # guard against no boxes via resizing
+        #IMPORTANT CHANGES FOR BBOXES
         boxes = torch.as_tensor(boxes, dtype=torch.float32).reshape(-1, 4)
         boxes[:, 2:] += boxes[:, :2]
         boxes[:, 0::2].clamp_(min=0, max=w)
@@ -202,7 +203,7 @@ def make_coco_transforms(image_set):
 
     normalize = T.Compose([
         T.ToTensor(),
-        T.Normalize([0.425, 0.044, 0.012], [0.210, 0.106, 0.052]) #Calculated on the Jet Dataset
+        #T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])#[0.425, 0.044, 0.012], [0.210, 0.106, 0.052]) #Calculated on the Jet Dataset
     ])
 
     scales = [480, 512, 544, 576, 608, 640, 672, 704, 736, 768, 800]
