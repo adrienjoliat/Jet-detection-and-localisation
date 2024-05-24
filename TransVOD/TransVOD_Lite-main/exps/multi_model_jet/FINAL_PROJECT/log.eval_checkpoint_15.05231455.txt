@@ -1,0 +1,9 @@
+Cuda available: True Memory allocated : 0 Device_count:  1
+vid_multi_eval Start functions importations
+vid_multi_eval Finished functions importations
+Not using distributed mode
+Namespace(lr=0.0002, lr_backbone_names=['backbone.0'], lr_backbone=2e-05, lr_linear_proj_names=['reference_points', 'sampling_offsets'], lr_linear_proj_mult=0.1, batch_size=1, weight_decay=0.0001, epochs=7, lr_drop=5, lr_drop_epochs=[5, 6], clip_max_norm=0.1, num_ref_frames=3, num_frames=12, sgd=False, gap=1, with_box_refine=True, two_stage=False, frozen_weights=None, pretrained=None, backbone='swin_b_p4w7', dilation=True, position_embedding='sine', position_embedding_scale=6.283185307179586, num_feature_levels=1, checkpoint=False, enc_layers=6, dec_layers=6, dim_feedforward=1024, hidden_dim=256, dropout=0.1, nheads=8, num_queries=100, dec_n_points=4, enc_n_points=4, n_temporal_decoder_layers=1, interval1=20, interval2=60, fixed_pretrained_model=False, is_shuffle=True, masks=False, aux_loss=True, set_cost_class=2, set_cost_bbox=5, set_cost_giou=2, mask_loss_coef=1, dice_loss_coef=1, cls_loss_coef=2, bbox_loss_coef=5, giou_loss_coef=2, focal_alpha=0.25, dataset_file='vid_multi_eval', coco_path='./data/coco', vid_path='./data/vid', coco_pretrain=False, coco_panoptic_path=None, remove_difficult=False, output_dir='./exps/multi_model_jet/FINAL_PROJECT/', device='cuda', seed=42, resume='./exps/multi_model_jet/FINAL_PROJECT//checkpoint0015.pth', start_epoch=0, eval=True, num_workers=1, cache_mode=False, distributed=False)
+Start building model
+self.num_layers 4
+/home/ajoliat/miniconda3/envs/ML/lib/python3.11/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
