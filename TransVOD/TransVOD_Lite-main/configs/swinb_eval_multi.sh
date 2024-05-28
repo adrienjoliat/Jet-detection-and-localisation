@@ -3,7 +3,7 @@
 set -x
 T=`date +%m%d%H%M`
 
-EXP_DIR=./exps/multi_model_jet/FINAL_PROJECT/
+EXP_DIR=./exps/multi_model_jet/FINAL_PROJECT_essai3/
 mkdir -p ${EXP_DIR}
 PY_ARGS=${@:1}
 python -u main.py \
@@ -22,6 +22,6 @@ python -u main.py \
     --dataset_file 'vid_multi_eval' \
     --gap 1 \
     --is_shuffle \
-    --resume ${EXP_DIR}/checkpoint.pth \
+    --resume ${EXP_DIR}/checkpoint0001.pth \
     --output_dir ${EXP_DIR} \
-    ${PY_ARGS} 2>&1 | tee ${EXP_DIR}/log.eval_checkpoint_init.$T.txt
+    ${PY_ARGS} 2>&1 | tee ${EXP_DIR}/log.eval_checkpoint_1.$T.txt
