@@ -1,0 +1,911 @@
+Cuda available: True Memory allocated : 0 Device_count:  4
+vid_multi Start functions importations
+vid_multi Finished functions importations
+Not using distributed mode
+Namespace(lr=4e-05, lr_backbone_names=['backbone.0'], lr_backbone=2e-05, lr_linear_proj_names=['reference_points', 'sampling_offsets'], lr_linear_proj_mult=0.1, batch_size=1, weight_decay=0.0001, epochs=14, lr_drop=5, lr_drop_epochs=[10, 12], clip_max_norm=0.1, num_ref_frames=3, num_frames=15, sgd=False, gap=2, with_box_refine=True, two_stage=False, frozen_weights=None, pretrained=None, backbone='swin_b_p4w7', dilation=True, position_embedding='sine', position_embedding_scale=6.283185307179586, num_feature_levels=1, checkpoint=False, enc_layers=6, dec_layers=6, dim_feedforward=1024, hidden_dim=256, dropout=0.1, nheads=8, num_queries=100, dec_n_points=4, enc_n_points=4, n_temporal_decoder_layers=1, interval1=20, interval2=60, fixed_pretrained_model=False, is_shuffle=False, masks=False, aux_loss=True, set_cost_class=2, set_cost_bbox=5, set_cost_giou=2, mask_loss_coef=1, dice_loss_coef=1, cls_loss_coef=2, bbox_loss_coef=5, giou_loss_coef=2, focal_alpha=0.25, dataset_file='vid_multi', coco_path='./data/coco', vid_path='./data/vid', coco_pretrain=False, coco_panoptic_path=None, remove_difficult=False, output_dir='exps/Output_cluster/FINAL_PROJECT_train5', device='cuda', seed=42, resume='exps/exps_single/swinb_88.3/checkpoint0006.pth', start_epoch=0, eval=False, num_workers=4, cache_mode=False, distributed=False)
+Start building model
+self.num_layers 4
+/usr/local/lib/python3.10/dist-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /opt/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:3553.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model complete
+number of params: 106274744
+Building Datasets
+Loading annotations into memory...
+Done (t=0.22s)
+Creating index...
+index created!
+Loading annotations into memory...
+Done (t=0.22s)
+creating index...
+index created!
+Loading annotations into memory...
+Done (t=0.03s)
+Creating index...
+index created!
+Loading annotations into memory...
+Done (t=0.01s)
+creating index...
+index created!
+Starting Dataloader
+Dataloader finished
+transformer.level_embed
+transformer.encoder.layers.0.self_attn.sampling_offsets.weight
+transformer.encoder.layers.0.self_attn.sampling_offsets.bias
+transformer.encoder.layers.0.self_attn.attention_weights.weight
+transformer.encoder.layers.0.self_attn.attention_weights.bias
+transformer.encoder.layers.0.self_attn.value_proj.weight
+transformer.encoder.layers.0.self_attn.value_proj.bias
+transformer.encoder.layers.0.self_attn.output_proj.weight
+transformer.encoder.layers.0.self_attn.output_proj.bias
+transformer.encoder.layers.0.norm1.weight
+transformer.encoder.layers.0.norm1.bias
+transformer.encoder.layers.0.linear1.weight
+transformer.encoder.layers.0.linear1.bias
+transformer.encoder.layers.0.linear2.weight
+transformer.encoder.layers.0.linear2.bias
+transformer.encoder.layers.0.norm2.weight
+transformer.encoder.layers.0.norm2.bias
+transformer.encoder.layers.1.self_attn.sampling_offsets.weight
+transformer.encoder.layers.1.self_attn.sampling_offsets.bias
+transformer.encoder.layers.1.self_attn.attention_weights.weight
+transformer.encoder.layers.1.self_attn.attention_weights.bias
+transformer.encoder.layers.1.self_attn.value_proj.weight
+transformer.encoder.layers.1.self_attn.value_proj.bias
+transformer.encoder.layers.1.self_attn.output_proj.weight
+transformer.encoder.layers.1.self_attn.output_proj.bias
+transformer.encoder.layers.1.norm1.weight
+transformer.encoder.layers.1.norm1.bias
+transformer.encoder.layers.1.linear1.weight
+transformer.encoder.layers.1.linear1.bias
+transformer.encoder.layers.1.linear2.weight
+transformer.encoder.layers.1.linear2.bias
+transformer.encoder.layers.1.norm2.weight
+transformer.encoder.layers.1.norm2.bias
+transformer.encoder.layers.2.self_attn.sampling_offsets.weight
+transformer.encoder.layers.2.self_attn.sampling_offsets.bias
+transformer.encoder.layers.2.self_attn.attention_weights.weight
+transformer.encoder.layers.2.self_attn.attention_weights.bias
+transformer.encoder.layers.2.self_attn.value_proj.weight
+transformer.encoder.layers.2.self_attn.value_proj.bias
+transformer.encoder.layers.2.self_attn.output_proj.weight
+transformer.encoder.layers.2.self_attn.output_proj.bias
+transformer.encoder.layers.2.norm1.weight
+transformer.encoder.layers.2.norm1.bias
+transformer.encoder.layers.2.linear1.weight
+transformer.encoder.layers.2.linear1.bias
+transformer.encoder.layers.2.linear2.weight
+transformer.encoder.layers.2.linear2.bias
+transformer.encoder.layers.2.norm2.weight
+transformer.encoder.layers.2.norm2.bias
+transformer.encoder.layers.3.self_attn.sampling_offsets.weight
+transformer.encoder.layers.3.self_attn.sampling_offsets.bias
+transformer.encoder.layers.3.self_attn.attention_weights.weight
+transformer.encoder.layers.3.self_attn.attention_weights.bias
+transformer.encoder.layers.3.self_attn.value_proj.weight
+transformer.encoder.layers.3.self_attn.value_proj.bias
+transformer.encoder.layers.3.self_attn.output_proj.weight
+transformer.encoder.layers.3.self_attn.output_proj.bias
+transformer.encoder.layers.3.norm1.weight
+transformer.encoder.layers.3.norm1.bias
+transformer.encoder.layers.3.linear1.weight
+transformer.encoder.layers.3.linear1.bias
+transformer.encoder.layers.3.linear2.weight
+transformer.encoder.layers.3.linear2.bias
+transformer.encoder.layers.3.norm2.weight
+transformer.encoder.layers.3.norm2.bias
+transformer.encoder.layers.4.self_attn.sampling_offsets.weight
+transformer.encoder.layers.4.self_attn.sampling_offsets.bias
+transformer.encoder.layers.4.self_attn.attention_weights.weight
+transformer.encoder.layers.4.self_attn.attention_weights.bias
+transformer.encoder.layers.4.self_attn.value_proj.weight
+transformer.encoder.layers.4.self_attn.value_proj.bias
+transformer.encoder.layers.4.self_attn.output_proj.weight
+transformer.encoder.layers.4.self_attn.output_proj.bias
+transformer.encoder.layers.4.norm1.weight
+transformer.encoder.layers.4.norm1.bias
+transformer.encoder.layers.4.linear1.weight
+transformer.encoder.layers.4.linear1.bias
+transformer.encoder.layers.4.linear2.weight
+transformer.encoder.layers.4.linear2.bias
+transformer.encoder.layers.4.norm2.weight
+transformer.encoder.layers.4.norm2.bias
+transformer.encoder.layers.5.self_attn.sampling_offsets.weight
+transformer.encoder.layers.5.self_attn.sampling_offsets.bias
+transformer.encoder.layers.5.self_attn.attention_weights.weight
+transformer.encoder.layers.5.self_attn.attention_weights.bias
+transformer.encoder.layers.5.self_attn.value_proj.weight
+transformer.encoder.layers.5.self_attn.value_proj.bias
+transformer.encoder.layers.5.self_attn.output_proj.weight
+transformer.encoder.layers.5.self_attn.output_proj.bias
+transformer.encoder.layers.5.norm1.weight
+transformer.encoder.layers.5.norm1.bias
+transformer.encoder.layers.5.linear1.weight
+transformer.encoder.layers.5.linear1.bias
+transformer.encoder.layers.5.linear2.weight
+transformer.encoder.layers.5.linear2.bias
+transformer.encoder.layers.5.norm2.weight
+transformer.encoder.layers.5.norm2.bias
+transformer.decoder.layers.0.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.0.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.0.cross_attn.attention_weights.weight
+transformer.decoder.layers.0.cross_attn.attention_weights.bias
+transformer.decoder.layers.0.cross_attn.value_proj.weight
+transformer.decoder.layers.0.cross_attn.value_proj.bias
+transformer.decoder.layers.0.cross_attn.output_proj.weight
+transformer.decoder.layers.0.cross_attn.output_proj.bias
+transformer.decoder.layers.0.norm1.weight
+transformer.decoder.layers.0.norm1.bias
+transformer.decoder.layers.0.self_attn.in_proj_weight
+transformer.decoder.layers.0.self_attn.in_proj_bias
+transformer.decoder.layers.0.self_attn.out_proj.weight
+transformer.decoder.layers.0.self_attn.out_proj.bias
+transformer.decoder.layers.0.norm2.weight
+transformer.decoder.layers.0.norm2.bias
+transformer.decoder.layers.0.linear1.weight
+transformer.decoder.layers.0.linear1.bias
+transformer.decoder.layers.0.linear2.weight
+transformer.decoder.layers.0.linear2.bias
+transformer.decoder.layers.0.norm3.weight
+transformer.decoder.layers.0.norm3.bias
+transformer.decoder.layers.1.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.1.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.1.cross_attn.attention_weights.weight
+transformer.decoder.layers.1.cross_attn.attention_weights.bias
+transformer.decoder.layers.1.cross_attn.value_proj.weight
+transformer.decoder.layers.1.cross_attn.value_proj.bias
+transformer.decoder.layers.1.cross_attn.output_proj.weight
+transformer.decoder.layers.1.cross_attn.output_proj.bias
+transformer.decoder.layers.1.norm1.weight
+transformer.decoder.layers.1.norm1.bias
+transformer.decoder.layers.1.self_attn.in_proj_weight
+transformer.decoder.layers.1.self_attn.in_proj_bias
+transformer.decoder.layers.1.self_attn.out_proj.weight
+transformer.decoder.layers.1.self_attn.out_proj.bias
+transformer.decoder.layers.1.norm2.weight
+transformer.decoder.layers.1.norm2.bias
+transformer.decoder.layers.1.linear1.weight
+transformer.decoder.layers.1.linear1.bias
+transformer.decoder.layers.1.linear2.weight
+transformer.decoder.layers.1.linear2.bias
+transformer.decoder.layers.1.norm3.weight
+transformer.decoder.layers.1.norm3.bias
+transformer.decoder.layers.2.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.2.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.2.cross_attn.attention_weights.weight
+transformer.decoder.layers.2.cross_attn.attention_weights.bias
+transformer.decoder.layers.2.cross_attn.value_proj.weight
+transformer.decoder.layers.2.cross_attn.value_proj.bias
+transformer.decoder.layers.2.cross_attn.output_proj.weight
+transformer.decoder.layers.2.cross_attn.output_proj.bias
+transformer.decoder.layers.2.norm1.weight
+transformer.decoder.layers.2.norm1.bias
+transformer.decoder.layers.2.self_attn.in_proj_weight
+transformer.decoder.layers.2.self_attn.in_proj_bias
+transformer.decoder.layers.2.self_attn.out_proj.weight
+transformer.decoder.layers.2.self_attn.out_proj.bias
+transformer.decoder.layers.2.norm2.weight
+transformer.decoder.layers.2.norm2.bias
+transformer.decoder.layers.2.linear1.weight
+transformer.decoder.layers.2.linear1.bias
+transformer.decoder.layers.2.linear2.weight
+transformer.decoder.layers.2.linear2.bias
+transformer.decoder.layers.2.norm3.weight
+transformer.decoder.layers.2.norm3.bias
+transformer.decoder.layers.3.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.3.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.3.cross_attn.attention_weights.weight
+transformer.decoder.layers.3.cross_attn.attention_weights.bias
+transformer.decoder.layers.3.cross_attn.value_proj.weight
+transformer.decoder.layers.3.cross_attn.value_proj.bias
+transformer.decoder.layers.3.cross_attn.output_proj.weight
+transformer.decoder.layers.3.cross_attn.output_proj.bias
+transformer.decoder.layers.3.norm1.weight
+transformer.decoder.layers.3.norm1.bias
+transformer.decoder.layers.3.self_attn.in_proj_weight
+transformer.decoder.layers.3.self_attn.in_proj_bias
+transformer.decoder.layers.3.self_attn.out_proj.weight
+transformer.decoder.layers.3.self_attn.out_proj.bias
+transformer.decoder.layers.3.norm2.weight
+transformer.decoder.layers.3.norm2.bias
+transformer.decoder.layers.3.linear1.weight
+transformer.decoder.layers.3.linear1.bias
+transformer.decoder.layers.3.linear2.weight
+transformer.decoder.layers.3.linear2.bias
+transformer.decoder.layers.3.norm3.weight
+transformer.decoder.layers.3.norm3.bias
+transformer.decoder.layers.4.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.4.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.4.cross_attn.attention_weights.weight
+transformer.decoder.layers.4.cross_attn.attention_weights.bias
+transformer.decoder.layers.4.cross_attn.value_proj.weight
+transformer.decoder.layers.4.cross_attn.value_proj.bias
+transformer.decoder.layers.4.cross_attn.output_proj.weight
+transformer.decoder.layers.4.cross_attn.output_proj.bias
+transformer.decoder.layers.4.norm1.weight
+transformer.decoder.layers.4.norm1.bias
+transformer.decoder.layers.4.self_attn.in_proj_weight
+transformer.decoder.layers.4.self_attn.in_proj_bias
+transformer.decoder.layers.4.self_attn.out_proj.weight
+transformer.decoder.layers.4.self_attn.out_proj.bias
+transformer.decoder.layers.4.norm2.weight
+transformer.decoder.layers.4.norm2.bias
+transformer.decoder.layers.4.linear1.weight
+transformer.decoder.layers.4.linear1.bias
+transformer.decoder.layers.4.linear2.weight
+transformer.decoder.layers.4.linear2.bias
+transformer.decoder.layers.4.norm3.weight
+transformer.decoder.layers.4.norm3.bias
+transformer.decoder.layers.5.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.5.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.5.cross_attn.attention_weights.weight
+transformer.decoder.layers.5.cross_attn.attention_weights.bias
+transformer.decoder.layers.5.cross_attn.value_proj.weight
+transformer.decoder.layers.5.cross_attn.value_proj.bias
+transformer.decoder.layers.5.cross_attn.output_proj.weight
+transformer.decoder.layers.5.cross_attn.output_proj.bias
+transformer.decoder.layers.5.norm1.weight
+transformer.decoder.layers.5.norm1.bias
+transformer.decoder.layers.5.self_attn.in_proj_weight
+transformer.decoder.layers.5.self_attn.in_proj_bias
+transformer.decoder.layers.5.self_attn.out_proj.weight
+transformer.decoder.layers.5.self_attn.out_proj.bias
+transformer.decoder.layers.5.norm2.weight
+transformer.decoder.layers.5.norm2.bias
+transformer.decoder.layers.5.linear1.weight
+transformer.decoder.layers.5.linear1.bias
+transformer.decoder.layers.5.linear2.weight
+transformer.decoder.layers.5.linear2.bias
+transformer.decoder.layers.5.norm3.weight
+transformer.decoder.layers.5.norm3.bias
+transformer.decoder.bbox_embed.0.layers.0.weight
+transformer.decoder.bbox_embed.0.layers.0.bias
+transformer.decoder.bbox_embed.0.layers.1.weight
+transformer.decoder.bbox_embed.0.layers.1.bias
+transformer.decoder.bbox_embed.0.layers.2.weight
+transformer.decoder.bbox_embed.0.layers.2.bias
+transformer.decoder.bbox_embed.1.layers.0.weight
+transformer.decoder.bbox_embed.1.layers.0.bias
+transformer.decoder.bbox_embed.1.layers.1.weight
+transformer.decoder.bbox_embed.1.layers.1.bias
+transformer.decoder.bbox_embed.1.layers.2.weight
+transformer.decoder.bbox_embed.1.layers.2.bias
+transformer.decoder.bbox_embed.2.layers.0.weight
+transformer.decoder.bbox_embed.2.layers.0.bias
+transformer.decoder.bbox_embed.2.layers.1.weight
+transformer.decoder.bbox_embed.2.layers.1.bias
+transformer.decoder.bbox_embed.2.layers.2.weight
+transformer.decoder.bbox_embed.2.layers.2.bias
+transformer.decoder.bbox_embed.3.layers.0.weight
+transformer.decoder.bbox_embed.3.layers.0.bias
+transformer.decoder.bbox_embed.3.layers.1.weight
+transformer.decoder.bbox_embed.3.layers.1.bias
+transformer.decoder.bbox_embed.3.layers.2.weight
+transformer.decoder.bbox_embed.3.layers.2.bias
+transformer.decoder.bbox_embed.4.layers.0.weight
+transformer.decoder.bbox_embed.4.layers.0.bias
+transformer.decoder.bbox_embed.4.layers.1.weight
+transformer.decoder.bbox_embed.4.layers.1.bias
+transformer.decoder.bbox_embed.4.layers.2.weight
+transformer.decoder.bbox_embed.4.layers.2.bias
+transformer.decoder.bbox_embed.5.layers.0.weight
+transformer.decoder.bbox_embed.5.layers.0.bias
+transformer.decoder.bbox_embed.5.layers.1.weight
+transformer.decoder.bbox_embed.5.layers.1.bias
+transformer.decoder.bbox_embed.5.layers.2.weight
+transformer.decoder.bbox_embed.5.layers.2.bias
+transformer.temporal_query_layer1.self_attn.in_proj_weight
+transformer.temporal_query_layer1.self_attn.in_proj_bias
+transformer.temporal_query_layer1.self_attn.out_proj.weight
+transformer.temporal_query_layer1.self_attn.out_proj.bias
+transformer.temporal_query_layer1.norm2.weight
+transformer.temporal_query_layer1.norm2.bias
+transformer.temporal_query_layer1.cross_attn.in_proj_weight
+transformer.temporal_query_layer1.cross_attn.in_proj_bias
+transformer.temporal_query_layer1.cross_attn.out_proj.weight
+transformer.temporal_query_layer1.cross_attn.out_proj.bias
+transformer.temporal_query_layer1.norm1.weight
+transformer.temporal_query_layer1.norm1.bias
+transformer.temporal_query_layer1.linear1.weight
+transformer.temporal_query_layer1.linear1.bias
+transformer.temporal_query_layer1.linear2.weight
+transformer.temporal_query_layer1.linear2.bias
+transformer.temporal_query_layer1.norm3.weight
+transformer.temporal_query_layer1.norm3.bias
+transformer.temporal_query_layer2.self_attn.in_proj_weight
+transformer.temporal_query_layer2.self_attn.in_proj_bias
+transformer.temporal_query_layer2.self_attn.out_proj.weight
+transformer.temporal_query_layer2.self_attn.out_proj.bias
+transformer.temporal_query_layer2.norm2.weight
+transformer.temporal_query_layer2.norm2.bias
+transformer.temporal_query_layer2.cross_attn.in_proj_weight
+transformer.temporal_query_layer2.cross_attn.in_proj_bias
+transformer.temporal_query_layer2.cross_attn.out_proj.weight
+transformer.temporal_query_layer2.cross_attn.out_proj.bias
+transformer.temporal_query_layer2.norm1.weight
+transformer.temporal_query_layer2.norm1.bias
+transformer.temporal_query_layer2.linear1.weight
+transformer.temporal_query_layer2.linear1.bias
+transformer.temporal_query_layer2.linear2.weight
+transformer.temporal_query_layer2.linear2.bias
+transformer.temporal_query_layer2.norm3.weight
+transformer.temporal_query_layer2.norm3.bias
+transformer.temporal_query_layer3.self_attn.in_proj_weight
+transformer.temporal_query_layer3.self_attn.in_proj_bias
+transformer.temporal_query_layer3.self_attn.out_proj.weight
+transformer.temporal_query_layer3.self_attn.out_proj.bias
+transformer.temporal_query_layer3.norm2.weight
+transformer.temporal_query_layer3.norm2.bias
+transformer.temporal_query_layer3.cross_attn.in_proj_weight
+transformer.temporal_query_layer3.cross_attn.in_proj_bias
+transformer.temporal_query_layer3.cross_attn.out_proj.weight
+transformer.temporal_query_layer3.cross_attn.out_proj.bias
+transformer.temporal_query_layer3.norm1.weight
+transformer.temporal_query_layer3.norm1.bias
+transformer.temporal_query_layer3.linear1.weight
+transformer.temporal_query_layer3.linear1.bias
+transformer.temporal_query_layer3.linear2.weight
+transformer.temporal_query_layer3.linear2.bias
+transformer.temporal_query_layer3.norm3.weight
+transformer.temporal_query_layer3.norm3.bias
+transformer.temporal_decoder1.layers.0.cross_attn.sampling_offsets.weight
+transformer.temporal_decoder1.layers.0.cross_attn.sampling_offsets.bias
+transformer.temporal_decoder1.layers.0.cross_attn.attention_weights.weight
+transformer.temporal_decoder1.layers.0.cross_attn.attention_weights.bias
+transformer.temporal_decoder1.layers.0.cross_attn.value_proj.weight
+transformer.temporal_decoder1.layers.0.cross_attn.value_proj.bias
+transformer.temporal_decoder1.layers.0.cross_attn.output_proj.weight
+transformer.temporal_decoder1.layers.0.cross_attn.output_proj.bias
+transformer.temporal_decoder1.layers.0.norm1.weight
+transformer.temporal_decoder1.layers.0.norm1.bias
+transformer.temporal_decoder1.layers.0.self_attn.in_proj_weight
+transformer.temporal_decoder1.layers.0.self_attn.in_proj_bias
+transformer.temporal_decoder1.layers.0.self_attn.out_proj.weight
+transformer.temporal_decoder1.layers.0.self_attn.out_proj.bias
+transformer.temporal_decoder1.layers.0.norm2.weight
+transformer.temporal_decoder1.layers.0.norm2.bias
+transformer.temporal_decoder1.layers.0.linear1.weight
+transformer.temporal_decoder1.layers.0.linear1.bias
+transformer.temporal_decoder1.layers.0.linear2.weight
+transformer.temporal_decoder1.layers.0.linear2.bias
+transformer.temporal_decoder1.layers.0.norm3.weight
+transformer.temporal_decoder1.layers.0.norm3.bias
+transformer.temporal_decoder2.layers.0.cross_attn.sampling_offsets.weight
+transformer.temporal_decoder2.layers.0.cross_attn.sampling_offsets.bias
+transformer.temporal_decoder2.layers.0.cross_attn.attention_weights.weight
+transformer.temporal_decoder2.layers.0.cross_attn.attention_weights.bias
+transformer.temporal_decoder2.layers.0.cross_attn.value_proj.weight
+transformer.temporal_decoder2.layers.0.cross_attn.value_proj.bias
+transformer.temporal_decoder2.layers.0.cross_attn.output_proj.weight
+transformer.temporal_decoder2.layers.0.cross_attn.output_proj.bias
+transformer.temporal_decoder2.layers.0.norm1.weight
+transformer.temporal_decoder2.layers.0.norm1.bias
+transformer.temporal_decoder2.layers.0.self_attn.in_proj_weight
+transformer.temporal_decoder2.layers.0.self_attn.in_proj_bias
+transformer.temporal_decoder2.layers.0.self_attn.out_proj.weight
+transformer.temporal_decoder2.layers.0.self_attn.out_proj.bias
+transformer.temporal_decoder2.layers.0.norm2.weight
+transformer.temporal_decoder2.layers.0.norm2.bias
+transformer.temporal_decoder2.layers.0.linear1.weight
+transformer.temporal_decoder2.layers.0.linear1.bias
+transformer.temporal_decoder2.layers.0.linear2.weight
+transformer.temporal_decoder2.layers.0.linear2.bias
+transformer.temporal_decoder2.layers.0.norm3.weight
+transformer.temporal_decoder2.layers.0.norm3.bias
+transformer.temporal_decoder3.layers.0.cross_attn.sampling_offsets.weight
+transformer.temporal_decoder3.layers.0.cross_attn.sampling_offsets.bias
+transformer.temporal_decoder3.layers.0.cross_attn.attention_weights.weight
+transformer.temporal_decoder3.layers.0.cross_attn.attention_weights.bias
+transformer.temporal_decoder3.layers.0.cross_attn.value_proj.weight
+transformer.temporal_decoder3.layers.0.cross_attn.value_proj.bias
+transformer.temporal_decoder3.layers.0.cross_attn.output_proj.weight
+transformer.temporal_decoder3.layers.0.cross_attn.output_proj.bias
+transformer.temporal_decoder3.layers.0.norm1.weight
+transformer.temporal_decoder3.layers.0.norm1.bias
+transformer.temporal_decoder3.layers.0.self_attn.in_proj_weight
+transformer.temporal_decoder3.layers.0.self_attn.in_proj_bias
+transformer.temporal_decoder3.layers.0.self_attn.out_proj.weight
+transformer.temporal_decoder3.layers.0.self_attn.out_proj.bias
+transformer.temporal_decoder3.layers.0.norm2.weight
+transformer.temporal_decoder3.layers.0.norm2.bias
+transformer.temporal_decoder3.layers.0.linear1.weight
+transformer.temporal_decoder3.layers.0.linear1.bias
+transformer.temporal_decoder3.layers.0.linear2.weight
+transformer.temporal_decoder3.layers.0.linear2.bias
+transformer.temporal_decoder3.layers.0.norm3.weight
+transformer.temporal_decoder3.layers.0.norm3.bias
+transformer.reference_points.weight
+transformer.reference_points.bias
+class_embed.0.weight
+class_embed.0.bias
+class_embed.1.weight
+class_embed.1.bias
+class_embed.2.weight
+class_embed.2.bias
+class_embed.3.weight
+class_embed.3.bias
+class_embed.4.weight
+class_embed.4.bias
+class_embed.5.weight
+class_embed.5.bias
+temp_class_embed.weight
+temp_class_embed.bias
+temp_bbox_embed.layers.0.weight
+temp_bbox_embed.layers.0.bias
+temp_bbox_embed.layers.1.weight
+temp_bbox_embed.layers.1.bias
+temp_bbox_embed.layers.2.weight
+temp_bbox_embed.layers.2.bias
+query_embed.weight
+input_proj.0.0.weight
+input_proj.0.0.bias
+input_proj.0.1.weight
+input_proj.0.1.bias
+backbone.0.body.fpn.inner_blocks.0.0.weight
+backbone.0.body.fpn.inner_blocks.0.0.bias
+backbone.0.body.fpn.inner_blocks.1.0.weight
+backbone.0.body.fpn.inner_blocks.1.0.bias
+backbone.0.body.fpn.inner_blocks.2.0.weight
+backbone.0.body.fpn.inner_blocks.2.0.bias
+backbone.0.body.fpn.layer_blocks.0.0.weight
+backbone.0.body.fpn.layer_blocks.0.0.bias
+backbone.0.body.fpn.layer_blocks.1.0.weight
+backbone.0.body.fpn.layer_blocks.1.0.bias
+backbone.0.body.fpn.layer_blocks.2.0.weight
+backbone.0.body.fpn.layer_blocks.2.0.bias
+backbone.0.body.patch_embed.proj.weight
+backbone.0.body.patch_embed.proj.bias
+backbone.0.body.patch_embed.norm.weight
+backbone.0.body.patch_embed.norm.bias
+backbone.0.body.layers.0.blocks.0.norm1.weight
+backbone.0.body.layers.0.blocks.0.norm1.bias
+backbone.0.body.layers.0.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.0.blocks.0.attn.qkv.weight
+backbone.0.body.layers.0.blocks.0.attn.qkv.bias
+backbone.0.body.layers.0.blocks.0.attn.proj.weight
+backbone.0.body.layers.0.blocks.0.attn.proj.bias
+backbone.0.body.layers.0.blocks.0.norm2.weight
+backbone.0.body.layers.0.blocks.0.norm2.bias
+backbone.0.body.layers.0.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.0.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.0.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.0.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.0.blocks.1.norm1.weight
+backbone.0.body.layers.0.blocks.1.norm1.bias
+backbone.0.body.layers.0.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.0.blocks.1.attn.qkv.weight
+backbone.0.body.layers.0.blocks.1.attn.qkv.bias
+backbone.0.body.layers.0.blocks.1.attn.proj.weight
+backbone.0.body.layers.0.blocks.1.attn.proj.bias
+backbone.0.body.layers.0.blocks.1.norm2.weight
+backbone.0.body.layers.0.blocks.1.norm2.bias
+backbone.0.body.layers.0.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.0.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.0.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.0.blocks.1.mlp.fc2.bias
+backbone.0.body.layers.0.downsample.reduction.weight
+backbone.0.body.layers.0.downsample.norm.weight
+backbone.0.body.layers.0.downsample.norm.bias
+backbone.0.body.layers.1.blocks.0.norm1.weight
+backbone.0.body.layers.1.blocks.0.norm1.bias
+backbone.0.body.layers.1.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.1.blocks.0.attn.qkv.weight
+backbone.0.body.layers.1.blocks.0.attn.qkv.bias
+backbone.0.body.layers.1.blocks.0.attn.proj.weight
+backbone.0.body.layers.1.blocks.0.attn.proj.bias
+backbone.0.body.layers.1.blocks.0.norm2.weight
+backbone.0.body.layers.1.blocks.0.norm2.bias
+backbone.0.body.layers.1.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.1.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.1.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.1.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.1.blocks.1.norm1.weight
+backbone.0.body.layers.1.blocks.1.norm1.bias
+backbone.0.body.layers.1.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.1.blocks.1.attn.qkv.weight
+backbone.0.body.layers.1.blocks.1.attn.qkv.bias
+backbone.0.body.layers.1.blocks.1.attn.proj.weight
+backbone.0.body.layers.1.blocks.1.attn.proj.bias
+backbone.0.body.layers.1.blocks.1.norm2.weight
+backbone.0.body.layers.1.blocks.1.norm2.bias
+backbone.0.body.layers.1.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.1.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.1.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.1.blocks.1.mlp.fc2.bias
+backbone.0.body.layers.1.downsample.reduction.weight
+backbone.0.body.layers.1.downsample.norm.weight
+backbone.0.body.layers.1.downsample.norm.bias
+backbone.0.body.layers.2.blocks.0.norm1.weight
+backbone.0.body.layers.2.blocks.0.norm1.bias
+backbone.0.body.layers.2.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.0.attn.qkv.weight
+backbone.0.body.layers.2.blocks.0.attn.qkv.bias
+backbone.0.body.layers.2.blocks.0.attn.proj.weight
+backbone.0.body.layers.2.blocks.0.attn.proj.bias
+backbone.0.body.layers.2.blocks.0.norm2.weight
+backbone.0.body.layers.2.blocks.0.norm2.bias
+backbone.0.body.layers.2.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.1.norm1.weight
+backbone.0.body.layers.2.blocks.1.norm1.bias
+backbone.0.body.layers.2.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.1.attn.qkv.weight
+backbone.0.body.layers.2.blocks.1.attn.qkv.bias
+backbone.0.body.layers.2.blocks.1.attn.proj.weight
+backbone.0.body.layers.2.blocks.1.attn.proj.bias
+backbone.0.body.layers.2.blocks.1.norm2.weight
+backbone.0.body.layers.2.blocks.1.norm2.bias
+backbone.0.body.layers.2.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.1.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.2.norm1.weight
+backbone.0.body.layers.2.blocks.2.norm1.bias
+backbone.0.body.layers.2.blocks.2.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.2.attn.qkv.weight
+backbone.0.body.layers.2.blocks.2.attn.qkv.bias
+backbone.0.body.layers.2.blocks.2.attn.proj.weight
+backbone.0.body.layers.2.blocks.2.attn.proj.bias
+backbone.0.body.layers.2.blocks.2.norm2.weight
+backbone.0.body.layers.2.blocks.2.norm2.bias
+backbone.0.body.layers.2.blocks.2.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.2.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.2.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.2.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.3.norm1.weight
+backbone.0.body.layers.2.blocks.3.norm1.bias
+backbone.0.body.layers.2.blocks.3.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.3.attn.qkv.weight
+backbone.0.body.layers.2.blocks.3.attn.qkv.bias
+backbone.0.body.layers.2.blocks.3.attn.proj.weight
+backbone.0.body.layers.2.blocks.3.attn.proj.bias
+backbone.0.body.layers.2.blocks.3.norm2.weight
+backbone.0.body.layers.2.blocks.3.norm2.bias
+backbone.0.body.layers.2.blocks.3.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.3.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.3.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.3.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.4.norm1.weight
+backbone.0.body.layers.2.blocks.4.norm1.bias
+backbone.0.body.layers.2.blocks.4.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.4.attn.qkv.weight
+backbone.0.body.layers.2.blocks.4.attn.qkv.bias
+backbone.0.body.layers.2.blocks.4.attn.proj.weight
+backbone.0.body.layers.2.blocks.4.attn.proj.bias
+backbone.0.body.layers.2.blocks.4.norm2.weight
+backbone.0.body.layers.2.blocks.4.norm2.bias
+backbone.0.body.layers.2.blocks.4.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.4.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.4.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.4.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.5.norm1.weight
+backbone.0.body.layers.2.blocks.5.norm1.bias
+backbone.0.body.layers.2.blocks.5.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.5.attn.qkv.weight
+backbone.0.body.layers.2.blocks.5.attn.qkv.bias
+backbone.0.body.layers.2.blocks.5.attn.proj.weight
+backbone.0.body.layers.2.blocks.5.attn.proj.bias
+backbone.0.body.layers.2.blocks.5.norm2.weight
+backbone.0.body.layers.2.blocks.5.norm2.bias
+backbone.0.body.layers.2.blocks.5.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.5.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.5.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.5.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.6.norm1.weight
+backbone.0.body.layers.2.blocks.6.norm1.bias
+backbone.0.body.layers.2.blocks.6.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.6.attn.qkv.weight
+backbone.0.body.layers.2.blocks.6.attn.qkv.bias
+backbone.0.body.layers.2.blocks.6.attn.proj.weight
+backbone.0.body.layers.2.blocks.6.attn.proj.bias
+backbone.0.body.layers.2.blocks.6.norm2.weight
+backbone.0.body.layers.2.blocks.6.norm2.bias
+backbone.0.body.layers.2.blocks.6.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.6.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.6.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.6.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.7.norm1.weight
+backbone.0.body.layers.2.blocks.7.norm1.bias
+backbone.0.body.layers.2.blocks.7.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.7.attn.qkv.weight
+backbone.0.body.layers.2.blocks.7.attn.qkv.bias
+backbone.0.body.layers.2.blocks.7.attn.proj.weight
+backbone.0.body.layers.2.blocks.7.attn.proj.bias
+backbone.0.body.layers.2.blocks.7.norm2.weight
+backbone.0.body.layers.2.blocks.7.norm2.bias
+backbone.0.body.layers.2.blocks.7.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.7.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.7.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.7.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.8.norm1.weight
+backbone.0.body.layers.2.blocks.8.norm1.bias
+backbone.0.body.layers.2.blocks.8.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.8.attn.qkv.weight
+backbone.0.body.layers.2.blocks.8.attn.qkv.bias
+backbone.0.body.layers.2.blocks.8.attn.proj.weight
+backbone.0.body.layers.2.blocks.8.attn.proj.bias
+backbone.0.body.layers.2.blocks.8.norm2.weight
+backbone.0.body.layers.2.blocks.8.norm2.bias
+backbone.0.body.layers.2.blocks.8.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.8.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.8.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.8.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.9.norm1.weight
+backbone.0.body.layers.2.blocks.9.norm1.bias
+backbone.0.body.layers.2.blocks.9.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.9.attn.qkv.weight
+backbone.0.body.layers.2.blocks.9.attn.qkv.bias
+backbone.0.body.layers.2.blocks.9.attn.proj.weight
+backbone.0.body.layers.2.blocks.9.attn.proj.bias
+backbone.0.body.layers.2.blocks.9.norm2.weight
+backbone.0.body.layers.2.blocks.9.norm2.bias
+backbone.0.body.layers.2.blocks.9.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.9.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.9.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.9.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.10.norm1.weight
+backbone.0.body.layers.2.blocks.10.norm1.bias
+backbone.0.body.layers.2.blocks.10.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.10.attn.qkv.weight
+backbone.0.body.layers.2.blocks.10.attn.qkv.bias
+backbone.0.body.layers.2.blocks.10.attn.proj.weight
+backbone.0.body.layers.2.blocks.10.attn.proj.bias
+backbone.0.body.layers.2.blocks.10.norm2.weight
+backbone.0.body.layers.2.blocks.10.norm2.bias
+backbone.0.body.layers.2.blocks.10.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.10.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.10.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.10.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.11.norm1.weight
+backbone.0.body.layers.2.blocks.11.norm1.bias
+backbone.0.body.layers.2.blocks.11.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.11.attn.qkv.weight
+backbone.0.body.layers.2.blocks.11.attn.qkv.bias
+backbone.0.body.layers.2.blocks.11.attn.proj.weight
+backbone.0.body.layers.2.blocks.11.attn.proj.bias
+backbone.0.body.layers.2.blocks.11.norm2.weight
+backbone.0.body.layers.2.blocks.11.norm2.bias
+backbone.0.body.layers.2.blocks.11.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.11.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.11.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.11.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.12.norm1.weight
+backbone.0.body.layers.2.blocks.12.norm1.bias
+backbone.0.body.layers.2.blocks.12.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.12.attn.qkv.weight
+backbone.0.body.layers.2.blocks.12.attn.qkv.bias
+backbone.0.body.layers.2.blocks.12.attn.proj.weight
+backbone.0.body.layers.2.blocks.12.attn.proj.bias
+backbone.0.body.layers.2.blocks.12.norm2.weight
+backbone.0.body.layers.2.blocks.12.norm2.bias
+backbone.0.body.layers.2.blocks.12.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.12.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.12.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.12.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.13.norm1.weight
+backbone.0.body.layers.2.blocks.13.norm1.bias
+backbone.0.body.layers.2.blocks.13.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.13.attn.qkv.weight
+backbone.0.body.layers.2.blocks.13.attn.qkv.bias
+backbone.0.body.layers.2.blocks.13.attn.proj.weight
+backbone.0.body.layers.2.blocks.13.attn.proj.bias
+backbone.0.body.layers.2.blocks.13.norm2.weight
+backbone.0.body.layers.2.blocks.13.norm2.bias
+backbone.0.body.layers.2.blocks.13.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.13.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.13.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.13.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.14.norm1.weight
+backbone.0.body.layers.2.blocks.14.norm1.bias
+backbone.0.body.layers.2.blocks.14.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.14.attn.qkv.weight
+backbone.0.body.layers.2.blocks.14.attn.qkv.bias
+backbone.0.body.layers.2.blocks.14.attn.proj.weight
+backbone.0.body.layers.2.blocks.14.attn.proj.bias
+backbone.0.body.layers.2.blocks.14.norm2.weight
+backbone.0.body.layers.2.blocks.14.norm2.bias
+backbone.0.body.layers.2.blocks.14.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.14.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.14.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.14.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.15.norm1.weight
+backbone.0.body.layers.2.blocks.15.norm1.bias
+backbone.0.body.layers.2.blocks.15.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.15.attn.qkv.weight
+backbone.0.body.layers.2.blocks.15.attn.qkv.bias
+backbone.0.body.layers.2.blocks.15.attn.proj.weight
+backbone.0.body.layers.2.blocks.15.attn.proj.bias
+backbone.0.body.layers.2.blocks.15.norm2.weight
+backbone.0.body.layers.2.blocks.15.norm2.bias
+backbone.0.body.layers.2.blocks.15.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.15.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.15.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.15.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.16.norm1.weight
+backbone.0.body.layers.2.blocks.16.norm1.bias
+backbone.0.body.layers.2.blocks.16.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.16.attn.qkv.weight
+backbone.0.body.layers.2.blocks.16.attn.qkv.bias
+backbone.0.body.layers.2.blocks.16.attn.proj.weight
+backbone.0.body.layers.2.blocks.16.attn.proj.bias
+backbone.0.body.layers.2.blocks.16.norm2.weight
+backbone.0.body.layers.2.blocks.16.norm2.bias
+backbone.0.body.layers.2.blocks.16.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.16.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.16.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.16.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.17.norm1.weight
+backbone.0.body.layers.2.blocks.17.norm1.bias
+backbone.0.body.layers.2.blocks.17.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.17.attn.qkv.weight
+backbone.0.body.layers.2.blocks.17.attn.qkv.bias
+backbone.0.body.layers.2.blocks.17.attn.proj.weight
+backbone.0.body.layers.2.blocks.17.attn.proj.bias
+backbone.0.body.layers.2.blocks.17.norm2.weight
+backbone.0.body.layers.2.blocks.17.norm2.bias
+backbone.0.body.layers.2.blocks.17.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.17.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.17.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.17.mlp.fc2.bias
+backbone.0.body.layers.2.downsample.reduction.weight
+backbone.0.body.layers.2.downsample.norm.weight
+backbone.0.body.layers.2.downsample.norm.bias
+backbone.0.body.layers.3.blocks.0.norm1.weight
+backbone.0.body.layers.3.blocks.0.norm1.bias
+backbone.0.body.layers.3.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.3.blocks.0.attn.qkv.weight
+backbone.0.body.layers.3.blocks.0.attn.qkv.bias
+backbone.0.body.layers.3.blocks.0.attn.proj.weight
+backbone.0.body.layers.3.blocks.0.attn.proj.bias
+backbone.0.body.layers.3.blocks.0.norm2.weight
+backbone.0.body.layers.3.blocks.0.norm2.bias
+backbone.0.body.layers.3.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.3.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.3.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.3.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.3.blocks.1.norm1.weight
+backbone.0.body.layers.3.blocks.1.norm1.bias
+backbone.0.body.layers.3.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.3.blocks.1.attn.qkv.weight
+backbone.0.body.layers.3.blocks.1.attn.qkv.bias
+backbone.0.body.layers.3.blocks.1.attn.proj.weight
+backbone.0.body.layers.3.blocks.1.attn.proj.bias
+backbone.0.body.layers.3.blocks.1.norm2.weight
+backbone.0.body.layers.3.blocks.1.norm2.bias
+backbone.0.body.layers.3.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.3.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.3.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.3.blocks.1.mlp.fc2.bias
+backbone.0.body.norm1.weight
+backbone.0.body.norm1.bias
+backbone.0.body.norm2.weight
+backbone.0.body.norm2.bias
+backbone.0.body.norm3.weight
+backbone.0.body.norm3.bias
+temp_class_embed_list.0.weight
+temp_class_embed_list.0.bias
+temp_class_embed_list.1.weight
+temp_class_embed_list.1.bias
+temp_class_embed_list.2.weight
+temp_class_embed_list.2.bias
+temp_bbox_embed_list.0.layers.0.weight
+temp_bbox_embed_list.0.layers.0.bias
+temp_bbox_embed_list.0.layers.1.weight
+temp_bbox_embed_list.0.layers.1.bias
+temp_bbox_embed_list.0.layers.2.weight
+temp_bbox_embed_list.0.layers.2.bias
+temp_bbox_embed_list.1.layers.0.weight
+temp_bbox_embed_list.1.layers.0.bias
+temp_bbox_embed_list.1.layers.1.weight
+temp_bbox_embed_list.1.layers.1.bias
+temp_bbox_embed_list.1.layers.2.weight
+temp_bbox_embed_list.1.layers.2.bias
+temp_bbox_embed_list.2.layers.0.weight
+temp_bbox_embed_list.2.layers.0.bias
+temp_bbox_embed_list.2.layers.1.weight
+temp_bbox_embed_list.2.layers.1.bias
+temp_bbox_embed_list.2.layers.2.weight
+temp_bbox_embed_list.2.layers.2.bias
+[10, 12]
+Missing Keys: ['transformer.temporal_query_layer1.self_attn.in_proj_weight', 'transformer.temporal_query_layer1.self_attn.in_proj_bias', 'transformer.temporal_query_layer1.self_attn.out_proj.weight', 'transformer.temporal_query_layer1.self_attn.out_proj.bias', 'transformer.temporal_query_layer1.norm2.weight', 'transformer.temporal_query_layer1.norm2.bias', 'transformer.temporal_query_layer1.cross_attn.in_proj_weight', 'transformer.temporal_query_layer1.cross_attn.in_proj_bias', 'transformer.temporal_query_layer1.cross_attn.out_proj.weight', 'transformer.temporal_query_layer1.cross_attn.out_proj.bias', 'transformer.temporal_query_layer1.norm1.weight', 'transformer.temporal_query_layer1.norm1.bias', 'transformer.temporal_query_layer1.linear1.weight', 'transformer.temporal_query_layer1.linear1.bias', 'transformer.temporal_query_layer1.linear2.weight', 'transformer.temporal_query_layer1.linear2.bias', 'transformer.temporal_query_layer1.norm3.weight', 'transformer.temporal_query_layer1.norm3.bias', 'transformer.temporal_query_layer2.self_attn.in_proj_weight', 'transformer.temporal_query_layer2.self_attn.in_proj_bias', 'transformer.temporal_query_layer2.self_attn.out_proj.weight', 'transformer.temporal_query_layer2.self_attn.out_proj.bias', 'transformer.temporal_query_layer2.norm2.weight', 'transformer.temporal_query_layer2.norm2.bias', 'transformer.temporal_query_layer2.cross_attn.in_proj_weight', 'transformer.temporal_query_layer2.cross_attn.in_proj_bias', 'transformer.temporal_query_layer2.cross_attn.out_proj.weight', 'transformer.temporal_query_layer2.cross_attn.out_proj.bias', 'transformer.temporal_query_layer2.norm1.weight', 'transformer.temporal_query_layer2.norm1.bias', 'transformer.temporal_query_layer2.linear1.weight', 'transformer.temporal_query_layer2.linear1.bias', 'transformer.temporal_query_layer2.linear2.weight', 'transformer.temporal_query_layer2.linear2.bias', 'transformer.temporal_query_layer2.norm3.weight', 'transformer.temporal_query_layer2.norm3.bias', 'transformer.temporal_query_layer3.self_attn.in_proj_weight', 'transformer.temporal_query_layer3.self_attn.in_proj_bias', 'transformer.temporal_query_layer3.self_attn.out_proj.weight', 'transformer.temporal_query_layer3.self_attn.out_proj.bias', 'transformer.temporal_query_layer3.norm2.weight', 'transformer.temporal_query_layer3.norm2.bias', 'transformer.temporal_query_layer3.cross_attn.in_proj_weight', 'transformer.temporal_query_layer3.cross_attn.in_proj_bias', 'transformer.temporal_query_layer3.cross_attn.out_proj.weight', 'transformer.temporal_query_layer3.cross_attn.out_proj.bias', 'transformer.temporal_query_layer3.norm1.weight', 'transformer.temporal_query_layer3.norm1.bias', 'transformer.temporal_query_layer3.linear1.weight', 'transformer.temporal_query_layer3.linear1.bias', 'transformer.temporal_query_layer3.linear2.weight', 'transformer.temporal_query_layer3.linear2.bias', 'transformer.temporal_query_layer3.norm3.weight', 'transformer.temporal_query_layer3.norm3.bias', 'transformer.temporal_decoder1.layers.0.cross_attn.sampling_offsets.weight', 'transformer.temporal_decoder1.layers.0.cross_attn.sampling_offsets.bias', 'transformer.temporal_decoder1.layers.0.cross_attn.attention_weights.weight', 'transformer.temporal_decoder1.layers.0.cross_attn.attention_weights.bias', 'transformer.temporal_decoder1.layers.0.cross_attn.value_proj.weight', 'transformer.temporal_decoder1.layers.0.cross_attn.value_proj.bias', 'transformer.temporal_decoder1.layers.0.cross_attn.output_proj.weight', 'transformer.temporal_decoder1.layers.0.cross_attn.output_proj.bias', 'transformer.temporal_decoder1.layers.0.norm1.weight', 'transformer.temporal_decoder1.layers.0.norm1.bias', 'transformer.temporal_decoder1.layers.0.self_attn.in_proj_weight', 'transformer.temporal_decoder1.layers.0.self_attn.in_proj_bias', 'transformer.temporal_decoder1.layers.0.self_attn.out_proj.weight', 'transformer.temporal_decoder1.layers.0.self_attn.out_proj.bias', 'transformer.temporal_decoder1.layers.0.norm2.weight', 'transformer.temporal_decoder1.layers.0.norm2.bias', 'transformer.temporal_decoder1.layers.0.linear1.weight', 'transformer.temporal_decoder1.layers.0.linear1.bias', 'transformer.temporal_decoder1.layers.0.linear2.weight', 'transformer.temporal_decoder1.layers.0.linear2.bias', 'transformer.temporal_decoder1.layers.0.norm3.weight', 'transformer.temporal_decoder1.layers.0.norm3.bias', 'transformer.temporal_decoder2.layers.0.cross_attn.sampling_offsets.weight', 'transformer.temporal_decoder2.layers.0.cross_attn.sampling_offsets.bias', 'transformer.temporal_decoder2.layers.0.cross_attn.attention_weights.weight', 'transformer.temporal_decoder2.layers.0.cross_attn.attention_weights.bias', 'transformer.temporal_decoder2.layers.0.cross_attn.value_proj.weight', 'transformer.temporal_decoder2.layers.0.cross_attn.value_proj.bias', 'transformer.temporal_decoder2.layers.0.cross_attn.output_proj.weight', 'transformer.temporal_decoder2.layers.0.cross_attn.output_proj.bias', 'transformer.temporal_decoder2.layers.0.norm1.weight', 'transformer.temporal_decoder2.layers.0.norm1.bias', 'transformer.temporal_decoder2.layers.0.self_attn.in_proj_weight', 'transformer.temporal_decoder2.layers.0.self_attn.in_proj_bias', 'transformer.temporal_decoder2.layers.0.self_attn.out_proj.weight', 'transformer.temporal_decoder2.layers.0.self_attn.out_proj.bias', 'transformer.temporal_decoder2.layers.0.norm2.weight', 'transformer.temporal_decoder2.layers.0.norm2.bias', 'transformer.temporal_decoder2.layers.0.linear1.weight', 'transformer.temporal_decoder2.layers.0.linear1.bias', 'transformer.temporal_decoder2.layers.0.linear2.weight', 'transformer.temporal_decoder2.layers.0.linear2.bias', 'transformer.temporal_decoder2.layers.0.norm3.weight', 'transformer.temporal_decoder2.layers.0.norm3.bias', 'transformer.temporal_decoder3.layers.0.cross_attn.sampling_offsets.weight', 'transformer.temporal_decoder3.layers.0.cross_attn.sampling_offsets.bias', 'transformer.temporal_decoder3.layers.0.cross_attn.attention_weights.weight', 'transformer.temporal_decoder3.layers.0.cross_attn.attention_weights.bias', 'transformer.temporal_decoder3.layers.0.cross_attn.value_proj.weight', 'transformer.temporal_decoder3.layers.0.cross_attn.value_proj.bias', 'transformer.temporal_decoder3.layers.0.cross_attn.output_proj.weight', 'transformer.temporal_decoder3.layers.0.cross_attn.output_proj.bias', 'transformer.temporal_decoder3.layers.0.norm1.weight', 'transformer.temporal_decoder3.layers.0.norm1.bias', 'transformer.temporal_decoder3.layers.0.self_attn.in_proj_weight', 'transformer.temporal_decoder3.layers.0.self_attn.in_proj_bias', 'transformer.temporal_decoder3.layers.0.self_attn.out_proj.weight', 'transformer.temporal_decoder3.layers.0.self_attn.out_proj.bias', 'transformer.temporal_decoder3.layers.0.norm2.weight', 'transformer.temporal_decoder3.layers.0.norm2.bias', 'transformer.temporal_decoder3.layers.0.linear1.weight', 'transformer.temporal_decoder3.layers.0.linear1.bias', 'transformer.temporal_decoder3.layers.0.linear2.weight', 'transformer.temporal_decoder3.layers.0.linear2.bias', 'transformer.temporal_decoder3.layers.0.norm3.weight', 'transformer.temporal_decoder3.layers.0.norm3.bias', 'temp_class_embed.weight', 'temp_class_embed.bias', 'temp_bbox_embed.layers.0.weight', 'temp_bbox_embed.layers.0.bias', 'temp_bbox_embed.layers.1.weight', 'temp_bbox_embed.layers.1.bias', 'temp_bbox_embed.layers.2.weight', 'temp_bbox_embed.layers.2.bias', 'temp_class_embed_list.0.weight', 'temp_class_embed_list.0.bias', 'temp_class_embed_list.1.weight', 'temp_class_embed_list.1.bias', 'temp_class_embed_list.2.weight', 'temp_class_embed_list.2.bias', 'temp_bbox_embed_list.0.layers.0.weight', 'temp_bbox_embed_list.0.layers.0.bias', 'temp_bbox_embed_list.0.layers.1.weight', 'temp_bbox_embed_list.0.layers.1.bias', 'temp_bbox_embed_list.0.layers.2.weight', 'temp_bbox_embed_list.0.layers.2.bias', 'temp_bbox_embed_list.1.layers.0.weight', 'temp_bbox_embed_list.1.layers.0.bias', 'temp_bbox_embed_list.1.layers.1.weight', 'temp_bbox_embed_list.1.layers.1.bias', 'temp_bbox_embed_list.1.layers.2.weight', 'temp_bbox_embed_list.1.layers.2.bias', 'temp_bbox_embed_list.2.layers.0.weight', 'temp_bbox_embed_list.2.layers.0.bias', 'temp_bbox_embed_list.2.layers.1.weight', 'temp_bbox_embed_list.2.layers.1.bias', 'temp_bbox_embed_list.2.layers.2.weight', 'temp_bbox_embed_list.2.layers.2.bias']
+Start training
+Epoch: [0]  [    0/28764]  eta: 17:08:46  lr: 0.000040  class_error: 100.00  grad_norm: 28.06  loss: 21.7043 (21.7043)  loss_ce: 2.4190 (2.4190)  loss_bbox: 3.1017 (3.1017)  loss_giou: 2.0853 (2.0853)  loss_ce_0: 2.1666 (2.1666)  loss_bbox_0: 2.6518 (2.6518)  loss_giou_0: 2.1263 (2.1263)  loss_ce_1: 2.2693 (2.2693)  loss_bbox_1: 2.8237 (2.8237)  loss_giou_1: 2.0606 (2.0606)  loss_ce_unscaled: 1.2095 (1.2095)  class_error_unscaled: 100.0000 (100.0000)  loss_bbox_unscaled: 0.6203 (0.6203)  loss_giou_unscaled: 1.0427 (1.0427)  cardinality_error_unscaled: 27.4667 (27.4667)  loss_ce_0_unscaled: 1.0833 (1.0833)  loss_bbox_0_unscaled: 0.5304 (0.5304)  loss_giou_0_unscaled: 1.0632 (1.0632)  cardinality_error_0_unscaled: 78.8667 (78.8667)  loss_ce_1_unscaled: 1.1346 (1.1346)  loss_bbox_1_unscaled: 0.5647 (0.5647)  loss_giou_1_unscaled: 1.0303 (1.0303)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 2.1460  data: 0.7638  max mem: 2990
+Epoch: [0]  [   10/28764]  eta: 3:24:47  lr: 0.000040  class_error: 0.00  grad_norm: 29.51  loss: 16.8427 (16.3555)  loss_ce: 0.9383 (1.2827)  loss_bbox: 2.4195 (2.3362)  loss_giou: 1.9399 (1.9097)  loss_ce_0: 1.4045 (1.5114)  loss_bbox_0: 2.2472 (2.0826)  loss_giou_0: 1.8060 (1.7752)  loss_ce_1: 1.4532 (1.4382)  loss_bbox_1: 2.2082 (2.2004)  loss_giou_1: 1.9224 (1.8191)  loss_ce_unscaled: 0.4692 (0.6414)  class_error_unscaled: 0.0000 (21.8182)  loss_bbox_unscaled: 0.4839 (0.4672)  loss_giou_unscaled: 0.9700 (0.9548)  cardinality_error_unscaled: 29.0000 (28.6364)  loss_ce_0_unscaled: 0.7023 (0.7557)  loss_bbox_0_unscaled: 0.4494 (0.4165)  loss_giou_0_unscaled: 0.9030 (0.8876)  cardinality_error_0_unscaled: 79.0000 (78.9212)  loss_ce_1_unscaled: 0.7266 (0.7191)  loss_bbox_1_unscaled: 0.4416 (0.4401)  loss_giou_1_unscaled: 0.9612 (0.9095)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.4273  data: 0.0843  max mem: 3073
+Epoch: [0]  [   20/28764]  eta: 2:45:06  lr: 0.000040  class_error: 0.00  grad_norm: 14.54  loss: 15.4392 (15.6588)  loss_ce: 0.8854 (1.0784)  loss_bbox: 2.2184 (2.2864)  loss_giou: 1.8972 (1.9083)  loss_ce_0: 1.0835 (1.3225)  loss_bbox_0: 1.9839 (2.0590)  loss_giou_0: 1.7765 (1.7766)  loss_ce_1: 1.0434 (1.2405)  loss_bbox_1: 2.1408 (2.1626)  loss_giou_1: 1.8263 (1.8246)  loss_ce_unscaled: 0.4427 (0.5392)  class_error_unscaled: 0.0000 (11.4286)  loss_bbox_unscaled: 0.4437 (0.4573)  loss_giou_unscaled: 0.9486 (0.9541)  cardinality_error_unscaled: 29.0000 (28.8095)  loss_ce_0_unscaled: 0.5417 (0.6612)  loss_bbox_0_unscaled: 0.3968 (0.4118)  loss_giou_0_unscaled: 0.8883 (0.8883)  cardinality_error_0_unscaled: 79.0000 (78.9587)  loss_ce_1_unscaled: 0.5217 (0.6203)  loss_bbox_1_unscaled: 0.4282 (0.4325)  loss_giou_1_unscaled: 0.9132 (0.9123)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2546  data: 0.0164  max mem: 3073
+Epoch: [0]  [   30/28764]  eta: 2:31:44  lr: 0.000040  class_error: 0.00  grad_norm: 14.24  loss: 15.2674 (15.3910)  loss_ce: 0.8413 (0.9991)  loss_bbox: 2.2060 (2.2563)  loss_giou: 1.9623 (1.9147)  loss_ce_0: 1.0296 (1.2208)  loss_bbox_0: 2.0064 (2.0680)  loss_giou_0: 1.8268 (1.7993)  loss_ce_1: 0.9482 (1.1388)  loss_bbox_1: 2.1408 (2.1501)  loss_giou_1: 1.8899 (1.8439)  loss_ce_unscaled: 0.4207 (0.4995)  class_error_unscaled: 0.0000 (7.7419)  loss_bbox_unscaled: 0.4412 (0.4513)  loss_giou_unscaled: 0.9811 (0.9573)  cardinality_error_unscaled: 29.0000 (28.8710)  loss_ce_0_unscaled: 0.5148 (0.6104)  loss_bbox_0_unscaled: 0.4013 (0.4136)  loss_giou_0_unscaled: 0.9134 (0.8997)  cardinality_error_0_unscaled: 79.0000 (78.9721)  loss_ce_1_unscaled: 0.4741 (0.5694)  loss_bbox_1_unscaled: 0.4282 (0.4300)  loss_giou_1_unscaled: 0.9449 (0.9219)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2561  data: 0.0162  max mem: 3073
+Epoch: [0]  [   40/28764]  eta: 2:24:39  lr: 0.000040  class_error: 0.00  grad_norm: 21.72  loss: 14.5551 (15.0084)  loss_ce: 0.8387 (0.9609)  loss_bbox: 2.1342 (2.1840)  loss_giou: 1.9858 (1.9060)  loss_ce_0: 1.0037 (1.1679)  loss_bbox_0: 2.0064 (1.9972)  loss_giou_0: 1.9280 (1.7923)  loss_ce_1: 0.9361 (1.0955)  loss_bbox_1: 2.0860 (2.0684)  loss_giou_1: 1.9218 (1.8362)  loss_ce_unscaled: 0.4194 (0.4805)  class_error_unscaled: 0.0000 (5.8537)  loss_bbox_unscaled: 0.4268 (0.4368)  loss_giou_unscaled: 0.9929 (0.9530)  cardinality_error_unscaled: 29.0000 (28.9024)  loss_ce_0_unscaled: 0.5018 (0.5839)  loss_bbox_0_unscaled: 0.4013 (0.3994)  loss_giou_0_unscaled: 0.9640 (0.8962)  cardinality_error_0_unscaled: 79.0000 (78.9789)  loss_ce_1_unscaled: 0.4681 (0.5477)  loss_bbox_1_unscaled: 0.4172 (0.4137)  loss_giou_1_unscaled: 0.9609 (0.9181)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2575  data: 0.0159  max mem: 3073
+Epoch: [0]  [   50/28764]  eta: 2:19:57  lr: 0.000040  class_error: 0.00  grad_norm: 11.40  loss: 14.1685 (14.7722)  loss_ce: 0.8263 (0.9326)  loss_bbox: 2.0248 (2.1469)  loss_giou: 1.9188 (1.8944)  loss_ce_0: 0.9754 (1.1251)  loss_bbox_0: 1.7597 (1.9691)  loss_giou_0: 1.8262 (1.7834)  loss_ce_1: 0.9419 (1.0654)  loss_bbox_1: 1.7762 (2.0293)  loss_giou_1: 1.8570 (1.8260)  loss_ce_unscaled: 0.4132 (0.4663)  class_error_unscaled: 0.0000 (4.7059)  loss_bbox_unscaled: 0.4050 (0.4294)  loss_giou_unscaled: 0.9594 (0.9472)  cardinality_error_unscaled: 29.0000 (28.9216)  loss_ce_0_unscaled: 0.4877 (0.5626)  loss_bbox_0_unscaled: 0.3519 (0.3938)  loss_giou_0_unscaled: 0.9131 (0.8917)  cardinality_error_0_unscaled: 79.0000 (78.9830)  loss_ce_1_unscaled: 0.4709 (0.5327)  loss_bbox_1_unscaled: 0.3552 (0.4059)  loss_giou_1_unscaled: 0.9285 (0.9130)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2547  data: 0.0160  max mem: 3073
+Epoch: [0]  [   60/28764]  eta: 2:16:55  lr: 0.000040  class_error: 0.00  grad_norm: 17.84  loss: 14.1685 (14.6658)  loss_ce: 0.8195 (0.9146)  loss_bbox: 2.0248 (2.1269)  loss_giou: 1.8436 (1.8958)  loss_ce_0: 0.9572 (1.0956)  loss_bbox_0: 1.8565 (1.9552)  loss_giou_0: 1.8262 (1.7942)  loss_ce_1: 0.9260 (1.0422)  loss_bbox_1: 1.9416 (2.0102)  loss_giou_1: 1.8813 (1.8311)  loss_ce_unscaled: 0.4098 (0.4573)  class_error_unscaled: 0.0000 (3.9344)  loss_bbox_unscaled: 0.4050 (0.4254)  loss_giou_unscaled: 0.9218 (0.9479)  cardinality_error_unscaled: 29.0000 (28.9344)  loss_ce_0_unscaled: 0.4786 (0.5478)  loss_bbox_0_unscaled: 0.3713 (0.3910)  loss_giou_0_unscaled: 0.9131 (0.8971)  cardinality_error_0_unscaled: 79.0000 (78.9858)  loss_ce_1_unscaled: 0.4630 (0.5211)  loss_bbox_1_unscaled: 0.3883 (0.4020)  loss_giou_1_unscaled: 0.9407 (0.9155)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2536  data: 0.0162  max mem: 3073
+Epoch: [0]  [   70/28764]  eta: 2:14:43  lr: 0.000040  class_error: 0.00  grad_norm: 31.38  loss: 13.6937 (14.4711)  loss_ce: 0.8160 (0.9000)  loss_bbox: 1.9049 (2.1003)  loss_giou: 1.8309 (1.8671)  loss_ce_0: 0.9249 (1.0686)  loss_bbox_0: 1.7688 (1.9446)  loss_giou_0: 1.7645 (1.7696)  loss_ce_1: 0.9179 (1.0234)  loss_bbox_1: 1.8012 (1.9924)  loss_giou_1: 1.7719 (1.8051)  loss_ce_unscaled: 0.4080 (0.4500)  class_error_unscaled: 0.0000 (3.3803)  loss_bbox_unscaled: 0.3810 (0.4201)  loss_giou_unscaled: 0.9154 (0.9336)  cardinality_error_unscaled: 29.0000 (28.9437)  loss_ce_0_unscaled: 0.4624 (0.5343)  loss_bbox_0_unscaled: 0.3538 (0.3889)  loss_giou_0_unscaled: 0.8823 (0.8848)  cardinality_error_0_unscaled: 79.0000 (78.9878)  loss_ce_1_unscaled: 0.4590 (0.5117)  loss_bbox_1_unscaled: 0.3602 (0.3985)  loss_giou_1_unscaled: 0.8860 (0.9025)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2543  data: 0.0162  max mem: 3073
+Epoch: [0]  [   80/28764]  eta: 2:12:59  lr: 0.000040  class_error: 0.00  grad_norm: 31.79  loss: 13.3830 (14.3792)  loss_ce: 0.8138 (0.8893)  loss_bbox: 1.9049 (2.0835)  loss_giou: 1.7503 (1.8555)  loss_ce_0: 0.9011 (1.0511)  loss_bbox_0: 1.8186 (1.9422)  loss_giou_0: 1.6746 (1.7660)  loss_ce_1: 0.8961 (1.0063)  loss_bbox_1: 1.8417 (1.9872)  loss_giou_1: 1.7053 (1.7983)  loss_ce_unscaled: 0.4069 (0.4446)  class_error_unscaled: 0.0000 (2.9630)  loss_bbox_unscaled: 0.3810 (0.4167)  loss_giou_unscaled: 0.8751 (0.9278)  cardinality_error_unscaled: 29.0000 (28.9506)  loss_ce_0_unscaled: 0.4506 (0.5255)  loss_bbox_0_unscaled: 0.3637 (0.3884)  loss_giou_0_unscaled: 0.8373 (0.8830)  cardinality_error_0_unscaled: 79.0000 (78.9893)  loss_ce_1_unscaled: 0.4481 (0.5031)  loss_bbox_1_unscaled: 0.3683 (0.3974)  loss_giou_1_unscaled: 0.8526 (0.8991)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2537  data: 0.0161  max mem: 3073
+Epoch: [0]  [   90/28764]  eta: 2:11:45  lr: 0.000040  class_error: 0.00  grad_norm: 40.81  loss: 13.4397 (14.3111)  loss_ce: 0.8145 (0.8810)  loss_bbox: 1.9040 (2.0683)  loss_giou: 1.7759 (1.8531)  loss_ce_0: 0.9096 (1.0359)  loss_bbox_0: 1.8186 (1.9374)  loss_giou_0: 1.7242 (1.7678)  loss_ce_1: 0.8766 (0.9925)  loss_bbox_1: 1.8345 (1.9759)  loss_giou_1: 1.7881 (1.7992)  loss_ce_unscaled: 0.4072 (0.4405)  class_error_unscaled: 0.0000 (2.6374)  loss_bbox_unscaled: 0.3808 (0.4137)  loss_giou_unscaled: 0.8879 (0.9266)  cardinality_error_unscaled: 29.0000 (28.9560)  loss_ce_0_unscaled: 0.4548 (0.5180)  loss_bbox_0_unscaled: 0.3637 (0.3875)  loss_giou_0_unscaled: 0.8621 (0.8839)  cardinality_error_0_unscaled: 79.0000 (78.9905)  loss_ce_1_unscaled: 0.4383 (0.4962)  loss_bbox_1_unscaled: 0.3669 (0.3952)  loss_giou_1_unscaled: 0.8940 (0.8996)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2544  data: 0.0160  max mem: 3073
+Epoch: [0]  [  100/28764]  eta: 2:10:43  lr: 0.000040  class_error: 0.00  grad_norm: 38.81  loss: 13.0848 (14.1646)  loss_ce: 0.8187 (0.8745)  loss_bbox: 1.7411 (2.0413)  loss_giou: 1.7636 (1.8304)  loss_ce_0: 0.9019 (1.0216)  loss_bbox_0: 1.7063 (1.9243)  loss_giou_0: 1.7242 (1.7494)  loss_ce_1: 0.8790 (0.9823)  loss_bbox_1: 1.7059 (1.9602)  loss_giou_1: 1.7528 (1.7805)  loss_ce_unscaled: 0.4094 (0.4373)  class_error_unscaled: 0.0000 (2.3762)  loss_bbox_unscaled: 0.3482 (0.4083)  loss_giou_unscaled: 0.8818 (0.9152)  cardinality_error_unscaled: 29.0000 (28.9604)  loss_ce_0_unscaled: 0.4509 (0.5108)  loss_bbox_0_unscaled: 0.3413 (0.3849)  loss_giou_0_unscaled: 0.8621 (0.8747)  cardinality_error_0_unscaled: 79.0000 (78.9914)  loss_ce_1_unscaled: 0.4395 (0.4912)  loss_bbox_1_unscaled: 0.3412 (0.3920)  loss_giou_1_unscaled: 0.8764 (0.8902)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2552  data: 0.0162  max mem: 3073
+Epoch: [0]  [  110/28764]  eta: 2:09:47  lr: 0.000040  class_error: 0.00  grad_norm: 21.62  loss: 12.5974 (14.0355)  loss_ce: 0.8063 (0.8694)  loss_bbox: 1.6705 (2.0150)  loss_giou: 1.6531 (1.8102)  loss_ce_0: 0.8911 (1.0080)  loss_bbox_0: 1.6991 (1.9111)  loss_giou_0: 1.6212 (1.7385)  loss_ce_1: 0.8862 (0.9740)  loss_bbox_1: 1.7059 (1.9431)  loss_giou_1: 1.6853 (1.7661)  loss_ce_unscaled: 0.4032 (0.4347)  class_error_unscaled: 0.0000 (2.1622)  loss_bbox_unscaled: 0.3341 (0.4030)  loss_giou_unscaled: 0.8266 (0.9051)  cardinality_error_unscaled: 29.0000 (28.9640)  loss_ce_0_unscaled: 0.4455 (0.5040)  loss_bbox_0_unscaled: 0.3398 (0.3822)  loss_giou_0_unscaled: 0.8106 (0.8692)  cardinality_error_0_unscaled: 79.0000 (78.9922)  loss_ce_1_unscaled: 0.4431 (0.4870)  loss_bbox_1_unscaled: 0.3412 (0.3886)  loss_giou_1_unscaled: 0.8426 (0.8831)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2540  data: 0.0162  max mem: 3073
+Epoch: [0]  [  120/28764]  eta: 2:08:56  lr: 0.000040  class_error: 0.00  grad_norm: 57.28  loss: 12.8145 (13.9781)  loss_ce: 0.7927 (0.8641)  loss_bbox: 1.6832 (2.0051)  loss_giou: 1.7240 (1.8003)  loss_ce_0: 0.8358 (0.9970)  loss_bbox_0: 1.7557 (1.9098)  loss_giou_0: 1.7624 (1.7353)  loss_ce_1: 0.8864 (0.9678)  loss_bbox_1: 1.7207 (1.9376)  loss_giou_1: 1.7463 (1.7612)  loss_ce_unscaled: 0.3963 (0.4321)  class_error_unscaled: 0.0000 (1.9835)  loss_bbox_unscaled: 0.3366 (0.4010)  loss_giou_unscaled: 0.8620 (0.9002)  cardinality_error_unscaled: 29.0000 (28.9669)  loss_ce_0_unscaled: 0.4179 (0.4985)  loss_bbox_0_unscaled: 0.3511 (0.3820)  loss_giou_0_unscaled: 0.8812 (0.8677)  cardinality_error_0_unscaled: 79.0000 (78.9928)  loss_ce_1_unscaled: 0.4432 (0.4839)  loss_bbox_1_unscaled: 0.3441 (0.3875)  loss_giou_1_unscaled: 0.8731 (0.8806)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2523  data: 0.0160  max mem: 3073
+Epoch: [0]  [  130/28764]  eta: 2:08:15  lr: 0.000040  class_error: 0.00  grad_norm: 65.48  loss: 12.5378 (13.8270)  loss_ce: 0.7872 (0.8584)  loss_bbox: 1.6586 (1.9788)  loss_giou: 1.6293 (1.7771)  loss_ce_0: 0.8416 (0.9873)  loss_bbox_0: 1.7237 (1.8878)  loss_giou_0: 1.5855 (1.7198)  loss_ce_1: 0.8736 (0.9596)  loss_bbox_1: 1.7298 (1.9142)  loss_giou_1: 1.5642 (1.7440)  loss_ce_unscaled: 0.3936 (0.4292)  class_error_unscaled: 0.0000 (1.8321)  loss_bbox_unscaled: 0.3317 (0.3958)  loss_giou_unscaled: 0.8146 (0.8885)  cardinality_error_unscaled: 29.0000 (28.9695)  loss_ce_0_unscaled: 0.4208 (0.4937)  loss_bbox_0_unscaled: 0.3447 (0.3776)  loss_giou_0_unscaled: 0.7927 (0.8599)  cardinality_error_0_unscaled: 79.0000 (78.9934)  loss_ce_1_unscaled: 0.4368 (0.4798)  loss_bbox_1_unscaled: 0.3460 (0.3828)  loss_giou_1_unscaled: 0.7821 (0.8720)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2520  data: 0.0161  max mem: 3073
+Epoch: [0]  [  140/28764]  eta: 2:07:42  lr: 0.000040  class_error: 0.00  grad_norm: 19.28  loss: 12.3284 (13.7009)  loss_ce: 0.8046 (0.8546)  loss_bbox: 1.6556 (1.9581)  loss_giou: 1.5907 (1.7606)  loss_ce_0: 0.8478 (0.9764)  loss_bbox_0: 1.6760 (1.8690)  loss_giou_0: 1.5773 (1.7066)  loss_ce_1: 0.8443 (0.9521)  loss_bbox_1: 1.6673 (1.8947)  loss_giou_1: 1.5642 (1.7288)  loss_ce_unscaled: 0.4023 (0.4273)  class_error_unscaled: 0.0000 (1.7021)  loss_bbox_unscaled: 0.3311 (0.3916)  loss_giou_unscaled: 0.7953 (0.8803)  cardinality_error_unscaled: 29.0000 (28.9716)  loss_ce_0_unscaled: 0.4239 (0.4882)  loss_bbox_0_unscaled: 0.3352 (0.3738)  loss_giou_0_unscaled: 0.7887 (0.8533)  cardinality_error_0_unscaled: 79.0000 (78.9939)  loss_ce_1_unscaled: 0.4222 (0.4760)  loss_bbox_1_unscaled: 0.3335 (0.3789)  loss_giou_1_unscaled: 0.7821 (0.8644)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2531  data: 0.0164  max mem: 3073
+Epoch: [0]  [  150/28764]  eta: 2:07:09  lr: 0.000040  class_error: 0.00  grad_norm: 111.93  loss: 12.5891 (13.6347)  loss_ce: 0.8063 (0.8508)  loss_bbox: 1.6801 (1.9471)  loss_giou: 1.6274 (1.7484)  loss_ce_0: 0.8278 (0.9659)  loss_bbox_0: 1.6953 (1.8673)  loss_giou_0: 1.6481 (1.7015)  loss_ce_1: 0.8304 (0.9437)  loss_bbox_1: 1.7524 (1.8891)  loss_giou_1: 1.5896 (1.7208)  loss_ce_unscaled: 0.4032 (0.4254)  class_error_unscaled: 0.0000 (1.5894)  loss_bbox_unscaled: 0.3360 (0.3894)  loss_giou_unscaled: 0.8137 (0.8742)  cardinality_error_unscaled: 29.0000 (28.9735)  loss_ce_0_unscaled: 0.4139 (0.4829)  loss_bbox_0_unscaled: 0.3391 (0.3735)  loss_giou_0_unscaled: 0.8241 (0.8508)  cardinality_error_0_unscaled: 79.0000 (78.9943)  loss_ce_1_unscaled: 0.4152 (0.4718)  loss_bbox_1_unscaled: 0.3505 (0.3778)  loss_giou_1_unscaled: 0.7948 (0.8604)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2527  data: 0.0163  max mem: 3073
+Epoch: [0]  [  160/28764]  eta: 2:06:41  lr: 0.000040  class_error: 0.00  grad_norm: 51.66  loss: 12.5891 (13.5425)  loss_ce: 0.7702 (0.8466)  loss_bbox: 1.7824 (1.9319)  loss_giou: 1.6514 (1.7371)  loss_ce_0: 0.8286 (0.9573)  loss_bbox_0: 1.7560 (1.8541)  loss_giou_0: 1.6180 (1.6931)  loss_ce_1: 0.8105 (0.9365)  loss_bbox_1: 1.7343 (1.8746)  loss_giou_1: 1.6709 (1.7112)  loss_ce_unscaled: 0.3851 (0.4233)  class_error_unscaled: 0.0000 (1.4907)  loss_bbox_unscaled: 0.3565 (0.3864)  loss_giou_unscaled: 0.8257 (0.8685)  cardinality_error_unscaled: 29.0000 (28.9752)  loss_ce_0_unscaled: 0.4143 (0.4787)  loss_bbox_0_unscaled: 0.3512 (0.3708)  loss_giou_0_unscaled: 0.8090 (0.8466)  cardinality_error_0_unscaled: 79.0000 (78.9946)  loss_ce_1_unscaled: 0.4053 (0.4683)  loss_bbox_1_unscaled: 0.3469 (0.3749)  loss_giou_1_unscaled: 0.8354 (0.8556)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2521  data: 0.0160  max mem: 3073
+Epoch: [0]  [  170/28764]  eta: 2:06:19  lr: 0.000040  class_error: 0.00  grad_norm: 82.54  loss: 11.9236 (13.4505)  loss_ce: 0.7910 (0.8455)  loss_bbox: 1.7752 (1.9144)  loss_giou: 1.6200 (1.7234)  loss_ce_0: 0.8950 (0.9554)  loss_bbox_0: 1.7478 (1.8392)  loss_giou_0: 1.5647 (1.6810)  loss_ce_1: 0.8583 (0.9341)  loss_bbox_1: 1.7329 (1.8597)  loss_giou_1: 1.5876 (1.6978)  loss_ce_unscaled: 0.3955 (0.4228)  class_error_unscaled: 0.0000 (1.4035)  loss_bbox_unscaled: 0.3550 (0.3829)  loss_giou_unscaled: 0.8100 (0.8617)  cardinality_error_unscaled: 29.0000 (28.9766)  loss_ce_0_unscaled: 0.4475 (0.4777)  loss_bbox_0_unscaled: 0.3496 (0.3678)  loss_giou_0_unscaled: 0.7823 (0.8405)  cardinality_error_0_unscaled: 79.0000 (78.9949)  loss_ce_1_unscaled: 0.4292 (0.4670)  loss_bbox_1_unscaled: 0.3466 (0.3719)  loss_giou_1_unscaled: 0.7938 (0.8489)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2532  data: 0.0160  max mem: 3073
+Epoch: [0]  [  180/28764]  eta: 2:06:00  lr: 0.000040  class_error: 0.00  grad_norm: 133.66  loss: 11.6073 (13.2985)  loss_ce: 0.8083 (0.8429)  loss_bbox: 1.7086 (1.8942)  loss_giou: 1.3243 (1.6960)  loss_ce_0: 0.8678 (0.9481)  loss_bbox_0: 1.6595 (1.8217)  loss_giou_0: 1.3793 (1.6550)  loss_ce_1: 0.8890 (0.9296)  loss_bbox_1: 1.6530 (1.8400)  loss_giou_1: 1.3510 (1.6709)  loss_ce_unscaled: 0.4041 (0.4215)  class_error_unscaled: 0.0000 (1.3260)  loss_bbox_unscaled: 0.3417 (0.3788)  loss_giou_unscaled: 0.6621 (0.8480)  cardinality_error_unscaled: 29.0000 (28.9779)  loss_ce_0_unscaled: 0.4339 (0.4740)  loss_bbox_0_unscaled: 0.3319 (0.3643)  loss_giou_0_unscaled: 0.6896 (0.8275)  cardinality_error_0_unscaled: 79.0000 (78.9952)  loss_ce_1_unscaled: 0.4445 (0.4648)  loss_bbox_1_unscaled: 0.3306 (0.3680)  loss_giou_1_unscaled: 0.6755 (0.8354)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2544  data: 0.0160  max mem: 3073
+Epoch: [0]  [  190/28764]  eta: 2:05:41  lr: 0.000040  class_error: 0.00  grad_norm: 40.47  loss: 11.3457 (13.1960)  loss_ce: 0.7819 (0.8388)  loss_bbox: 1.6395 (1.8797)  loss_giou: 1.3133 (1.6789)  loss_ce_0: 0.7964 (0.9410)  loss_bbox_0: 1.5985 (1.8112)  loss_giou_0: 1.3456 (1.6394)  loss_ce_1: 0.8385 (0.9235)  loss_bbox_1: 1.6132 (1.8282)  loss_giou_1: 1.3481 (1.6551)  loss_ce_unscaled: 0.3909 (0.4194)  class_error_unscaled: 0.0000 (1.2565)  loss_bbox_unscaled: 0.3279 (0.3759)  loss_giou_unscaled: 0.6567 (0.8395)  cardinality_error_unscaled: 29.0000 (28.9791)  loss_ce_0_unscaled: 0.3982 (0.4705)  loss_bbox_0_unscaled: 0.3197 (0.3622)  loss_giou_0_unscaled: 0.6728 (0.8197)  cardinality_error_0_unscaled: 79.0000 (78.9955)  loss_ce_1_unscaled: 0.4193 (0.4618)  loss_bbox_1_unscaled: 0.3226 (0.3656)  loss_giou_1_unscaled: 0.6741 (0.8276)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2541  data: 0.0160  max mem: 3073
+Epoch: [0]  [  200/28764]  eta: 2:05:23  lr: 0.000040  class_error: 0.00  grad_norm: 47.05  loss: 11.1911 (13.1280)  loss_ce: 0.7675 (0.8357)  loss_bbox: 1.5772 (1.8693)  loss_giou: 1.4075 (1.6706)  loss_ce_0: 0.8235 (0.9359)  loss_bbox_0: 1.5872 (1.8014)  loss_giou_0: 1.3258 (1.6312)  loss_ce_1: 0.8271 (0.9188)  loss_bbox_1: 1.6128 (1.8177)  loss_giou_1: 1.3641 (1.6474)  loss_ce_unscaled: 0.3838 (0.4179)  class_error_unscaled: 0.0000 (1.1940)  loss_bbox_unscaled: 0.3154 (0.3739)  loss_giou_unscaled: 0.7037 (0.8353)  cardinality_error_unscaled: 29.0000 (28.9801)  loss_ce_0_unscaled: 0.4118 (0.4679)  loss_bbox_0_unscaled: 0.3174 (0.3603)  loss_giou_0_unscaled: 0.6629 (0.8156)  cardinality_error_0_unscaled: 79.0000 (78.9957)  loss_ce_1_unscaled: 0.4136 (0.4594)  loss_bbox_1_unscaled: 0.3226 (0.3635)  loss_giou_1_unscaled: 0.6820 (0.8237)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2534  data: 0.0160  max mem: 3073
+Epoch: [0]  [  210/28764]  eta: 2:05:08  lr: 0.000040  class_error: 0.00  grad_norm: 109.18  loss: 10.9253 (13.0029)  loss_ce: 0.7675 (0.8325)  loss_bbox: 1.4630 (1.8449)  loss_giou: 1.3801 (1.6562)  loss_ce_0: 0.8134 (0.9292)  loss_bbox_0: 1.4725 (1.7801)  loss_giou_0: 1.3258 (1.6183)  loss_ce_1: 0.8150 (0.9126)  loss_bbox_1: 1.4025 (1.7952)  loss_giou_1: 1.3167 (1.6337)  loss_ce_unscaled: 0.3838 (0.4163)  class_error_unscaled: 0.0000 (1.1374)  loss_bbox_unscaled: 0.2926 (0.3690)  loss_giou_unscaled: 0.6900 (0.8281)  cardinality_error_unscaled: 29.0000 (28.9810)  loss_ce_0_unscaled: 0.4067 (0.4646)  loss_bbox_0_unscaled: 0.2945 (0.3560)  loss_giou_0_unscaled: 0.6629 (0.8092)  cardinality_error_0_unscaled: 79.0000 (78.9959)  loss_ce_1_unscaled: 0.4075 (0.4563)  loss_bbox_1_unscaled: 0.2805 (0.3590)  loss_giou_1_unscaled: 0.6584 (0.8168)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2539  data: 0.0160  max mem: 3073
+Epoch: [0]  [  220/28764]  eta: 2:04:56  lr: 0.000040  class_error: 0.00  grad_norm: 64.80  loss: 10.9253 (12.9345)  loss_ce: 0.7330 (0.8279)  loss_bbox: 1.4934 (1.8368)  loss_giou: 1.3801 (1.6478)  loss_ce_0: 0.7676 (0.9229)  loss_bbox_0: 1.3957 (1.7706)  loss_giou_0: 1.3668 (1.6099)  loss_ce_1: 0.7777 (0.9063)  loss_bbox_1: 1.3846 (1.7866)  loss_giou_1: 1.3712 (1.6256)  loss_ce_unscaled: 0.3665 (0.4140)  class_error_unscaled: 0.0000 (1.0860)  loss_bbox_unscaled: 0.2987 (0.3674)  loss_giou_unscaled: 0.6900 (0.8239)  cardinality_error_unscaled: 29.0000 (28.9819)  loss_ce_0_unscaled: 0.3838 (0.4614)  loss_bbox_0_unscaled: 0.2791 (0.3541)  loss_giou_0_unscaled: 0.6834 (0.8050)  cardinality_error_0_unscaled: 79.0000 (78.9961)  loss_ce_1_unscaled: 0.3889 (0.4532)  loss_bbox_1_unscaled: 0.2769 (0.3573)  loss_giou_1_unscaled: 0.6856 (0.8128)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2549  data: 0.0160  max mem: 3073
+Epoch: [0]  [  230/28764]  eta: 2:04:41  lr: 0.000040  class_error: 0.00  grad_norm: 84.46  loss: 10.1092 (12.8238)  loss_ce: 0.7669 (0.8265)  loss_bbox: 1.4567 (1.8175)  loss_giou: 1.4314 (1.6346)  loss_ce_0: 0.7676 (0.9194)  loss_bbox_0: 1.3351 (1.7494)  loss_giou_0: 1.3741 (1.5952)  loss_ce_1: 0.7945 (0.9033)  loss_bbox_1: 1.3846 (1.7670)  loss_giou_1: 1.3471 (1.6109)  loss_ce_unscaled: 0.3834 (0.4133)  class_error_unscaled: 0.0000 (1.0390)  loss_bbox_unscaled: 0.2913 (0.3635)  loss_giou_unscaled: 0.7157 (0.8173)  cardinality_error_unscaled: 29.0000 (28.9827)  loss_ce_0_unscaled: 0.3838 (0.4597)  loss_bbox_0_unscaled: 0.2670 (0.3499)  loss_giou_0_unscaled: 0.6871 (0.7976)  cardinality_error_0_unscaled: 79.0000 (78.9963)  loss_ce_1_unscaled: 0.3973 (0.4516)  loss_bbox_1_unscaled: 0.2769 (0.3534)  loss_giou_1_unscaled: 0.6735 (0.8055)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2541  data: 0.0160  max mem: 3073
+Epoch: [0]  [  240/28764]  eta: 2:04:28  lr: 0.000040  class_error: 0.00  grad_norm: 102.45  loss: 10.1988 (12.7432)  loss_ce: 0.8032 (0.8243)  loss_bbox: 1.4475 (1.8028)  loss_giou: 1.4231 (1.6257)  loss_ce_0: 0.8272 (0.9152)  loss_bbox_0: 1.3351 (1.7355)  loss_giou_0: 1.3780 (1.5852)  loss_ce_1: 0.8054 (0.8988)  loss_bbox_1: 1.4085 (1.7540)  loss_giou_1: 1.3195 (1.6017)  loss_ce_unscaled: 0.4016 (0.4122)  class_error_unscaled: 0.0000 (0.9959)  loss_bbox_unscaled: 0.2895 (0.3606)  loss_giou_unscaled: 0.7116 (0.8128)  cardinality_error_unscaled: 29.0000 (28.9834)  loss_ce_0_unscaled: 0.4136 (0.4576)  loss_bbox_0_unscaled: 0.2670 (0.3471)  loss_giou_0_unscaled: 0.6890 (0.7926)  cardinality_error_0_unscaled: 79.0000 (78.9964)  loss_ce_1_unscaled: 0.4027 (0.4494)  loss_bbox_1_unscaled: 0.2817 (0.3508)  loss_giou_1_unscaled: 0.6597 (0.8008)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2529  data: 0.0159  max mem: 3073
+Epoch: [0]  [  250/28764]  eta: 2:04:16  lr: 0.000040  class_error: 0.00  grad_norm: 69.75  loss: 10.9158 (12.6659)  loss_ce: 0.8032 (0.8233)  loss_bbox: 1.3894 (1.7921)  loss_giou: 1.2778 (1.6116)  loss_ce_0: 0.8131 (0.9122)  loss_bbox_0: 1.3908 (1.7258)  loss_giou_0: 1.2435 (1.5725)  loss_ce_1: 0.8088 (0.8964)  loss_bbox_1: 1.4085 (1.7435)  loss_giou_1: 1.2728 (1.5885)  loss_ce_unscaled: 0.4016 (0.4117)  class_error_unscaled: 0.0000 (0.9562)  loss_bbox_unscaled: 0.2779 (0.3584)  loss_giou_unscaled: 0.6389 (0.8058)  cardinality_error_unscaled: 29.0000 (28.9841)  loss_ce_0_unscaled: 0.4065 (0.4561)  loss_bbox_0_unscaled: 0.2782 (0.3452)  loss_giou_0_unscaled: 0.6217 (0.7863)  cardinality_error_0_unscaled: 79.0000 (78.9966)  loss_ce_1_unscaled: 0.4044 (0.4482)  loss_bbox_1_unscaled: 0.2817 (0.3487)  loss_giou_1_unscaled: 0.6364 (0.7943)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2536  data: 0.0159  max mem: 3073
+Epoch: [0]  [  260/28764]  eta: 2:04:07  lr: 0.000040  class_error: 0.00  grad_norm: 87.58  loss: 10.8729 (12.6166)  loss_ce: 0.7622 (0.8206)  loss_bbox: 1.4932 (1.7866)  loss_giou: 1.3163 (1.6037)  loss_ce_0: 0.8044 (0.9071)  loss_bbox_0: 1.4080 (1.7217)  loss_giou_0: 1.2577 (1.5649)  loss_ce_1: 0.8088 (0.8923)  loss_bbox_1: 1.4726 (1.7395)  loss_giou_1: 1.2730 (1.5803)  loss_ce_unscaled: 0.3811 (0.4103)  class_error_unscaled: 0.0000 (0.9195)  loss_bbox_unscaled: 0.2986 (0.3573)  loss_giou_unscaled: 0.6581 (0.8019)  cardinality_error_unscaled: 29.0000 (28.9847)  loss_ce_0_unscaled: 0.4022 (0.4535)  loss_bbox_0_unscaled: 0.2816 (0.3443)  loss_giou_0_unscaled: 0.6289 (0.7824)  cardinality_error_0_unscaled: 79.0000 (78.9967)  loss_ce_1_unscaled: 0.4044 (0.4462)  loss_bbox_1_unscaled: 0.2945 (0.3479)  loss_giou_1_unscaled: 0.6365 (0.7902)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2547  data: 0.0160  max mem: 3073
+Epoch: [0]  [  270/28764]  eta: 2:04:00  lr: 0.000040  class_error: 0.00  grad_norm: 118.92  loss: 11.2371 (12.5873)  loss_ce: 0.7439 (0.8172)  loss_bbox: 1.7011 (1.7840)  loss_giou: 1.4041 (1.6016)  loss_ce_0: 0.7465 (0.9005)  loss_bbox_0: 1.5839 (1.7191)  loss_giou_0: 1.3971 (1.5633)  loss_ce_1: 0.7485 (0.8871)  loss_bbox_1: 1.5884 (1.7356)  loss_giou_1: 1.4013 (1.5790)  loss_ce_unscaled: 0.3719 (0.4086)  class_error_unscaled: 0.0000 (0.8856)  loss_bbox_unscaled: 0.3402 (0.3568)  loss_giou_unscaled: 0.7021 (0.8008)  cardinality_error_unscaled: 29.0000 (28.9852)  loss_ce_0_unscaled: 0.3733 (0.4502)  loss_bbox_0_unscaled: 0.3168 (0.3438)  loss_giou_0_unscaled: 0.6986 (0.7816)  cardinality_error_0_unscaled: 79.0000 (78.9968)  loss_ce_1_unscaled: 0.3742 (0.4435)  loss_bbox_1_unscaled: 0.3177 (0.3471)  loss_giou_1_unscaled: 0.7007 (0.7895)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2561  data: 0.0159  max mem: 3073
+Epoch: [0]  [  280/28764]  eta: 2:03:55  lr: 0.000040  class_error: 0.00  grad_norm: 74.61  loss: 10.8021 (12.5228)  loss_ce: 0.7099 (0.8138)  loss_bbox: 1.4363 (1.7716)  loss_giou: 1.4846 (1.5944)  loss_ce_0: 0.7364 (0.8945)  loss_bbox_0: 1.4719 (1.7085)  loss_giou_0: 1.5035 (1.5581)  loss_ce_1: 0.7234 (0.8821)  loss_bbox_1: 1.4081 (1.7255)  loss_giou_1: 1.5302 (1.5743)  loss_ce_unscaled: 0.3550 (0.4069)  class_error_unscaled: 0.0000 (0.8541)  loss_bbox_unscaled: 0.2873 (0.3543)  loss_giou_unscaled: 0.7423 (0.7972)  cardinality_error_unscaled: 29.0000 (28.9858)  loss_ce_0_unscaled: 0.3682 (0.4473)  loss_bbox_0_unscaled: 0.2944 (0.3417)  loss_giou_0_unscaled: 0.7518 (0.7791)  cardinality_error_0_unscaled: 79.0000 (78.9969)  loss_ce_1_unscaled: 0.3617 (0.4410)  loss_bbox_1_unscaled: 0.2816 (0.3451)  loss_giou_1_unscaled: 0.7651 (0.7871)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2578  data: 0.0158  max mem: 3073
+Epoch: [0]  [  290/28764]  eta: 2:03:45  lr: 0.000040  class_error: 0.00  grad_norm: 39.67  loss: 10.8021 (12.5126)  loss_ce: 0.7176 (0.8111)  loss_bbox: 1.5016 (1.7721)  loss_giou: 1.4300 (1.5924)  loss_ce_0: 0.7462 (0.8902)  loss_bbox_0: 1.4792 (1.7110)  loss_giou_0: 1.4688 (1.5569)  loss_ce_1: 0.7322 (0.8781)  loss_bbox_1: 1.5169 (1.7279)  loss_giou_1: 1.4229 (1.5729)  loss_ce_unscaled: 0.3588 (0.4056)  class_error_unscaled: 0.0000 (0.8247)  loss_bbox_unscaled: 0.3003 (0.3544)  loss_giou_unscaled: 0.7150 (0.7962)  cardinality_error_unscaled: 29.0000 (28.9863)  loss_ce_0_unscaled: 0.3731 (0.4451)  loss_bbox_0_unscaled: 0.2958 (0.3422)  loss_giou_0_unscaled: 0.7344 (0.7784)  cardinality_error_0_unscaled: 79.0000 (78.9970)  loss_ce_1_unscaled: 0.3661 (0.4391)  loss_bbox_1_unscaled: 0.3034 (0.3456)  loss_giou_1_unscaled: 0.7115 (0.7864)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2562  data: 0.0158  max mem: 3073
+Epoch: [0]  [  300/28764]  eta: 2:03:36  lr: 0.000040  class_error: 0.00  grad_norm: 34.42  loss: 12.2137 (12.5168)  loss_ce: 0.7695 (0.8100)  loss_bbox: 1.7895 (1.7762)  loss_giou: 1.4352 (1.5915)  loss_ce_0: 0.7653 (0.8879)  loss_bbox_0: 1.7153 (1.7141)  loss_giou_0: 1.4834 (1.5572)  loss_ce_1: 0.7930 (0.8762)  loss_bbox_1: 1.7795 (1.7317)  loss_giou_1: 1.4232 (1.5721)  loss_ce_unscaled: 0.3848 (0.4050)  class_error_unscaled: 0.0000 (0.7973)  loss_bbox_unscaled: 0.3579 (0.3552)  loss_giou_unscaled: 0.7176 (0.7958)  cardinality_error_unscaled: 29.0000 (28.9867)  loss_ce_0_unscaled: 0.3827 (0.4440)  loss_bbox_0_unscaled: 0.3431 (0.3428)  loss_giou_0_unscaled: 0.7417 (0.7786)  cardinality_error_0_unscaled: 79.0000 (78.9971)  loss_ce_1_unscaled: 0.3965 (0.4381)  loss_bbox_1_unscaled: 0.3559 (0.3463)  loss_giou_1_unscaled: 0.7116 (0.7861)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2542  data: 0.0158  max mem: 3073
+Epoch: [0]  [  310/28764]  eta: 2:03:30  lr: 0.000040  class_error: 0.00  grad_norm: 105.93  loss: 12.1342 (12.4942)  loss_ce: 0.7570 (0.8083)  loss_bbox: 1.7895 (1.7740)  loss_giou: 1.5354 (1.5887)  loss_ce_0: 0.7723 (0.8847)  loss_bbox_0: 1.7153 (1.7125)  loss_giou_0: 1.4923 (1.5544)  loss_ce_1: 0.7746 (0.8726)  loss_bbox_1: 1.7795 (1.7302)  loss_giou_1: 1.4807 (1.5687)  loss_ce_unscaled: 0.3785 (0.4042)  class_error_unscaled: 0.0000 (0.7717)  loss_bbox_unscaled: 0.3579 (0.3548)  loss_giou_unscaled: 0.7677 (0.7944)  cardinality_error_unscaled: 29.0000 (28.9871)  loss_ce_0_unscaled: 0.3862 (0.4424)  loss_bbox_0_unscaled: 0.3431 (0.3425)  loss_giou_0_unscaled: 0.7461 (0.7772)  cardinality_error_0_unscaled: 79.0000 (78.9972)  loss_ce_1_unscaled: 0.3873 (0.4363)  loss_bbox_1_unscaled: 0.3559 (0.3460)  loss_giou_1_unscaled: 0.7404 (0.7844)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2556  data: 0.0160  max mem: 3073
+Epoch: [0]  [  320/28764]  eta: 2:03:23  lr: 0.000040  class_error: 0.00  grad_norm: 48.70  loss: 11.5692 (12.4860)  loss_ce: 0.7376 (0.8061)  loss_bbox: 1.6884 (1.7745)  loss_giou: 1.5971 (1.5878)  loss_ce_0: 0.7705 (0.8809)  loss_bbox_0: 1.6315 (1.7140)  loss_giou_0: 1.5542 (1.5542)  loss_ce_1: 0.7324 (0.8685)  loss_bbox_1: 1.6292 (1.7320)  loss_giou_1: 1.5358 (1.5682)  loss_ce_unscaled: 0.3688 (0.4030)  class_error_unscaled: 0.0000 (0.7477)  loss_bbox_unscaled: 0.3377 (0.3549)  loss_giou_unscaled: 0.7985 (0.7939)  cardinality_error_unscaled: 29.0000 (28.9875)  loss_ce_0_unscaled: 0.3852 (0.4404)  loss_bbox_0_unscaled: 0.3263 (0.3428)  loss_giou_0_unscaled: 0.7771 (0.7771)  cardinality_error_0_unscaled: 79.0000 (78.9973)  loss_ce_1_unscaled: 0.3662 (0.4342)  loss_bbox_1_unscaled: 0.3258 (0.3464)  loss_giou_1_unscaled: 0.7679 (0.7841)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2561  data: 0.0159  max mem: 3073
+Epoch: [0]  [  330/28764]  eta: 2:03:13  lr: 0.000040  class_error: 0.00  grad_norm: 40.98  loss: 11.4678 (12.4649)  loss_ce: 0.7376 (0.8039)  loss_bbox: 1.6855 (1.7747)  loss_giou: 1.4475 (1.5831)  loss_ce_0: 0.7392 (0.8767)  loss_bbox_0: 1.6315 (1.7154)  loss_giou_0: 1.4134 (1.5498)  loss_ce_1: 0.7222 (0.8648)  loss_bbox_1: 1.6292 (1.7322)  loss_giou_1: 1.4438 (1.5643)  loss_ce_unscaled: 0.3688 (0.4020)  class_error_unscaled: 0.0000 (0.7251)  loss_bbox_unscaled: 0.3371 (0.3549)  loss_giou_unscaled: 0.7238 (0.7916)  cardinality_error_unscaled: 29.0000 (28.9879)  loss_ce_0_unscaled: 0.3696 (0.4383)  loss_bbox_0_unscaled: 0.3263 (0.3431)  loss_giou_0_unscaled: 0.7067 (0.7749)  cardinality_error_0_unscaled: 79.0000 (78.9974)  loss_ce_1_unscaled: 0.3611 (0.4324)  loss_bbox_1_unscaled: 0.3258 (0.3464)  loss_giou_1_unscaled: 0.7219 (0.7821)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2537  data: 0.0157  max mem: 3073
+Epoch: [0]  [  340/28764]  eta: 2:03:04  lr: 0.000040  class_error: 0.00  grad_norm: 40.84  loss: 11.1097 (12.4305)  loss_ce: 0.7351 (0.8019)  loss_bbox: 1.6375 (1.7690)  loss_giou: 1.4383 (1.5790)  loss_ce_0: 0.7245 (0.8733)  loss_bbox_0: 1.5268 (1.7107)  loss_giou_0: 1.4134 (1.5467)  loss_ce_1: 0.6990 (0.8618)  loss_bbox_1: 1.5723 (1.7273)  loss_giou_1: 1.4438 (1.5607)  loss_ce_unscaled: 0.3675 (0.4009)  class_error_unscaled: 0.0000 (0.7038)  loss_bbox_unscaled: 0.3275 (0.3538)  loss_giou_unscaled: 0.7191 (0.7895)  cardinality_error_unscaled: 29.0000 (28.9883)  loss_ce_0_unscaled: 0.3623 (0.4367)  loss_bbox_0_unscaled: 0.3054 (0.3421)  loss_giou_0_unscaled: 0.7067 (0.7734)  cardinality_error_0_unscaled: 79.0000 (78.9975)  loss_ce_1_unscaled: 0.3495 (0.4309)  loss_bbox_1_unscaled: 0.3145 (0.3455)  loss_giou_1_unscaled: 0.7219 (0.7804)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2519  data: 0.0156  max mem: 3073
+Epoch: [0]  [  350/28764]  eta: 2:02:55  lr: 0.000040  class_error: 0.00  grad_norm: 42.68  loss: 11.1491 (12.4130)  loss_ce: 0.7278 (0.7997)  loss_bbox: 1.5944 (1.7634)  loss_giou: 1.4917 (1.5806)  loss_ce_0: 0.7608 (0.8709)  loss_bbox_0: 1.5874 (1.7057)  loss_giou_0: 1.4883 (1.5489)  loss_ce_1: 0.7446 (0.8591)  loss_bbox_1: 1.5792 (1.7223)  loss_giou_1: 1.4536 (1.5624)  loss_ce_unscaled: 0.3639 (0.3999)  class_error_unscaled: 0.0000 (0.6838)  loss_bbox_unscaled: 0.3189 (0.3527)  loss_giou_unscaled: 0.7458 (0.7903)  cardinality_error_unscaled: 29.0000 (28.9886)  loss_ce_0_unscaled: 0.3804 (0.4354)  loss_bbox_0_unscaled: 0.3175 (0.3411)  loss_giou_0_unscaled: 0.7441 (0.7745)  cardinality_error_0_unscaled: 79.0000 (78.9975)  loss_ce_1_unscaled: 0.3723 (0.4295)  loss_bbox_1_unscaled: 0.3158 (0.3445)  loss_giou_1_unscaled: 0.7268 (0.7812)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2518  data: 0.0157  max mem: 3073
+Epoch: [0]  [  360/28764]  eta: 2:02:46  lr: 0.000040  class_error: 0.00  grad_norm: 59.35  loss: 10.7896 (12.3716)  loss_ce: 0.7336 (0.7972)  loss_bbox: 1.5195 (1.7563)  loss_giou: 1.4265 (1.5762)  loss_ce_0: 0.7608 (0.8677)  loss_bbox_0: 1.5486 (1.7003)  loss_giou_0: 1.3252 (1.5440)  loss_ce_1: 0.7505 (0.8558)  loss_bbox_1: 1.4938 (1.7165)  loss_giou_1: 1.4022 (1.5575)  loss_ce_unscaled: 0.3668 (0.3986)  class_error_unscaled: 0.0000 (0.6648)  loss_bbox_unscaled: 0.3039 (0.3513)  loss_giou_unscaled: 0.7133 (0.7881)  cardinality_error_unscaled: 29.0000 (28.9889)  loss_ce_0_unscaled: 0.3804 (0.4339)  loss_bbox_0_unscaled: 0.3097 (0.3401)  loss_giou_0_unscaled: 0.6626 (0.7720)  cardinality_error_0_unscaled: 79.0000 (78.9976)  loss_ce_1_unscaled: 0.3753 (0.4279)  loss_bbox_1_unscaled: 0.2988 (0.3433)  loss_giou_1_unscaled: 0.7011 (0.7788)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2513  data: 0.0157  max mem: 3073
+Epoch: [0]  [  370/28764]  eta: 2:02:38  lr: 0.000040  class_error: 0.00  grad_norm: 61.37  loss: 9.9275 (12.2938)  loss_ce: 0.7374 (0.7960)  loss_bbox: 1.3558 (1.7438)  loss_giou: 1.1941 (1.5634)  loss_ce_0: 0.7872 (0.8660)  loss_bbox_0: 1.3346 (1.6887)  loss_giou_0: 1.2157 (1.5318)  loss_ce_1: 0.7505 (0.8538)  loss_bbox_1: 1.3398 (1.7049)  loss_giou_1: 1.1358 (1.5453)  loss_ce_unscaled: 0.3687 (0.3980)  class_error_unscaled: 0.0000 (0.6469)  loss_bbox_unscaled: 0.2712 (0.3488)  loss_giou_unscaled: 0.5971 (0.7817)  cardinality_error_unscaled: 29.0000 (28.9892)  loss_ce_0_unscaled: 0.3936 (0.4330)  loss_bbox_0_unscaled: 0.2669 (0.3377)  loss_giou_0_unscaled: 0.6078 (0.7659)  cardinality_error_0_unscaled: 79.0000 (78.9977)  loss_ce_1_unscaled: 0.3753 (0.4269)  loss_bbox_1_unscaled: 0.2680 (0.3410)  loss_giou_1_unscaled: 0.5679 (0.7727)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2523  data: 0.0157  max mem: 3073
+Epoch: [0]  [  380/28764]  eta: 2:02:30  lr: 0.000040  class_error: 0.00  grad_norm: 30.82  loss: 10.2001 (12.2585)  loss_ce: 0.7500 (0.7941)  loss_bbox: 1.6163 (1.7422)  loss_giou: 1.2671 (1.5556)  loss_ce_0: 0.7660 (0.8636)  loss_bbox_0: 1.4931 (1.6867)  loss_giou_0: 1.1658 (1.5239)  loss_ce_1: 0.7518 (0.8511)  loss_bbox_1: 1.5693 (1.7039)  loss_giou_1: 1.2100 (1.5374)  loss_ce_unscaled: 0.3750 (0.3971)  class_error_unscaled: 0.0000 (0.6299)  loss_bbox_unscaled: 0.3233 (0.3484)  loss_giou_unscaled: 0.6335 (0.7778)  cardinality_error_unscaled: 29.0000 (28.9895)  loss_ce_0_unscaled: 0.3830 (0.4318)  loss_bbox_0_unscaled: 0.2986 (0.3373)  loss_giou_0_unscaled: 0.5829 (0.7619)  cardinality_error_0_unscaled: 79.0000 (78.9977)  loss_ce_1_unscaled: 0.3759 (0.4256)  loss_bbox_1_unscaled: 0.3139 (0.3408)  loss_giou_1_unscaled: 0.6050 (0.7687)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2525  data: 0.0158  max mem: 3073
+Epoch: [0]  [  390/28764]  eta: 2:02:24  lr: 0.000040  class_error: 0.00  grad_norm: 45.86  loss: 11.1381 (12.2362)  loss_ce: 0.7199 (0.7924)  loss_bbox: 1.6786 (1.7403)  loss_giou: 1.3449 (1.5519)  loss_ce_0: 0.7608 (0.8611)  loss_bbox_0: 1.5770 (1.6842)  loss_giou_0: 1.3099 (1.5213)  loss_ce_1: 0.7433 (0.8488)  loss_bbox_1: 1.6909 (1.7024)  loss_giou_1: 1.3194 (1.5339)  loss_ce_unscaled: 0.3599 (0.3962)  class_error_unscaled: 0.0000 (0.6138)  loss_bbox_unscaled: 0.3357 (0.3481)  loss_giou_unscaled: 0.6724 (0.7759)  cardinality_error_unscaled: 29.0000 (28.9898)  loss_ce_0_unscaled: 0.3804 (0.4306)  loss_bbox_0_unscaled: 0.3154 (0.3368)  loss_giou_0_unscaled: 0.6550 (0.7606)  cardinality_error_0_unscaled: 79.0000 (78.9978)  loss_ce_1_unscaled: 0.3717 (0.4244)  loss_bbox_1_unscaled: 0.3382 (0.3405)  loss_giou_1_unscaled: 0.6597 (0.7669)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2528  data: 0.0160  max mem: 3073
+Epoch: [0]  [  400/28764]  eta: 2:02:19  lr: 0.000040  class_error: 0.00  grad_norm: 70.40  loss: 10.9590 (12.2214)  loss_ce: 0.7046 (0.7896)  loss_bbox: 1.4523 (1.7389)  loss_giou: 1.4260 (1.5505)  loss_ce_0: 0.7286 (0.8573)  loss_bbox_0: 1.4454 (1.6844)  loss_giou_0: 1.4118 (1.5211)  loss_ce_1: 0.7095 (0.8451)  loss_bbox_1: 1.4471 (1.7016)  loss_giou_1: 1.4326 (1.5329)  loss_ce_unscaled: 0.3523 (0.3948)  class_error_unscaled: 0.0000 (0.5985)  loss_bbox_unscaled: 0.2905 (0.3478)  loss_giou_unscaled: 0.7130 (0.7752)  cardinality_error_unscaled: 29.0000 (28.9900)  loss_ce_0_unscaled: 0.3643 (0.4287)  loss_bbox_0_unscaled: 0.2891 (0.3369)  loss_giou_0_unscaled: 0.7059 (0.7605)  cardinality_error_0_unscaled: 79.0000 (78.9978)  loss_ce_1_unscaled: 0.3547 (0.4226)  loss_bbox_1_unscaled: 0.2894 (0.3403)  loss_giou_1_unscaled: 0.7163 (0.7665)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2547  data: 0.0161  max mem: 3073
+Epoch: [0]  [  410/28764]  eta: 2:02:13  lr: 0.000040  class_error: 0.00  grad_norm: 68.17  loss: 12.3639 (12.2171)  loss_ce: 0.6382 (0.7856)  loss_bbox: 1.7695 (1.7385)  loss_giou: 1.6189 (1.5537)  loss_ce_0: 0.6528 (0.8518)  loss_bbox_0: 1.7804 (1.6849)  loss_giou_0: 1.6777 (1.5247)  loss_ce_1: 0.6360 (0.8397)  loss_bbox_1: 1.8390 (1.7019)  loss_giou_1: 1.6390 (1.5363)  loss_ce_unscaled: 0.3191 (0.3928)  class_error_unscaled: 0.0000 (0.5839)  loss_bbox_unscaled: 0.3539 (0.3477)  loss_giou_unscaled: 0.8095 (0.7768)  cardinality_error_unscaled: 29.0000 (28.9903)  loss_ce_0_unscaled: 0.3264 (0.4259)  loss_bbox_0_unscaled: 0.3561 (0.3370)  loss_giou_0_unscaled: 0.8388 (0.7624)  cardinality_error_0_unscaled: 79.0000 (78.9979)  loss_ce_1_unscaled: 0.3180 (0.4198)  loss_bbox_1_unscaled: 0.3678 (0.3404)  loss_giou_1_unscaled: 0.8195 (0.7682)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2546  data: 0.0163  max mem: 3073
+Epoch: [0]  [  420/28764]  eta: 2:02:06  lr: 0.000040  class_error: 0.00  grad_norm: 67.35  loss: 12.4212 (12.2066)  loss_ce: 0.6324 (0.7835)  loss_bbox: 1.7695 (1.7396)  loss_giou: 1.6281 (1.5517)  loss_ce_0: 0.6528 (0.8483)  loss_bbox_0: 1.7804 (1.6864)  loss_giou_0: 1.6882 (1.5231)  loss_ce_1: 0.6400 (0.8365)  loss_bbox_1: 1.8390 (1.7034)  loss_giou_1: 1.6265 (1.5340)  loss_ce_unscaled: 0.3162 (0.3918)  class_error_unscaled: 0.0000 (0.5701)  loss_bbox_unscaled: 0.3539 (0.3479)  loss_giou_unscaled: 0.8140 (0.7759)  cardinality_error_unscaled: 29.0000 (28.9905)  loss_ce_0_unscaled: 0.3264 (0.4241)  loss_bbox_0_unscaled: 0.3561 (0.3373)  loss_giou_0_unscaled: 0.8441 (0.7616)  cardinality_error_0_unscaled: 79.0000 (78.9979)  loss_ce_1_unscaled: 0.3200 (0.4183)  loss_bbox_1_unscaled: 0.3678 (0.3407)  loss_giou_1_unscaled: 0.8133 (0.7670)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2531  data: 0.0160  max mem: 3073
+Epoch: [0]  [  430/28764]  eta: 2:02:04  lr: 0.000040  class_error: 0.00  grad_norm: 51.46  loss: 11.0919 (12.1841)  loss_ce: 0.6485 (0.7810)  loss_bbox: 1.6263 (1.7369)  loss_giou: 1.4670 (1.5499)  loss_ce_0: 0.6707 (0.8442)  loss_bbox_0: 1.6151 (1.6844)  loss_giou_0: 1.4115 (1.5218)  loss_ce_1: 0.6523 (0.8326)  loss_bbox_1: 1.6108 (1.7010)  loss_giou_1: 1.4019 (1.5322)  loss_ce_unscaled: 0.3242 (0.3905)  class_error_unscaled: 0.0000 (0.5568)  loss_bbox_unscaled: 0.3253 (0.3474)  loss_giou_unscaled: 0.7335 (0.7750)  cardinality_error_unscaled: 29.0000 (28.9907)  loss_ce_0_unscaled: 0.3354 (0.4221)  loss_bbox_0_unscaled: 0.3230 (0.3369)  loss_giou_0_unscaled: 0.7058 (0.7609)  cardinality_error_0_unscaled: 79.0000 (78.9978)  loss_ce_1_unscaled: 0.3261 (0.4163)  loss_bbox_1_unscaled: 0.3222 (0.3402)  loss_giou_1_unscaled: 0.7009 (0.7661)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2559  data: 0.0157  max mem: 3073
+Epoch: [0]  [  440/28764]  eta: 2:01:57  lr: 0.000040  class_error: 0.00  grad_norm: 106.04  loss: 11.0919 (12.1791)  loss_ce: 0.7079 (0.7801)  loss_bbox: 1.6263 (1.7359)  loss_giou: 1.5086 (1.5500)  loss_ce_0: 0.7164 (0.8438)  loss_bbox_0: 1.6151 (1.6831)  loss_giou_0: 1.5677 (1.5223)  loss_ce_1: 0.7149 (0.8313)  loss_bbox_1: 1.6108 (1.6998)  loss_giou_1: 1.5362 (1.5326)  loss_ce_unscaled: 0.3540 (0.3901)  class_error_unscaled: 0.0000 (0.5442)  loss_bbox_unscaled: 0.3253 (0.3472)  loss_giou_unscaled: 0.7543 (0.7750)  cardinality_error_unscaled: 29.0000 (28.9909)  loss_ce_0_unscaled: 0.3582 (0.4219)  loss_bbox_0_unscaled: 0.3230 (0.3366)  loss_giou_0_unscaled: 0.7838 (0.7611)  cardinality_error_0_unscaled: 79.0000 (78.9979)  loss_ce_1_unscaled: 0.3575 (0.4156)  loss_bbox_1_unscaled: 0.3222 (0.3400)  loss_giou_1_unscaled: 0.7681 (0.7663)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2551  data: 0.0157  max mem: 3073
+Epoch: [0]  [  450/28764]  eta: 2:01:54  lr: 0.000040  class_error: 0.00  grad_norm: 114.50  loss: 10.9536 (12.1273)  loss_ce: 0.7354 (0.7794)  loss_bbox: 1.4012 (1.7265)  loss_giou: 1.5086 (1.5426)  loss_ce_0: 0.7931 (0.8425)  loss_bbox_0: 1.4227 (1.6740)  loss_giou_0: 1.5677 (1.5154)  loss_ce_1: 0.7598 (0.8306)  loss_bbox_1: 1.4255 (1.6904)  loss_giou_1: 1.6152 (1.5258)  loss_ce_unscaled: 0.3677 (0.3897)  class_error_unscaled: 0.0000 (0.5322)  loss_bbox_unscaled: 0.2802 (0.3453)  loss_giou_unscaled: 0.7543 (0.7713)  cardinality_error_unscaled: 29.0000 (28.9911)  loss_ce_0_unscaled: 0.3965 (0.4212)  loss_bbox_0_unscaled: 0.2845 (0.3348)  loss_giou_0_unscaled: 0.7838 (0.7577)  cardinality_error_0_unscaled: 79.0000 (78.9979)  loss_ce_1_unscaled: 0.3799 (0.4153)  loss_bbox_1_unscaled: 0.2851 (0.3381)  loss_giou_1_unscaled: 0.8076 (0.7629)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2544  data: 0.0159  max mem: 3073
+Epoch: [0]  [  460/28764]  eta: 2:01:49  lr: 0.000040  class_error: 0.00  grad_norm: 56.87  loss: 8.7458 (12.0878)  loss_ce: 0.6958 (0.7770)  loss_bbox: 1.1850 (1.7195)  loss_giou: 1.1894 (1.5378)  loss_ce_0: 0.7414 (0.8396)  loss_bbox_0: 1.1898 (1.6691)  loss_giou_0: 1.1828 (1.5113)  loss_ce_1: 0.6968 (0.8272)  loss_bbox_1: 1.1685 (1.6848)  loss_giou_1: 1.1697 (1.5215)  loss_ce_unscaled: 0.3479 (0.3885)  class_error_unscaled: 0.0000 (0.5206)  loss_bbox_unscaled: 0.2370 (0.3439)  loss_giou_unscaled: 0.5947 (0.7689)  cardinality_error_unscaled: 29.0000 (28.9913)  loss_ce_0_unscaled: 0.3707 (0.4198)  loss_bbox_0_unscaled: 0.2380 (0.3338)  loss_giou_0_unscaled: 0.5914 (0.7557)  cardinality_error_0_unscaled: 79.0000 (78.9980)  loss_ce_1_unscaled: 0.3484 (0.4136)  loss_bbox_1_unscaled: 0.2337 (0.3370)  loss_giou_1_unscaled: 0.5849 (0.7608)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2567  data: 0.0160  max mem: 3073
+Epoch: [0]  [  470/28764]  eta: 2:01:43  lr: 0.000040  class_error: 0.00  grad_norm: 130.51  loss: 11.0303 (12.0955)  loss_ce: 0.6909 (0.7767)  loss_bbox: 1.5829 (1.7204)  loss_giou: 1.5081 (1.5403)  loss_ce_0: 0.7477 (0.8400)  loss_bbox_0: 1.3769 (1.6697)  loss_giou_0: 1.4867 (1.5129)  loss_ce_1: 0.6968 (0.8272)  loss_bbox_1: 1.4102 (1.6848)  loss_giou_1: 1.5218 (1.5236)  loss_ce_unscaled: 0.3454 (0.3883)  class_error_unscaled: 0.0000 (0.5096)  loss_bbox_unscaled: 0.3166 (0.3441)  loss_giou_unscaled: 0.7541 (0.7702)  cardinality_error_unscaled: 29.0000 (28.9915)  loss_ce_0_unscaled: 0.3738 (0.4200)  loss_bbox_0_unscaled: 0.2754 (0.3339)  loss_giou_0_unscaled: 0.7433 (0.7565)  cardinality_error_0_unscaled: 79.0000 (78.9980)  loss_ce_1_unscaled: 0.3484 (0.4136)  loss_bbox_1_unscaled: 0.2820 (0.3370)  loss_giou_1_unscaled: 0.7609 (0.7618)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2535  data: 0.0158  max mem: 3073
+Epoch: [0]  [  480/28764]  eta: 2:01:35  lr: 0.000040  class_error: 0.00  grad_norm: 75.44  loss: 11.0303 (12.0844)  loss_ce: 0.7092 (0.7752)  loss_bbox: 1.5309 (1.7191)  loss_giou: 1.5343 (1.5395)  loss_ce_0: 0.7790 (0.8384)  loss_bbox_0: 1.4056 (1.6691)  loss_giou_0: 1.4949 (1.5121)  loss_ce_1: 0.7259 (0.8250)  loss_bbox_1: 1.4102 (1.6835)  loss_giou_1: 1.5313 (1.5227)  loss_ce_unscaled: 0.3546 (0.3876)  class_error_unscaled: 0.0000 (0.4990)  loss_bbox_unscaled: 0.3062 (0.3438)  loss_giou_unscaled: 0.7671 (0.7697)  cardinality_error_unscaled: 29.0000 (28.9917)  loss_ce_0_unscaled: 0.3895 (0.4192)  loss_bbox_0_unscaled: 0.2811 (0.3338)  loss_giou_0_unscaled: 0.7475 (0.7560)  cardinality_error_0_unscaled: 79.0000 (78.9981)  loss_ce_1_unscaled: 0.3629 (0.4125)  loss_bbox_1_unscaled: 0.2820 (0.3367)  loss_giou_1_unscaled: 0.7656 (0.7613)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2508  data: 0.0156  max mem: 3073
+Epoch: [0]  [  490/28764]  eta: 2:01:32  lr: 0.000040  class_error: 0.00  grad_norm: 76.82  loss: 10.3377 (12.0580)  loss_ce: 0.7092 (0.7744)  loss_bbox: 1.3390 (1.7128)  loss_giou: 1.4486 (1.5371)  loss_ce_0: 0.7790 (0.8377)  loss_bbox_0: 1.4056 (1.6643)  loss_giou_0: 1.4361 (1.5100)  loss_ce_1: 0.7259 (0.8238)  loss_bbox_1: 1.3501 (1.6779)  loss_giou_1: 1.4467 (1.5201)  loss_ce_unscaled: 0.3546 (0.3872)  class_error_unscaled: 0.0000 (0.4888)  loss_bbox_unscaled: 0.2678 (0.3426)  loss_giou_unscaled: 0.7243 (0.7685)  cardinality_error_unscaled: 29.0000 (28.9919)  loss_ce_0_unscaled: 0.3895 (0.4189)  loss_bbox_0_unscaled: 0.2811 (0.3329)  loss_giou_0_unscaled: 0.7181 (0.7550)  cardinality_error_0_unscaled: 79.0000 (78.9981)  loss_ce_1_unscaled: 0.3629 (0.4119)  loss_bbox_1_unscaled: 0.2700 (0.3356)  loss_giou_1_unscaled: 0.7234 (0.7601)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2529  data: 0.0154  max mem: 3073
+Epoch: [0]  [  500/28764]  eta: 2:01:26  lr: 0.000040  class_error: 0.00  grad_norm: 64.25  loss: 10.8251 (12.0731)  loss_ce: 0.7075 (0.7734)  loss_bbox: 1.3470 (1.7181)  loss_giou: 1.4770 (1.5404)  loss_ce_0: 0.7864 (0.8365)  loss_bbox_0: 1.4782 (1.6673)  loss_giou_0: 1.4594 (1.5114)  loss_ce_1: 0.7296 (0.8225)  loss_bbox_1: 1.3899 (1.6813)  loss_giou_1: 1.5039 (1.5223)  loss_ce_unscaled: 0.3538 (0.3867)  class_error_unscaled: 0.0000 (0.4790)  loss_bbox_unscaled: 0.2694 (0.3436)  loss_giou_unscaled: 0.7385 (0.7702)  cardinality_error_unscaled: 29.0000 (28.9920)  loss_ce_0_unscaled: 0.3932 (0.4182)  loss_bbox_0_unscaled: 0.2956 (0.3335)  loss_giou_0_unscaled: 0.7297 (0.7557)  cardinality_error_0_unscaled: 79.0000 (78.9981)  loss_ce_1_unscaled: 0.3648 (0.4112)  loss_bbox_1_unscaled: 0.2780 (0.3363)  loss_giou_1_unscaled: 0.7520 (0.7611)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2537  data: 0.0156  max mem: 3073
+Epoch: [0]  [  510/28764]  eta: 2:01:21  lr: 0.000040  class_error: 0.00  grad_norm: 60.88  loss: 11.8957 (12.0467)  loss_ce: 0.7108 (0.7726)  loss_bbox: 1.7691 (1.7137)  loss_giou: 1.4976 (1.5366)  loss_ce_0: 0.7619 (0.8349)  loss_bbox_0: 1.7968 (1.6639)  loss_giou_0: 1.4958 (1.5078)  loss_ce_1: 0.7314 (0.8210)  loss_bbox_1: 1.7422 (1.6776)  loss_giou_1: 1.5733 (1.5186)  loss_ce_unscaled: 0.3554 (0.3863)  class_error_unscaled: 0.0000 (0.4697)  loss_bbox_unscaled: 0.3538 (0.3427)  loss_giou_unscaled: 0.7488 (0.7683)  cardinality_error_unscaled: 29.0000 (28.9922)  loss_ce_0_unscaled: 0.3810 (0.4175)  loss_bbox_0_unscaled: 0.3594 (0.3328)  loss_giou_0_unscaled: 0.7479 (0.7539)  cardinality_error_0_unscaled: 79.0000 (78.9982)  loss_ce_1_unscaled: 0.3657 (0.4105)  loss_bbox_1_unscaled: 0.3484 (0.3355)  loss_giou_1_unscaled: 0.7867 (0.7593)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2533  data: 0.0157  max mem: 3073
+Epoch: [0]  [  520/28764]  eta: 2:01:17  lr: 0.000040  class_error: 0.00  grad_norm: 48.80  loss: 10.5199 (12.0331)  loss_ce: 0.7108 (0.7713)  loss_bbox: 1.3215 (1.7136)  loss_giou: 1.5635 (1.5343)  loss_ce_0: 0.7619 (0.8330)  loss_bbox_0: 1.2791 (1.6638)  loss_giou_0: 1.4512 (1.5050)  loss_ce_1: 0.7373 (0.8191)  loss_bbox_1: 1.2540 (1.6772)  loss_giou_1: 1.4645 (1.5159)  loss_ce_unscaled: 0.3554 (0.3856)  class_error_unscaled: 0.0000 (0.4607)  loss_bbox_unscaled: 0.2643 (0.3427)  loss_giou_unscaled: 0.7818 (0.7671)  cardinality_error_unscaled: 29.0000 (28.9923)  loss_ce_0_unscaled: 0.3810 (0.4165)  loss_bbox_0_unscaled: 0.2558 (0.3328)  loss_giou_0_unscaled: 0.7256 (0.7525)  cardinality_error_0_unscaled: 79.0000 (78.9982)  loss_ce_1_unscaled: 0.3686 (0.4095)  loss_bbox_1_unscaled: 0.2508 (0.3354)  loss_giou_1_unscaled: 0.7322 (0.7580)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2549  data: 0.0157  max mem: 3073
+Epoch: [0]  [  530/28764]  eta: 2:01:13  lr: 0.000040  class_error: 0.00  grad_norm: 52.32  loss: 10.3122 (12.0042)  loss_ce: 0.6988 (0.7702)  loss_bbox: 1.3284 (1.7091)  loss_giou: 1.3309 (1.5303)  loss_ce_0: 0.7059 (0.8314)  loss_bbox_0: 1.3894 (1.6601)  loss_giou_0: 1.3048 (1.5011)  loss_ce_1: 0.6852 (0.8173)  loss_bbox_1: 1.3197 (1.6730)  loss_giou_1: 1.2979 (1.5118)  loss_ce_unscaled: 0.3494 (0.3851)  class_error_unscaled: 0.0000 (0.4520)  loss_bbox_unscaled: 0.2657 (0.3418)  loss_giou_unscaled: 0.6655 (0.7651)  cardinality_error_unscaled: 29.0000 (28.9925)  loss_ce_0_unscaled: 0.3530 (0.4157)  loss_bbox_0_unscaled: 0.2779 (0.3320)  loss_giou_0_unscaled: 0.6524 (0.7505)  cardinality_error_0_unscaled: 79.0000 (78.9982)  loss_ce_1_unscaled: 0.3426 (0.4086)  loss_bbox_1_unscaled: 0.2639 (0.3346)  loss_giou_1_unscaled: 0.6489 (0.7559)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2544  data: 0.0156  max mem: 3073
+Epoch: [0]  [  540/28764]  eta: 2:01:08  lr: 0.000040  class_error: 0.00  grad_norm: 88.38  loss: 10.1617 (11.9854)  loss_ce: 0.6988 (0.7688)  loss_bbox: 1.5458 (1.7070)  loss_giou: 1.3309 (1.5281)  loss_ce_0: 0.7156 (0.8295)  loss_bbox_0: 1.3894 (1.6574)  loss_giou_0: 1.3048 (1.4987)  loss_ce_1: 0.6845 (0.8152)  loss_bbox_1: 1.4489 (1.6709)  loss_giou_1: 1.2979 (1.5097)  loss_ce_unscaled: 0.3494 (0.3844)  class_error_unscaled: 0.0000 (0.4436)  loss_bbox_unscaled: 0.3092 (0.3414)  loss_giou_unscaled: 0.6655 (0.7641)  cardinality_error_unscaled: 29.0000 (28.9926)  loss_ce_0_unscaled: 0.3578 (0.4147)  loss_bbox_0_unscaled: 0.2779 (0.3315)  loss_giou_0_unscaled: 0.6524 (0.7494)  cardinality_error_0_unscaled: 79.0000 (78.9983)  loss_ce_1_unscaled: 0.3423 (0.4076)  loss_bbox_1_unscaled: 0.2898 (0.3342)  loss_giou_1_unscaled: 0.6489 (0.7549)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2538  data: 0.0156  max mem: 3073
+Epoch: [0]  [  550/28764]  eta: 2:01:02  lr: 0.000040  class_error: 0.00  grad_norm: 38.30  loss: 10.9973 (11.9707)  loss_ce: 0.6948 (0.7680)  loss_bbox: 1.5838 (1.7054)  loss_giou: 1.4912 (1.5257)  loss_ce_0: 0.7156 (0.8287)  loss_bbox_0: 1.4786 (1.6556)  loss_giou_0: 1.4399 (1.4965)  loss_ce_1: 0.6848 (0.8143)  loss_bbox_1: 1.5353 (1.6694)  loss_giou_1: 1.4809 (1.5072)  loss_ce_unscaled: 0.3474 (0.3840)  class_error_unscaled: 0.0000 (0.4356)  loss_bbox_unscaled: 0.3168 (0.3411)  loss_giou_unscaled: 0.7456 (0.7629)  cardinality_error_unscaled: 29.0000 (28.9927)  loss_ce_0_unscaled: 0.3578 (0.4143)  loss_bbox_0_unscaled: 0.2957 (0.3311)  loss_giou_0_unscaled: 0.7200 (0.7483)  cardinality_error_0_unscaled: 79.0000 (78.9983)  loss_ce_1_unscaled: 0.3424 (0.4071)  loss_bbox_1_unscaled: 0.3071 (0.3339)  loss_giou_1_unscaled: 0.7404 (0.7536)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2521  data: 0.0156  max mem: 3073
+Epoch: [0]  [  560/28764]  eta: 2:00:59  lr: 0.000040  class_error: 0.00  grad_norm: 81.93  loss: 11.1600 (11.9579)  loss_ce: 0.6534 (0.7661)  loss_bbox: 1.6204 (1.7048)  loss_giou: 1.4890 (1.5237)  loss_ce_0: 0.7099 (0.8269)  loss_bbox_0: 1.6087 (1.6553)  loss_giou_0: 1.4567 (1.4948)  loss_ce_1: 0.7276 (0.8125)  loss_bbox_1: 1.6181 (1.6687)  loss_giou_1: 1.4192 (1.5051)  loss_ce_unscaled: 0.3267 (0.3830)  class_error_unscaled: 0.0000 (0.4278)  loss_bbox_unscaled: 0.3241 (0.3410)  loss_giou_unscaled: 0.7445 (0.7619)  cardinality_error_unscaled: 29.0000 (28.9929)  loss_ce_0_unscaled: 0.3550 (0.4135)  loss_bbox_0_unscaled: 0.3217 (0.3311)  loss_giou_0_unscaled: 0.7284 (0.7474)  cardinality_error_0_unscaled: 79.0000 (78.9983)  loss_ce_1_unscaled: 0.3638 (0.4062)  loss_bbox_1_unscaled: 0.3236 (0.3337)  loss_giou_1_unscaled: 0.7096 (0.7526)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2542  data: 0.0156  max mem: 3073
+Epoch: [0]  [  570/28764]  eta: 2:00:55  lr: 0.000040  class_error: 0.00  grad_norm: 73.83  loss: 11.1600 (11.9409)  loss_ce: 0.6666 (0.7649)  loss_bbox: 1.6022 (1.7022)  loss_giou: 1.3592 (1.5213)  loss_ce_0: 0.7100 (0.8251)  loss_bbox_0: 1.5216 (1.6538)  loss_giou_0: 1.3383 (1.4926)  loss_ce_1: 0.6981 (0.8110)  loss_bbox_1: 1.5411 (1.6673)  loss_giou_1: 1.3122 (1.5027)  loss_ce_unscaled: 0.3333 (0.3824)  class_error_unscaled: 0.0000 (0.4203)  loss_bbox_unscaled: 0.3204 (0.3404)  loss_giou_unscaled: 0.6796 (0.7606)  cardinality_error_unscaled: 29.0000 (28.9930)  loss_ce_0_unscaled: 0.3550 (0.4125)  loss_bbox_0_unscaled: 0.3043 (0.3308)  loss_giou_0_unscaled: 0.6691 (0.7463)  cardinality_error_0_unscaled: 79.0000 (78.9984)  loss_ce_1_unscaled: 0.3490 (0.4055)  loss_bbox_1_unscaled: 0.3082 (0.3335)  loss_giou_1_unscaled: 0.6561 (0.7513)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2560  data: 0.0158  max mem: 3073
+Epoch: [0]  [  580/28764]  eta: 2:00:52  lr: 0.000040  class_error: 0.00  grad_norm: 61.50  loss: 10.1515 (11.9110)  loss_ce: 0.6651 (0.7635)  loss_bbox: 1.4763 (1.6981)  loss_giou: 1.2728 (1.5166)  loss_ce_0: 0.7022 (0.8233)  loss_bbox_0: 1.4832 (1.6505)  loss_giou_0: 1.2371 (1.4880)  loss_ce_1: 0.7080 (0.8099)  loss_bbox_1: 1.4620 (1.6635)  loss_giou_1: 1.2083 (1.4977)  loss_ce_unscaled: 0.3326 (0.3817)  class_error_unscaled: 0.0000 (0.4131)  loss_bbox_unscaled: 0.2953 (0.3396)  loss_giou_unscaled: 0.6364 (0.7583)  cardinality_error_unscaled: 29.0000 (28.9931)  loss_ce_0_unscaled: 0.3511 (0.4117)  loss_bbox_0_unscaled: 0.2966 (0.3301)  loss_giou_0_unscaled: 0.6186 (0.7440)  cardinality_error_0_unscaled: 79.0000 (78.9984)  loss_ce_1_unscaled: 0.3540 (0.4050)  loss_bbox_1_unscaled: 0.2924 (0.3327)  loss_giou_1_unscaled: 0.6042 (0.7489)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2556  data: 0.0158  max mem: 3073
+Epoch: [0]  [  590/28764]  eta: 2:00:50  lr: 0.000040  class_error: 0.00  grad_norm: 47.78  loss: 10.3121 (11.9051)  loss_ce: 0.6760 (0.7628)  loss_bbox: 1.4763 (1.6970)  loss_giou: 1.2950 (1.5168)  loss_ce_0: 0.7022 (0.8223)  loss_bbox_0: 1.4832 (1.6490)  loss_giou_0: 1.2856 (1.4880)  loss_ce_1: 0.7169 (0.8093)  loss_bbox_1: 1.4620 (1.6620)  loss_giou_1: 1.2648 (1.4978)  loss_ce_unscaled: 0.3380 (0.3814)  class_error_unscaled: 0.0000 (0.4061)  loss_bbox_unscaled: 0.2953 (0.3394)  loss_giou_unscaled: 0.6475 (0.7584)  cardinality_error_unscaled: 29.0000 (28.9932)  loss_ce_0_unscaled: 0.3511 (0.4111)  loss_bbox_0_unscaled: 0.2966 (0.3298)  loss_giou_0_unscaled: 0.6428 (0.7440)  cardinality_error_0_unscaled: 79.0000 (78.9984)  loss_ce_1_unscaled: 0.3585 (0.4046)  loss_bbox_1_unscaled: 0.2924 (0.3324)  loss_giou_1_unscaled: 0.6324 (0.7489)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2572  data: 0.0156  max mem: 3073
+Epoch: [0]  [  600/28764]  eta: 2:00:46  lr: 0.000040  class_error: 0.00  grad_norm: 77.46  loss: 10.9201 (11.8983)  loss_ce: 0.6589 (0.7609)  loss_bbox: 1.6538 (1.6978)  loss_giou: 1.5087 (1.5153)  loss_ce_0: 0.7075 (0.8206)  loss_bbox_0: 1.6253 (1.6501)  loss_giou_0: 1.4973 (1.4870)  loss_ce_1: 0.7221 (0.8075)  loss_bbox_1: 1.6118 (1.6628)  loss_giou_1: 1.4796 (1.4963)  loss_ce_unscaled: 0.3294 (0.3804)  class_error_unscaled: 0.0000 (0.3993)  loss_bbox_unscaled: 0.3308 (0.3396)  loss_giou_unscaled: 0.7543 (0.7577)  cardinality_error_unscaled: 29.0000 (28.9933)  loss_ce_0_unscaled: 0.3537 (0.4103)  loss_bbox_0_unscaled: 0.3251 (0.3300)  loss_giou_0_unscaled: 0.7487 (0.7435)  cardinality_error_0_unscaled: 79.0000 (78.9985)  loss_ce_1_unscaled: 0.3611 (0.4037)  loss_bbox_1_unscaled: 0.3224 (0.3326)  loss_giou_1_unscaled: 0.7398 (0.7482)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2561  data: 0.0159  max mem: 3073
+Epoch: [0]  [  610/28764]  eta: 2:00:48  lr: 0.000040  class_error: 0.00  grad_norm: 110.75  loss: 10.5591 (11.8765)  loss_ce: 0.6589 (0.7600)  loss_bbox: 1.5797 (1.6947)  loss_giou: 1.4346 (1.5121)  loss_ce_0: 0.7150 (0.8191)  loss_bbox_0: 1.5647 (1.6467)  loss_giou_0: 1.3999 (1.4852)  loss_ce_1: 0.7226 (0.8059)  loss_bbox_1: 1.6118 (1.6591)  loss_giou_1: 1.4134 (1.4937)  loss_ce_unscaled: 0.3294 (0.3800)  class_error_unscaled: 0.0000 (0.3928)  loss_bbox_unscaled: 0.3159 (0.3389)  loss_giou_unscaled: 0.7173 (0.7560)  cardinality_error_unscaled: 29.0000 (28.9935)  loss_ce_0_unscaled: 0.3575 (0.4096)  loss_bbox_0_unscaled: 0.3129 (0.3293)  loss_giou_0_unscaled: 0.7000 (0.7426)  cardinality_error_0_unscaled: 79.0000 (78.9985)  loss_ce_1_unscaled: 0.3613 (0.4030)  loss_bbox_1_unscaled: 0.3224 (0.3318)  loss_giou_1_unscaled: 0.7067 (0.7468)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2610  data: 0.0160  max mem: 3073
+Epoch: [0]  [  620/28764]  eta: 2:00:44  lr: 0.000040  class_error: 0.00  grad_norm: 44.45  loss: 11.6853 (11.8798)  loss_ce: 0.6774 (0.7584)  loss_bbox: 1.7386 (1.6963)  loss_giou: 1.5292 (1.5131)  loss_ce_0: 0.7223 (0.8174)  loss_bbox_0: 1.5914 (1.6484)  loss_giou_0: 1.4942 (1.4863)  loss_ce_1: 0.6972 (0.8039)  loss_bbox_1: 1.6311 (1.6611)  loss_giou_1: 1.4468 (1.4947)  loss_ce_unscaled: 0.3387 (0.3792)  class_error_unscaled: 0.0000 (0.3865)  loss_bbox_unscaled: 0.3477 (0.3393)  loss_giou_unscaled: 0.7646 (0.7566)  cardinality_error_unscaled: 29.0000 (28.9936)  loss_ce_0_unscaled: 0.3611 (0.4087)  loss_bbox_0_unscaled: 0.3183 (0.3297)  loss_giou_0_unscaled: 0.7471 (0.7432)  cardinality_error_0_unscaled: 79.0000 (78.9985)  loss_ce_1_unscaled: 0.3486 (0.4020)  loss_bbox_1_unscaled: 0.3262 (0.3322)  loss_giou_1_unscaled: 0.7234 (0.7473)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2606  data: 0.0157  max mem: 3073
+Epoch: [0]  [  630/28764]  eta: 2:00:40  lr: 0.000040  class_error: 0.00  grad_norm: 43.41  loss: 11.8255 (11.8626)  loss_ce: 0.6527 (0.7565)  loss_bbox: 1.6114 (1.6939)  loss_giou: 1.5353 (1.5113)  loss_ce_0: 0.6762 (0.8148)  loss_bbox_0: 1.6938 (1.6471)  loss_giou_0: 1.4942 (1.4851)  loss_ce_1: 0.6723 (0.8014)  loss_bbox_1: 1.6311 (1.6591)  loss_giou_1: 1.4713 (1.4934)  loss_ce_unscaled: 0.3264 (0.3783)  class_error_unscaled: 0.0000 (0.3803)  loss_bbox_unscaled: 0.3223 (0.3388)  loss_giou_unscaled: 0.7677 (0.7556)  cardinality_error_unscaled: 29.0000 (28.9937)  loss_ce_0_unscaled: 0.3381 (0.4074)  loss_bbox_0_unscaled: 0.3388 (0.3294)  loss_giou_0_unscaled: 0.7471 (0.7425)  cardinality_error_0_unscaled: 79.0000 (78.9985)  loss_ce_1_unscaled: 0.3362 (0.4007)  loss_bbox_1_unscaled: 0.3262 (0.3318)  loss_giou_1_unscaled: 0.7356 (0.7467)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2537  data: 0.0155  max mem: 3073
+Epoch: [0]  [  640/28764]  eta: 2:00:37  lr: 0.000040  class_error: 0.00  grad_norm: 42.45  loss: 10.3798 (11.8541)  loss_ce: 0.6903 (0.7567)  loss_bbox: 1.5631 (1.6933)  loss_giou: 1.3554 (1.5093)  loss_ce_0: 0.7096 (0.8145)  loss_bbox_0: 1.5547 (1.6467)  loss_giou_0: 1.3613 (1.4825)  loss_ce_1: 0.6833 (0.8012)  loss_bbox_1: 1.4472 (1.6584)  loss_giou_1: 1.3287 (1.4913)  loss_ce_unscaled: 0.3452 (0.3784)  class_error_unscaled: 0.0000 (0.3744)  loss_bbox_unscaled: 0.3126 (0.3387)  loss_giou_unscaled: 0.6777 (0.7547)  cardinality_error_unscaled: 29.0000 (28.9938)  loss_ce_0_unscaled: 0.3548 (0.4073)  loss_bbox_0_unscaled: 0.3109 (0.3293)  loss_giou_0_unscaled: 0.6807 (0.7412)  cardinality_error_0_unscaled: 79.0000 (78.9986)  loss_ce_1_unscaled: 0.3416 (0.4006)  loss_bbox_1_unscaled: 0.2894 (0.3317)  loss_giou_1_unscaled: 0.6643 (0.7457)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2553  data: 0.0155  max mem: 3073
+Epoch: [0]  [  650/28764]  eta: 2:00:34  lr: 0.000040  class_error: 0.00  grad_norm: 44.49  loss: 11.3159 (11.8480)  loss_ce: 0.7096 (0.7554)  loss_bbox: 1.5247 (1.6923)  loss_giou: 1.4464 (1.5095)  loss_ce_0: 0.7129 (0.8131)  loss_bbox_0: 1.4911 (1.6461)  loss_giou_0: 1.3987 (1.4829)  loss_ce_1: 0.7080 (0.7991)  loss_bbox_1: 1.5387 (1.6575)  loss_giou_1: 1.3950 (1.4918)  loss_ce_unscaled: 0.3548 (0.3777)  class_error_unscaled: 0.0000 (0.3687)  loss_bbox_unscaled: 0.3049 (0.3385)  loss_giou_unscaled: 0.7232 (0.7548)  cardinality_error_unscaled: 29.0000 (28.9939)  loss_ce_0_unscaled: 0.3565 (0.4066)  loss_bbox_0_unscaled: 0.2982 (0.3292)  loss_giou_0_unscaled: 0.6993 (0.7414)  cardinality_error_0_unscaled: 79.0000 (78.9986)  loss_ce_1_unscaled: 0.3540 (0.3996)  loss_bbox_1_unscaled: 0.3077 (0.3315)  loss_giou_1_unscaled: 0.6975 (0.7459)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2564  data: 0.0157  max mem: 3073
+Epoch: [0]  [  660/28764]  eta: 2:00:30  lr: 0.000040  class_error: 0.00  grad_norm: 75.89  loss: 12.1707 (11.8508)  loss_ce: 0.6739 (0.7547)  loss_bbox: 1.7615 (1.6932)  loss_giou: 1.6459 (1.5101)  loss_ce_0: 0.7129 (0.8124)  loss_bbox_0: 1.7352 (1.6475)  loss_giou_0: 1.5600 (1.4833)  loss_ce_1: 0.7051 (0.7983)  loss_bbox_1: 1.7366 (1.6589)  loss_giou_1: 1.6408 (1.4924)  loss_ce_unscaled: 0.3369 (0.3773)  class_error_unscaled: 0.0000 (0.3631)  loss_bbox_unscaled: 0.3523 (0.3386)  loss_giou_unscaled: 0.8229 (0.7550)  cardinality_error_unscaled: 29.0000 (28.9940)  loss_ce_0_unscaled: 0.3565 (0.4062)  loss_bbox_0_unscaled: 0.3470 (0.3295)  loss_giou_0_unscaled: 0.7800 (0.7416)  cardinality_error_0_unscaled: 79.0000 (78.9986)  loss_ce_1_unscaled: 0.3526 (0.3991)  loss_bbox_1_unscaled: 0.3473 (0.3318)  loss_giou_1_unscaled: 0.8204 (0.7462)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2548  data: 0.0158  max mem: 3073
+Epoch: [0]  [  670/28764]  eta: 2:00:25  lr: 0.000040  class_error: 0.00  grad_norm: 72.96  loss: 11.6648 (11.8450)  loss_ce: 0.6578 (0.7528)  loss_bbox: 1.6397 (1.6948)  loss_giou: 1.5597 (1.5100)  loss_ce_0: 0.7187 (0.8105)  loss_bbox_0: 1.6622 (1.6477)  loss_giou_0: 1.4184 (1.4822)  loss_ce_1: 0.6801 (0.7960)  loss_bbox_1: 1.6472 (1.6595)  loss_giou_1: 1.4469 (1.4917)  loss_ce_unscaled: 0.3289 (0.3764)  class_error_unscaled: 0.0000 (0.3577)  loss_bbox_unscaled: 0.3279 (0.3390)  loss_giou_unscaled: 0.7799 (0.7550)  cardinality_error_unscaled: 29.0000 (28.9940)  loss_ce_0_unscaled: 0.3594 (0.4053)  loss_bbox_0_unscaled: 0.3324 (0.3295)  loss_giou_0_unscaled: 0.7092 (0.7411)  cardinality_error_0_unscaled: 79.0000 (78.9986)  loss_ce_1_unscaled: 0.3401 (0.3980)  loss_bbox_1_unscaled: 0.3294 (0.3319)  loss_giou_1_unscaled: 0.7234 (0.7458)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2533  data: 0.0155  max mem: 3073
+Epoch: [0]  [  680/28764]  eta: 2:00:22  lr: 0.000040  class_error: 0.00  grad_norm: 90.94  loss: 10.6477 (11.8359)  loss_ce: 0.6468 (0.7514)  loss_bbox: 1.6161 (1.6949)  loss_giou: 1.4376 (1.5092)  loss_ce_0: 0.6793 (0.8096)  loss_bbox_0: 1.5064 (1.6471)  loss_giou_0: 1.3457 (1.4803)  loss_ce_1: 0.6493 (0.7946)  loss_bbox_1: 1.5694 (1.6589)  loss_giou_1: 1.3747 (1.4899)  loss_ce_unscaled: 0.3234 (0.3757)  class_error_unscaled: 0.0000 (0.3524)  loss_bbox_unscaled: 0.3232 (0.3390)  loss_giou_unscaled: 0.7188 (0.7546)  cardinality_error_unscaled: 29.0000 (28.9941)  loss_ce_0_unscaled: 0.3396 (0.4048)  loss_bbox_0_unscaled: 0.3013 (0.3294)  loss_giou_0_unscaled: 0.6728 (0.7401)  cardinality_error_0_unscaled: 79.0000 (78.9986)  loss_ce_1_unscaled: 0.3247 (0.3973)  loss_bbox_1_unscaled: 0.3139 (0.3318)  loss_giou_1_unscaled: 0.6873 (0.7450)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2539  data: 0.0155  max mem: 3073
+Epoch: [0]  [  690/28764]  eta: 2:00:19  lr: 0.000040  class_error: 0.00  grad_norm: 28.85  loss: 11.0669 (11.8331)  loss_ce: 0.6571 (0.7506)  loss_bbox: 1.4869 (1.6941)  loss_giou: 1.4376 (1.5092)  loss_ce_0: 0.7061 (0.8087)  loss_bbox_0: 1.5156 (1.6471)  loss_giou_0: 1.3721 (1.4808)  loss_ce_1: 0.6525 (0.7937)  loss_bbox_1: 1.4989 (1.6588)  loss_giou_1: 1.3375 (1.4900)  loss_ce_unscaled: 0.3285 (0.3753)  class_error_unscaled: 0.0000 (0.3473)  loss_bbox_unscaled: 0.2974 (0.3388)  loss_giou_unscaled: 0.7188 (0.7546)  cardinality_error_unscaled: 29.0000 (28.9942)  loss_ce_0_unscaled: 0.3531 (0.4044)  loss_bbox_0_unscaled: 0.3031 (0.3294)  loss_giou_0_unscaled: 0.6861 (0.7404)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3263 (0.3969)  loss_bbox_1_unscaled: 0.2998 (0.3318)  loss_giou_1_unscaled: 0.6687 (0.7450)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2552  data: 0.0154  max mem: 3073
+Epoch: [0]  [  700/28764]  eta: 2:00:15  lr: 0.000040  class_error: 0.00  grad_norm: 77.81  loss: 11.1919 (11.8227)  loss_ce: 0.6954 (0.7497)  loss_bbox: 1.4869 (1.6929)  loss_giou: 1.4059 (1.5077)  loss_ce_0: 0.7221 (0.8077)  loss_bbox_0: 1.6262 (1.6462)  loss_giou_0: 1.4400 (1.4793)  loss_ce_1: 0.6918 (0.7925)  loss_bbox_1: 1.5580 (1.6583)  loss_giou_1: 1.4683 (1.4885)  loss_ce_unscaled: 0.3477 (0.3748)  class_error_unscaled: 0.0000 (0.3424)  loss_bbox_unscaled: 0.2974 (0.3386)  loss_giou_unscaled: 0.7029 (0.7538)  cardinality_error_unscaled: 29.0000 (28.9943)  loss_ce_0_unscaled: 0.3610 (0.4038)  loss_bbox_0_unscaled: 0.3252 (0.3292)  loss_giou_0_unscaled: 0.7200 (0.7397)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3459 (0.3962)  loss_bbox_1_unscaled: 0.3116 (0.3317)  loss_giou_1_unscaled: 0.7341 (0.7442)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2555  data: 0.0156  max mem: 3073
+Epoch: [0]  [  710/28764]  eta: 2:00:11  lr: 0.000040  class_error: 0.00  grad_norm: 68.45  loss: 12.2310 (11.8182)  loss_ce: 0.6831 (0.7490)  loss_bbox: 1.6683 (1.6925)  loss_giou: 1.4080 (1.5078)  loss_ce_0: 0.7216 (0.8065)  loss_bbox_0: 1.6607 (1.6457)  loss_giou_0: 1.4870 (1.4790)  loss_ce_1: 0.6918 (0.7914)  loss_bbox_1: 1.6544 (1.6580)  loss_giou_1: 1.4699 (1.4883)  loss_ce_unscaled: 0.3416 (0.3745)  class_error_unscaled: 0.0000 (0.3376)  loss_bbox_unscaled: 0.3337 (0.3385)  loss_giou_unscaled: 0.7040 (0.7539)  cardinality_error_unscaled: 29.0000 (28.9944)  loss_ce_0_unscaled: 0.3608 (0.4032)  loss_bbox_0_unscaled: 0.3321 (0.3291)  loss_giou_0_unscaled: 0.7435 (0.7395)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3459 (0.3957)  loss_bbox_1_unscaled: 0.3309 (0.3316)  loss_giou_1_unscaled: 0.7350 (0.7442)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2546  data: 0.0157  max mem: 3073
+Epoch: [0]  [  720/28764]  eta: 2:00:09  lr: 0.000040  class_error: 0.00  grad_norm: 90.00  loss: 11.3000 (11.8075)  loss_ce: 0.6668 (0.7478)  loss_bbox: 1.5960 (1.6904)  loss_giou: 1.4187 (1.5066)  loss_ce_0: 0.7216 (0.8055)  loss_bbox_0: 1.6443 (1.6443)  loss_giou_0: 1.4922 (1.4786)  loss_ce_1: 0.6841 (0.7900)  loss_bbox_1: 1.5851 (1.6564)  loss_giou_1: 1.4954 (1.4877)  loss_ce_unscaled: 0.3334 (0.3739)  class_error_unscaled: 0.0000 (0.3329)  loss_bbox_unscaled: 0.3192 (0.3381)  loss_giou_unscaled: 0.7094 (0.7533)  cardinality_error_unscaled: 29.0000 (28.9945)  loss_ce_0_unscaled: 0.3608 (0.4028)  loss_bbox_0_unscaled: 0.3289 (0.3289)  loss_giou_0_unscaled: 0.7461 (0.7393)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3421 (0.3950)  loss_bbox_1_unscaled: 0.3170 (0.3313)  loss_giou_1_unscaled: 0.7477 (0.7439)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2555  data: 0.0156  max mem: 3073
+Epoch: [0]  [  730/28764]  eta: 2:00:06  lr: 0.000040  class_error: 0.00  grad_norm: 46.40  loss: 11.3181 (11.8198)  loss_ce: 0.5995 (0.7457)  loss_bbox: 1.8027 (1.6952)  loss_giou: 1.5817 (1.5087)  loss_ce_0: 0.6856 (0.8037)  loss_bbox_0: 1.7150 (1.6477)  loss_giou_0: 1.4791 (1.4810)  loss_ce_1: 0.6363 (0.7876)  loss_bbox_1: 1.6961 (1.6605)  loss_giou_1: 1.5396 (1.4898)  loss_ce_unscaled: 0.2998 (0.3728)  class_error_unscaled: 0.0000 (0.3283)  loss_bbox_unscaled: 0.3605 (0.3390)  loss_giou_unscaled: 0.7908 (0.7544)  cardinality_error_unscaled: 29.0000 (28.9945)  loss_ce_0_unscaled: 0.3428 (0.4018)  loss_bbox_0_unscaled: 0.3430 (0.3295)  loss_giou_0_unscaled: 0.7396 (0.7405)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3181 (0.3938)  loss_bbox_1_unscaled: 0.3392 (0.3321)  loss_giou_1_unscaled: 0.7698 (0.7449)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2561  data: 0.0156  max mem: 3073
+Epoch: [0]  [  740/28764]  eta: 2:00:01  lr: 0.000040  class_error: 0.00  grad_norm: 37.64  loss: 11.3181 (11.8018)  loss_ce: 0.5973 (0.7448)  loss_bbox: 1.6058 (1.6909)  loss_giou: 1.4419 (1.5075)  loss_ce_0: 0.6772 (0.8024)  loss_bbox_0: 1.4751 (1.6441)  loss_giou_0: 1.3853 (1.4800)  loss_ce_1: 0.6288 (0.7861)  loss_bbox_1: 1.4912 (1.6570)  loss_giou_1: 1.4115 (1.4890)  loss_ce_unscaled: 0.2987 (0.3724)  class_error_unscaled: 0.0000 (0.3239)  loss_bbox_unscaled: 0.3212 (0.3382)  loss_giou_unscaled: 0.7209 (0.7538)  cardinality_error_unscaled: 29.0000 (28.9946)  loss_ce_0_unscaled: 0.3386 (0.4012)  loss_bbox_0_unscaled: 0.2950 (0.3288)  loss_giou_0_unscaled: 0.6927 (0.7400)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3144 (0.3931)  loss_bbox_1_unscaled: 0.2982 (0.3314)  loss_giou_1_unscaled: 0.7057 (0.7445)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2535  data: 0.0155  max mem: 3073
+Epoch: [0]  [  750/28764]  eta: 1:59:57  lr: 0.000040  class_error: 0.00  grad_norm: 112.97  loss: 11.5772 (11.8061)  loss_ce: 0.6310 (0.7441)  loss_bbox: 1.5614 (1.6911)  loss_giou: 1.4229 (1.5083)  loss_ce_0: 0.7301 (0.8020)  loss_bbox_0: 1.5232 (1.6458)  loss_giou_0: 1.3734 (1.4814)  loss_ce_1: 0.6457 (0.7854)  loss_bbox_1: 1.4912 (1.6578)  loss_giou_1: 1.4115 (1.4903)  loss_ce_unscaled: 0.3155 (0.3721)  class_error_unscaled: 0.0000 (0.3196)  loss_bbox_unscaled: 0.3123 (0.3382)  loss_giou_unscaled: 0.7115 (0.7541)  cardinality_error_unscaled: 29.0000 (28.9947)  loss_ce_0_unscaled: 0.3650 (0.4010)  loss_bbox_0_unscaled: 0.3046 (0.3292)  loss_giou_0_unscaled: 0.6867 (0.7407)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3229 (0.3927)  loss_bbox_1_unscaled: 0.2982 (0.3316)  loss_giou_1_unscaled: 0.7057 (0.7451)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2520  data: 0.0154  max mem: 3073
+Epoch: [0]  [  760/28764]  eta: 1:59:53  lr: 0.000040  class_error: 0.00  grad_norm: 60.39  loss: 12.0140 (11.7996)  loss_ce: 0.6179 (0.7427)  loss_bbox: 1.7516 (1.6897)  loss_giou: 1.4848 (1.5078)  loss_ce_0: 0.7406 (0.8006)  loss_bbox_0: 1.6325 (1.6450)  loss_giou_0: 1.5270 (1.4822)  loss_ce_1: 0.6457 (0.7835)  loss_bbox_1: 1.6669 (1.6575)  loss_giou_1: 1.5065 (1.4906)  loss_ce_unscaled: 0.3090 (0.3713)  class_error_unscaled: 0.0000 (0.3154)  loss_bbox_unscaled: 0.3503 (0.3379)  loss_giou_unscaled: 0.7424 (0.7539)  cardinality_error_unscaled: 29.0000 (28.9947)  loss_ce_0_unscaled: 0.3703 (0.4003)  loss_bbox_0_unscaled: 0.3265 (0.3290)  loss_giou_0_unscaled: 0.7635 (0.7411)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3229 (0.3917)  loss_bbox_1_unscaled: 0.3334 (0.3315)  loss_giou_1_unscaled: 0.7533 (0.7453)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2531  data: 0.0154  max mem: 3073
+Epoch: [0]  [  770/28764]  eta: 1:59:49  lr: 0.000040  class_error: 0.00  grad_norm: 82.92  loss: 11.3025 (11.7857)  loss_ce: 0.6141 (0.7422)  loss_bbox: 1.7189 (1.6891)  loss_giou: 1.4153 (1.5070)  loss_ce_0: 0.7235 (0.8002)  loss_bbox_0: 1.5107 (1.6421)  loss_giou_0: 1.3621 (1.4791)  loss_ce_1: 0.6455 (0.7828)  loss_bbox_1: 1.4997 (1.6552)  loss_giou_1: 1.4643 (1.4880)  loss_ce_unscaled: 0.3070 (0.3711)  class_error_unscaled: 0.0000 (0.3113)  loss_bbox_unscaled: 0.3438 (0.3378)  loss_giou_unscaled: 0.7077 (0.7535)  cardinality_error_unscaled: 29.0000 (28.9948)  loss_ce_0_unscaled: 0.3618 (0.4001)  loss_bbox_0_unscaled: 0.3021 (0.3284)  loss_giou_0_unscaled: 0.6810 (0.7395)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3227 (0.3914)  loss_bbox_1_unscaled: 0.2999 (0.3310)  loss_giou_1_unscaled: 0.7321 (0.7440)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2538  data: 0.0155  max mem: 3073
+Epoch: [0]  [  780/28764]  eta: 1:59:46  lr: 0.000040  class_error: 0.00  grad_norm: 34.68  loss: 11.5267 (11.7806)  loss_ce: 0.6153 (0.7406)  loss_bbox: 1.6017 (1.6881)  loss_giou: 1.5691 (1.5079)  loss_ce_0: 0.6784 (0.7982)  loss_bbox_0: 1.4617 (1.6418)  loss_giou_0: 1.4682 (1.4797)  loss_ce_1: 0.6455 (0.7811)  loss_bbox_1: 1.4997 (1.6545)  loss_giou_1: 1.4962 (1.4886)  loss_ce_unscaled: 0.3077 (0.3703)  class_error_unscaled: 0.0000 (0.3073)  loss_bbox_unscaled: 0.3203 (0.3376)  loss_giou_unscaled: 0.7846 (0.7540)  cardinality_error_unscaled: 29.0000 (28.9949)  loss_ce_0_unscaled: 0.3392 (0.3991)  loss_bbox_0_unscaled: 0.2923 (0.3284)  loss_giou_0_unscaled: 0.7341 (0.7399)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3227 (0.3905)  loss_bbox_1_unscaled: 0.2999 (0.3309)  loss_giou_1_unscaled: 0.7481 (0.7443)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2535  data: 0.0153  max mem: 3073
+Epoch: [0]  [  790/28764]  eta: 1:59:41  lr: 0.000040  class_error: 0.00  grad_norm: 35.01  loss: 12.1666 (11.7890)  loss_ce: 0.6240 (0.7398)  loss_bbox: 1.7228 (1.6907)  loss_giou: 1.6965 (1.5099)  loss_ce_0: 0.6619 (0.7976)  loss_bbox_0: 1.6943 (1.6439)  loss_giou_0: 1.5597 (1.4807)  loss_ce_1: 0.6463 (0.7802)  loss_bbox_1: 1.6750 (1.6566)  loss_giou_1: 1.5688 (1.4896)  loss_ce_unscaled: 0.3120 (0.3699)  class_error_unscaled: 0.0000 (0.3034)  loss_bbox_unscaled: 0.3446 (0.3381)  loss_giou_unscaled: 0.8482 (0.7550)  cardinality_error_unscaled: 29.0000 (28.9949)  loss_ce_0_unscaled: 0.3310 (0.3988)  loss_bbox_0_unscaled: 0.3389 (0.3288)  loss_giou_0_unscaled: 0.7799 (0.7403)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3231 (0.3901)  loss_bbox_1_unscaled: 0.3350 (0.3313)  loss_giou_1_unscaled: 0.7844 (0.7448)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2528  data: 0.0153  max mem: 3073
+Epoch: [0]  [  800/28764]  eta: 1:59:39  lr: 0.000040  class_error: 0.00  grad_norm: 70.64  loss: 11.4110 (11.7775)  loss_ce: 0.6814 (0.7394)  loss_bbox: 1.6471 (1.6888)  loss_giou: 1.5721 (1.5089)  loss_ce_0: 0.7324 (0.7971)  loss_bbox_0: 1.5549 (1.6412)  loss_giou_0: 1.4647 (1.4799)  loss_ce_1: 0.7449 (0.7797)  loss_bbox_1: 1.6089 (1.6538)  loss_giou_1: 1.4998 (1.4887)  loss_ce_unscaled: 0.3407 (0.3697)  class_error_unscaled: 0.0000 (0.2996)  loss_bbox_unscaled: 0.3294 (0.3378)  loss_giou_unscaled: 0.7860 (0.7545)  cardinality_error_unscaled: 29.0000 (28.9950)  loss_ce_0_unscaled: 0.3662 (0.3985)  loss_bbox_0_unscaled: 0.3110 (0.3282)  loss_giou_0_unscaled: 0.7324 (0.7400)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3724 (0.3899)  loss_bbox_1_unscaled: 0.3218 (0.3308)  loss_giou_1_unscaled: 0.7499 (0.7444)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2541  data: 0.0155  max mem: 3073
+Epoch: [0]  [  810/28764]  eta: 1:59:36  lr: 0.000040  class_error: 0.00  grad_norm: 96.74  loss: 10.9745 (11.7708)  loss_ce: 0.6781 (0.7383)  loss_bbox: 1.5859 (1.6883)  loss_giou: 1.5686 (1.5090)  loss_ce_0: 0.7275 (0.7960)  loss_bbox_0: 1.4510 (1.6399)  loss_giou_0: 1.3539 (1.4790)  loss_ce_1: 0.7441 (0.7787)  loss_bbox_1: 1.5793 (1.6532)  loss_giou_1: 1.4391 (1.4882)  loss_ce_unscaled: 0.3391 (0.3692)  class_error_unscaled: 0.0000 (0.2959)  loss_bbox_unscaled: 0.3172 (0.3377)  loss_giou_unscaled: 0.7843 (0.7545)  cardinality_error_unscaled: 29.0000 (28.9951)  loss_ce_0_unscaled: 0.3638 (0.3980)  loss_bbox_0_unscaled: 0.2902 (0.3280)  loss_giou_0_unscaled: 0.6770 (0.7395)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3721 (0.3894)  loss_bbox_1_unscaled: 0.3159 (0.3306)  loss_giou_1_unscaled: 0.7196 (0.7441)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2558  data: 0.0156  max mem: 3073
+Epoch: [0]  [  820/28764]  eta: 1:59:32  lr: 0.000040  class_error: 0.00  grad_norm: 98.55  loss: 10.5472 (11.7487)  loss_ce: 0.6567 (0.7377)  loss_bbox: 1.5841 (1.6846)  loss_giou: 1.3599 (1.5050)  loss_ce_0: 0.6807 (0.7952)  loss_bbox_0: 1.4510 (1.6372)  loss_giou_0: 1.3307 (1.4758)  loss_ce_1: 0.6964 (0.7779)  loss_bbox_1: 1.5221 (1.6504)  loss_giou_1: 1.3393 (1.4849)  loss_ce_unscaled: 0.3283 (0.3688)  class_error_unscaled: 0.0000 (0.2923)  loss_bbox_unscaled: 0.3168 (0.3369)  loss_giou_unscaled: 0.6799 (0.7525)  cardinality_error_unscaled: 29.0000 (28.9951)  loss_ce_0_unscaled: 0.3403 (0.3976)  loss_bbox_0_unscaled: 0.2902 (0.3274)  loss_giou_0_unscaled: 0.6653 (0.7379)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3482 (0.3889)  loss_bbox_1_unscaled: 0.3044 (0.3301)  loss_giou_1_unscaled: 0.6696 (0.7425)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2540  data: 0.0155  max mem: 3073
+Epoch: [0]  [  830/28764]  eta: 1:59:28  lr: 0.000040  class_error: 0.00  grad_norm: 109.86  loss: 10.2932 (11.7433)  loss_ce: 0.6863 (0.7371)  loss_bbox: 1.3900 (1.6833)  loss_giou: 1.3160 (1.5032)  loss_ce_0: 0.7447 (0.7951)  loss_bbox_0: 1.5209 (1.6365)  loss_giou_0: 1.4128 (1.4759)  loss_ce_1: 0.7045 (0.7776)  loss_bbox_1: 1.3829 (1.6503)  loss_giou_1: 1.3999 (1.4844)  loss_ce_unscaled: 0.3431 (0.3685)  class_error_unscaled: 0.0000 (0.2888)  loss_bbox_unscaled: 0.2780 (0.3367)  loss_giou_unscaled: 0.6580 (0.7516)  cardinality_error_unscaled: 29.0000 (28.9952)  loss_ce_0_unscaled: 0.3723 (0.3976)  loss_bbox_0_unscaled: 0.3042 (0.3273)  loss_giou_0_unscaled: 0.7064 (0.7379)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3523 (0.3888)  loss_bbox_1_unscaled: 0.2766 (0.3301)  loss_giou_1_unscaled: 0.6999 (0.7422)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2535  data: 0.0154  max mem: 3073
+Epoch: [0]  [  840/28764]  eta: 1:59:25  lr: 0.000040  class_error: 0.00  grad_norm: 53.05  loss: 10.2932 (11.7231)  loss_ce: 0.6463 (0.7358)  loss_bbox: 1.5423 (1.6815)  loss_giou: 1.3160 (1.4994)  loss_ce_0: 0.7432 (0.7942)  loss_bbox_0: 1.3987 (1.6339)  loss_giou_0: 1.3860 (1.4725)  loss_ce_1: 0.7320 (0.7765)  loss_bbox_1: 1.2729 (1.6484)  loss_giou_1: 1.3999 (1.4808)  loss_ce_unscaled: 0.3232 (0.3679)  class_error_unscaled: 0.0000 (0.2854)  loss_bbox_unscaled: 0.3085 (0.3363)  loss_giou_unscaled: 0.6580 (0.7497)  cardinality_error_unscaled: 29.0000 (28.9952)  loss_ce_0_unscaled: 0.3716 (0.3971)  loss_bbox_0_unscaled: 0.2797 (0.3268)  loss_giou_0_unscaled: 0.6930 (0.7363)  cardinality_error_0_unscaled: 79.0000 (78.9987)  loss_ce_1_unscaled: 0.3660 (0.3882)  loss_bbox_1_unscaled: 0.2546 (0.3297)  loss_giou_1_unscaled: 0.6999 (0.7404)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2540  data: 0.0154  max mem: 3073
+Epoch: [0]  [  850/28764]  eta: 1:59:22  lr: 0.000040  class_error: 0.00  grad_norm: 111.75  loss: 10.0316 (11.7090)  loss_ce: 0.6264 (0.7354)  loss_bbox: 1.4565 (1.6800)  loss_giou: 1.3034 (1.4988)  loss_ce_0: 0.6935 (0.7935)  loss_bbox_0: 1.2185 (1.6300)  loss_giou_0: 1.0986 (1.4695)  loss_ce_1: 0.7112 (0.7762)  loss_bbox_1: 1.2395 (1.6460)  loss_giou_1: 1.2386 (1.4795)  loss_ce_unscaled: 0.3132 (0.3677)  class_error_unscaled: 0.0000 (0.2820)  loss_bbox_unscaled: 0.2913 (0.3360)  loss_giou_unscaled: 0.6517 (0.7494)  cardinality_error_unscaled: 29.0000 (28.9953)  loss_ce_0_unscaled: 0.3467 (0.3968)  loss_bbox_0_unscaled: 0.2437 (0.3260)  loss_giou_0_unscaled: 0.5493 (0.7347)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3556 (0.3881)  loss_bbox_1_unscaled: 0.2479 (0.3292)  loss_giou_1_unscaled: 0.6193 (0.7398)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2544  data: 0.0154  max mem: 3073
+Epoch: [0]  [  860/28764]  eta: 1:59:19  lr: 0.000040  class_error: 0.00  grad_norm: 42.82  loss: 10.9078 (11.7002)  loss_ce: 0.6803 (0.7344)  loss_bbox: 1.4565 (1.6781)  loss_giou: 1.4531 (1.4983)  loss_ce_0: 0.7383 (0.7930)  loss_bbox_0: 1.4298 (1.6280)  loss_giou_0: 1.2316 (1.4693)  loss_ce_1: 0.6815 (0.7749)  loss_bbox_1: 1.4234 (1.6446)  loss_giou_1: 1.3047 (1.4796)  loss_ce_unscaled: 0.3402 (0.3672)  class_error_unscaled: 0.0000 (0.2787)  loss_bbox_unscaled: 0.2913 (0.3356)  loss_giou_unscaled: 0.7266 (0.7492)  cardinality_error_unscaled: 29.0000 (28.9954)  loss_ce_0_unscaled: 0.3692 (0.3965)  loss_bbox_0_unscaled: 0.2860 (0.3256)  loss_giou_0_unscaled: 0.6158 (0.7347)  cardinality_error_0_unscaled: 79.0000 (78.9988)  loss_ce_1_unscaled: 0.3408 (0.3874)  loss_bbox_1_unscaled: 0.2847 (0.3289)  loss_giou_1_unscaled: 0.6523 (0.7398)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2557  data: 0.0155  max mem: 3073
+Epoch: [0]  [  870/28764]  eta: 1:59:15  lr: 0.000040  class_error: 0.00  grad_norm: 67.56  loss: 10.6654 (11.6903)  loss_ce: 0.6617 (0.7334)  loss_bbox: 1.4814 (1.6781)  loss_giou: 1.3693 (1.4971)  loss_ce_0: 0.6863 (0.7920)  loss_bbox_0: 1.4298 (1.6259)  loss_giou_0: 1.3639 (1.4679)  loss_ce_1: 0.6568 (0.7737)  loss_bbox_1: 1.4717 (1.6434)  loss_giou_1: 1.4331 (1.4786)  loss_ce_unscaled: 0.3309 (0.3667)  class_error_unscaled: 0.0000 (0.2755)  loss_bbox_unscaled: 0.2963 (0.3356)  loss_giou_unscaled: 0.6847 (0.7486)  cardinality_error_unscaled: 29.0000 (28.9954)  loss_ce_0_unscaled: 0.3431 (0.3960)  loss_bbox_0_unscaled: 0.2860 (0.3252)  loss_giou_0_unscaled: 0.6820 (0.7340)  cardinality_error_0_unscaled: 79.0000 (78.9986)  loss_ce_1_unscaled: 0.3284 (0.3869)  loss_bbox_1_unscaled: 0.2943 (0.3287)  loss_giou_1_unscaled: 0.7166 (0.7393)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2542  data: 0.0155  max mem: 3073
+Epoch: [0]  [  880/28764]  eta: 1:59:11  lr: 0.000040  class_error: 0.00  grad_norm: 41.78  loss: 9.9748 (11.6773)  loss_ce: 0.6726 (0.7333)  loss_bbox: 1.3786 (1.6758)  loss_giou: 1.2626 (1.4957)  loss_ce_0: 0.7363 (0.7919)  loss_bbox_0: 1.2845 (1.6227)  loss_giou_0: 1.2428 (1.4661)  loss_ce_1: 0.6793 (0.7734)  loss_bbox_1: 1.3565 (1.6411)  loss_giou_1: 1.2965 (1.4771)  loss_ce_unscaled: 0.3363 (0.3666)  class_error_unscaled: 0.0000 (0.2724)  loss_bbox_unscaled: 0.2757 (0.3352)  loss_giou_unscaled: 0.6313 (0.7479)  cardinality_error_unscaled: 29.0000 (28.9955)  loss_ce_0_unscaled: 0.3681 (0.3960)  loss_bbox_0_unscaled: 0.2569 (0.3245)  loss_giou_0_unscaled: 0.6214 (0.7331)  cardinality_error_0_unscaled: 79.0000 (78.9986)  loss_ce_1_unscaled: 0.3396 (0.3867)  loss_bbox_1_unscaled: 0.2713 (0.3282)  loss_giou_1_unscaled: 0.6483 (0.7386)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2524  data: 0.0154  max mem: 3073
+Epoch: [0]  [  890/28764]  eta: 1:59:07  lr: 0.000040  class_error: 0.00  grad_norm: 34.73  loss: 10.7379 (11.6716)  loss_ce: 0.6673 (0.7331)  loss_bbox: 1.5279 (1.6751)  loss_giou: 1.5086 (1.4968)  loss_ce_0: 0.7595 (0.7915)  loss_bbox_0: 1.3791 (1.6207)  loss_giou_0: 1.3177 (1.4653)  loss_ce_1: 0.6793 (0.7728)  loss_bbox_1: 1.3522 (1.6393)  loss_giou_1: 1.3601 (1.4770)  loss_ce_unscaled: 0.3336 (0.3665)  class_error_unscaled: 0.0000 (0.2694)  loss_bbox_unscaled: 0.3056 (0.3350)  loss_giou_unscaled: 0.7543 (0.7484)  cardinality_error_unscaled: 29.0000 (28.9955)  loss_ce_0_unscaled: 0.3798 (0.3958)  loss_bbox_0_unscaled: 0.2758 (0.3241)  loss_giou_0_unscaled: 0.6589 (0.7327)  cardinality_error_0_unscaled: 79.0000 (78.9985)  loss_ce_1_unscaled: 0.3396 (0.3864)  loss_bbox_1_unscaled: 0.2704 (0.3279)  loss_giou_1_unscaled: 0.6800 (0.7385)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2526  data: 0.0154  max mem: 3073
+Epoch: [0]  [  900/28764]  eta: 1:59:04  lr: 0.000040  class_error: 0.00  grad_norm: 146.52  loss: 10.9178 (11.6592)  loss_ce: 0.6383 (0.7328)  loss_bbox: 1.5279 (1.6730)  loss_giou: 1.5086 (1.4960)  loss_ce_0: 0.7261 (0.7912)  loss_bbox_0: 1.3052 (1.6183)  loss_giou_0: 1.3177 (1.4635)  loss_ce_1: 0.6838 (0.7723)  loss_bbox_1: 1.3858 (1.6370)  loss_giou_1: 1.3591 (1.4753)  loss_ce_unscaled: 0.3191 (0.3664)  class_error_unscaled: 0.0000 (0.2664)  loss_bbox_unscaled: 0.3056 (0.3346)  loss_giou_unscaled: 0.7543 (0.7480)  cardinality_error_unscaled: 29.0000 (28.9956)  loss_ce_0_unscaled: 0.3630 (0.3956)  loss_bbox_0_unscaled: 0.2610 (0.3237)  loss_giou_0_unscaled: 0.6589 (0.7317)  cardinality_error_0_unscaled: 79.0000 (78.9985)  loss_ce_1_unscaled: 0.3419 (0.3861)  loss_bbox_1_unscaled: 0.2772 (0.3274)  loss_giou_1_unscaled: 0.6796 (0.7376)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2528  data: 0.0153  max mem: 3073
+Epoch: [0]  [  910/28764]  eta: 1:59:00  lr: 0.000040  class_error: 0.00  grad_norm: 68.06  loss: 10.9178 (11.6484)  loss_ce: 0.7353 (0.7327)  loss_bbox: 1.5102 (1.6709)  loss_giou: 1.4285 (1.4943)  loss_ce_0: 0.7863 (0.7908)  loss_bbox_0: 1.3188 (1.6168)  loss_giou_0: 1.1737 (1.4622)  loss_ce_1: 0.7586 (0.7723)  loss_bbox_1: 1.3760 (1.6352)  loss_giou_1: 1.3128 (1.4732)  loss_ce_unscaled: 0.3676 (0.3664)  class_error_unscaled: 0.0000 (0.2634)  loss_bbox_unscaled: 0.3020 (0.3342)  loss_giou_unscaled: 0.7143 (0.7472)  cardinality_error_unscaled: 29.0000 (28.9956)  loss_ce_0_unscaled: 0.3932 (0.3954)  loss_bbox_0_unscaled: 0.2638 (0.3234)  loss_giou_0_unscaled: 0.5868 (0.7311)  cardinality_error_0_unscaled: 79.0000 (78.9984)  loss_ce_1_unscaled: 0.3793 (0.3862)  loss_bbox_1_unscaled: 0.2752 (0.3270)  loss_giou_1_unscaled: 0.6564 (0.7366)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2525  data: 0.0154  max mem: 3073
+Epoch: [0]  [  920/28764]  eta: 1:58:56  lr: 0.000040  class_error: 0.00  grad_norm: 90.76  loss: 11.2620 (11.6476)  loss_ce: 0.7307 (0.7321)  loss_bbox: 1.6471 (1.6706)  loss_giou: 1.4903 (1.4939)  loss_ce_0: 0.7520 (0.7903)  loss_bbox_0: 1.6555 (1.6173)  loss_giou_0: 1.3516 (1.4621)  loss_ce_1: 0.7380 (0.7718)  loss_bbox_1: 1.6261 (1.6361)  loss_giou_1: 1.4812 (1.4734)  loss_ce_unscaled: 0.3653 (0.3661)  class_error_unscaled: 0.0000 (0.2606)  loss_bbox_unscaled: 0.3294 (0.3341)  loss_giou_unscaled: 0.7452 (0.7469)  cardinality_error_unscaled: 29.0000 (28.9957)  loss_ce_0_unscaled: 0.3760 (0.3952)  loss_bbox_0_unscaled: 0.3311 (0.3235)  loss_giou_0_unscaled: 0.6758 (0.7311)  cardinality_error_0_unscaled: 79.0000 (78.9983)  loss_ce_1_unscaled: 0.3690 (0.3859)  loss_bbox_1_unscaled: 0.3252 (0.3272)  loss_giou_1_unscaled: 0.7406 (0.7367)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2524  data: 0.0154  max mem: 3073
+Epoch: [0]  [  930/28764]  eta: 1:58:54  lr: 0.000040  class_error: 0.00  grad_norm: 133.77  loss: 11.5515 (11.6409)  loss_ce: 0.6279 (0.7309)  loss_bbox: 1.7263 (1.6712)  loss_giou: 1.5199 (1.4932)  loss_ce_0: 0.6884 (0.7892)  loss_bbox_0: 1.6008 (1.6166)  loss_giou_0: 1.4442 (1.4608)  loss_ce_1: 0.6724 (0.7705)  loss_bbox_1: 1.6261 (1.6358)  loss_giou_1: 1.4882 (1.4726)  loss_ce_unscaled: 0.3139 (0.3654)  class_error_unscaled: 0.0000 (0.2578)  loss_bbox_unscaled: 0.3453 (0.3342)  loss_giou_unscaled: 0.7600 (0.7466)  cardinality_error_unscaled: 29.0000 (28.9957)  loss_ce_0_unscaled: 0.3442 (0.3946)  loss_bbox_0_unscaled: 0.3202 (0.3233)  loss_giou_0_unscaled: 0.7221 (0.7304)  cardinality_error_0_unscaled: 79.0000 (78.9979)  loss_ce_1_unscaled: 0.3362 (0.3853)  loss_bbox_1_unscaled: 0.3252 (0.3272)  loss_giou_1_unscaled: 0.7441 (0.7363)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2545  data: 0.0154  max mem: 3073
+Epoch: [0]  [  940/28764]  eta: 1:58:50  lr: 0.000040  class_error: 0.00  grad_norm: 87.99  loss: 10.7128 (11.6207)  loss_ce: 0.6140 (0.7302)  loss_bbox: 1.6004 (1.6681)  loss_giou: 1.3970 (1.4914)  loss_ce_0: 0.7387 (0.7893)  loss_bbox_0: 1.3477 (1.6122)  loss_giou_0: 1.3926 (1.4578)  loss_ce_1: 0.6722 (0.7704)  loss_bbox_1: 1.3952 (1.6315)  loss_giou_1: 1.3292 (1.4697)  loss_ce_unscaled: 0.3070 (0.3651)  class_error_unscaled: 0.0000 (0.2550)  loss_bbox_unscaled: 0.3201 (0.3336)  loss_giou_unscaled: 0.6985 (0.7457)  cardinality_error_unscaled: 29.0000 (28.9958)  loss_ce_0_unscaled: 0.3693 (0.3947)  loss_bbox_0_unscaled: 0.2695 (0.3224)  loss_giou_0_unscaled: 0.6963 (0.7289)  cardinality_error_0_unscaled: 79.0000 (78.9980)  loss_ce_1_unscaled: 0.3361 (0.3852)  loss_bbox_1_unscaled: 0.2790 (0.3263)  loss_giou_1_unscaled: 0.6646 (0.7349)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2544  data: 0.0153  max mem: 3073
+Epoch: [0]  [  950/28764]  eta: 1:58:46  lr: 0.000040  class_error: 0.00  grad_norm: 142.99  loss: 10.3705 (11.6055)  loss_ce: 0.6531 (0.7298)  loss_bbox: 1.4012 (1.6674)  loss_giou: 1.2916 (1.4900)  loss_ce_0: 0.7532 (0.7894)  loss_bbox_0: 1.3038 (1.6089)  loss_giou_0: 1.1495 (1.4548)  loss_ce_1: 0.7043 (0.7701)  loss_bbox_1: 1.2278 (1.6284)  loss_giou_1: 1.1984 (1.4668)  loss_ce_unscaled: 0.3265 (0.3649)  class_error_unscaled: 0.0000 (0.2524)  loss_bbox_unscaled: 0.2802 (0.3335)  loss_giou_unscaled: 0.6458 (0.7450)  cardinality_error_unscaled: 29.0000 (28.9958)  loss_ce_0_unscaled: 0.3766 (0.3947)  loss_bbox_0_unscaled: 0.2608 (0.3218)  loss_giou_0_unscaled: 0.5747 (0.7274)  cardinality_error_0_unscaled: 79.0000 (78.9980)  loss_ce_1_unscaled: 0.3522 (0.3851)  loss_bbox_1_unscaled: 0.2456 (0.3257)  loss_giou_1_unscaled: 0.5992 (0.7334)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2525  data: 0.0153  max mem: 3073
+Epoch: [0]  [  960/28764]  eta: 1:58:43  lr: 0.000040  class_error: 0.00  grad_norm: 109.73  loss: 10.7775 (11.6092)  loss_ce: 0.6991 (0.7296)  loss_bbox: 1.6329 (1.6690)  loss_giou: 1.4216 (1.4915)  loss_ce_0: 0.8081 (0.7894)  loss_bbox_0: 1.4421 (1.6089)  loss_giou_0: 1.3433 (1.4550)  loss_ce_1: 0.7144 (0.7697)  loss_bbox_1: 1.5208 (1.6287)  loss_giou_1: 1.3030 (1.4673)  loss_ce_unscaled: 0.3496 (0.3648)  class_error_unscaled: 0.0000 (0.2497)  loss_bbox_unscaled: 0.3266 (0.3338)  loss_giou_unscaled: 0.7108 (0.7458)  cardinality_error_unscaled: 29.0000 (28.9958)  loss_ce_0_unscaled: 0.4041 (0.3947)  loss_bbox_0_unscaled: 0.2884 (0.3218)  loss_giou_0_unscaled: 0.6716 (0.7275)  cardinality_error_0_unscaled: 79.0000 (78.9980)  loss_ce_1_unscaled: 0.3572 (0.3849)  loss_bbox_1_unscaled: 0.3042 (0.3257)  loss_giou_1_unscaled: 0.6515 (0.7337)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2537  data: 0.0153  max mem: 3073
+Epoch: [0]  [  970/28764]  eta: 1:58:40  lr: 0.000040  class_error: 0.00  grad_norm: 56.36  loss: 11.2331 (11.6099)  loss_ce: 0.6679 (0.7291)  loss_bbox: 1.8187 (1.6708)  loss_giou: 1.6638 (1.4931)  loss_ce_0: 0.7163 (0.7890)  loss_bbox_0: 1.4198 (1.6085)  loss_giou_0: 1.4480 (1.4545)  loss_ce_1: 0.6739 (0.7691)  loss_bbox_1: 1.4521 (1.6288)  loss_giou_1: 1.4718 (1.4670)  loss_ce_unscaled: 0.3339 (0.3645)  class_error_unscaled: 0.0000 (0.2472)  loss_bbox_unscaled: 0.3637 (0.3342)  loss_giou_unscaled: 0.8319 (0.7466)  cardinality_error_unscaled: 29.0000 (28.9959)  loss_ce_0_unscaled: 0.3581 (0.3945)  loss_bbox_0_unscaled: 0.2840 (0.3217)  loss_giou_0_unscaled: 0.7240 (0.7273)  cardinality_error_0_unscaled: 79.0000 (78.9980)  loss_ce_1_unscaled: 0.3370 (0.3845)  loss_bbox_1_unscaled: 0.2904 (0.3258)  loss_giou_1_unscaled: 0.7359 (0.7335)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2537  data: 0.0153  max mem: 3073
+Epoch: [0]  [  980/28764]  eta: 1:58:36  lr: 0.000040  class_error: 0.00  grad_norm: 113.99  loss: 11.1517 (11.6053)  loss_ce: 0.6198 (0.7284)  loss_bbox: 1.8187 (1.6715)  loss_giou: 1.5264 (1.4929)  loss_ce_0: 0.7030 (0.7882)  loss_bbox_0: 1.4065 (1.6085)  loss_giou_0: 1.3587 (1.4532)  loss_ce_1: 0.6345 (0.7679)  loss_bbox_1: 1.4568 (1.6288)  loss_giou_1: 1.3222 (1.4658)  loss_ce_unscaled: 0.3099 (0.3642)  class_error_unscaled: 0.0000 (0.2446)  loss_bbox_unscaled: 0.3637 (0.3343)  loss_giou_unscaled: 0.7632 (0.7465)  cardinality_error_unscaled: 29.0000 (28.9959)  loss_ce_0_unscaled: 0.3515 (0.3941)  loss_bbox_0_unscaled: 0.2813 (0.3217)  loss_giou_0_unscaled: 0.6793 (0.7266)  cardinality_error_0_unscaled: 79.0000 (78.9980)  loss_ce_1_unscaled: 0.3173 (0.3839)  loss_bbox_1_unscaled: 0.2914 (0.3258)  loss_giou_1_unscaled: 0.6611 (0.7329)  cardinality_error_1_unscaled: 49.0000 (49.0000)  time: 0.2524  data: 0.0154  max mem: 3073
