@@ -22,6 +22,6 @@ python -u main.py \
     --dataset_file 'vid_multi_eval' \
     --gap 1 \
     --is_shuffle \
-    --resume ${EXP_DIR}/checkpoint0001.pth \
+    --resume ${EXP_DIR}/checkpoint0005.pth \
     --output_dir ${EXP_DIR} \
-    ${PY_ARGS} 2>&1 | tee ${EXP_DIR}/log.eval_checkpoint_1.$T.txt
+    ${PY_ARGS} 2>&1 | tee ${EXP_DIR}/log.eval_checkpoint_5.$T.txt
