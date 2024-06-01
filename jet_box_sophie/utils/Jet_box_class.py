@@ -75,6 +75,22 @@ class Jet_box:
         y4 = y2+dy
         return [[x1,y1],[x2,y2],[x3,y3],[x4,y4]]
     
+
+
+    def lines_to_plot(self):
+        corners = self.corners()
+        line1x = np.array([corners[0][0].value, corners[2][0].value])
+        line1y = np.array([corners[0][1].value, corners[2][1].value])
+        line2x = np.array([corners[1][0].value, corners[3][0].value])
+        line2y = np.array([corners[1][1].value, corners[3][1].value])
+        line3x = np.array([corners[0][0].value, corners[1][0].value])
+        line3y = np.array([corners[0][1].value, corners[1][1].value])
+        line4x = np.array([corners[2][0].value, corners[3][0].value])
+        line4y = np.array([corners[2][1].value, corners[3][1].value])
+        lines = [[line1x, line1y], [line2x, line2y], [line3x, line3y], [line4x, line4y]]
+        # Reverse the order of the lines
+        return lines[::-1]
+    """
     def lines_to_plot(self):
         corners = self.corners()
         line1x = np.array([corners[0][0].value, corners[2][0].value])
@@ -86,5 +102,5 @@ class Jet_box:
         line4x = np.array([corners[2][0].value, corners[3][0].value])
         line4y = np.array([corners[2][1].value, corners[3][1].value])
         return [[line1x, line1y], [line2x, line2y], [line3x, line3y], [line4x, line4y]]
-
+    """
 
