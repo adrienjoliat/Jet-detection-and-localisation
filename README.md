@@ -2,7 +2,7 @@
 
 **by [Adrien Joliat](https://github.com/adrienjoliat)**  
 
-**[[Paper]](./MLO_Semester_project_first_sub.pdf)**
+**[[Paper]](./ML_Semester_project_Adrien_Joliat.pdf)**
 
 Machine Learning model to effectively detect and locate Solar Coronal Jet
 
